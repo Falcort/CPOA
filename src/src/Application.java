@@ -32,10 +32,12 @@ public class Application
         }
         
         boolean connected = false;
-        do
+        Login loginWindow = new Login();
+        /*do
         {
            Login loginWindow = new Login();
+           connected = true;
         }
-        while(connected == false);
+        while(connected == false);*/
     }
 }
