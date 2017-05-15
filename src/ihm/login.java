@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package user_interface;
+package ihm;
 
 /**
  *
@@ -64,7 +64,7 @@ public class login extends javax.swing.JFrame {
                 .addComponent(jButton1))
         );
 
-        jLabel1.setText("Connexion form");
+        jLabel1.setText("Connexion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

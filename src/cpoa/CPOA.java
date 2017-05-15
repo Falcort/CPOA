@@ -5,7 +5,7 @@
  */
 package cpoa;
 
-import user_interface.login;
+import ihm.login;
 
 /**
  *

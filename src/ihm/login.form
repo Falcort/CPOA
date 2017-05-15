@@ -96,7 +96,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Connexion form"/>
+        <Property name="text" type="java.lang.String" value="Connexion"/>
       </Properties>
     </Component>
   </SubComponents>
