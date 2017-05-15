@@ -50,11 +50,12 @@ public class FenetreApplication extends javax.swing.JFrame {
         jpGestion = new javax.swing.JPanel();
         btInserer = new javax.swing.JButton();
         btSupprimer = new javax.swing.JButton();
+        btModifier = new javax.swing.JButton();
         lbPhoto = new javax.swing.JLabel();
         lbTitre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Affichage des employés");
+        setTitle("Affichage des VIP");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -81,6 +82,13 @@ public class FenetreApplication extends javax.swing.JFrame {
             }
         });
 
+        btModifier.setText("Modifier");
+        btModifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btModifierActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpGestionLayout = new javax.swing.GroupLayout(jpGestion);
         jpGestion.setLayout(jpGestionLayout);
         jpGestionLayout.setHorizontalGroup(
@@ -88,6 +96,8 @@ public class FenetreApplication extends javax.swing.JFrame {
             .addGroup(jpGestionLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(btInserer, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btSupprimer)
                 .addGap(78, 78, 78))
@@ -98,15 +108,14 @@ public class FenetreApplication extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jpGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btInserer)
-                    .addComponent(btSupprimer))
+                    .addComponent(btSupprimer)
+                    .addComponent(btModifier))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        lbPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image.gif"))); // NOI18N
-
         lbTitre.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lbTitre.setForeground(new java.awt.Color(0, 0, 153));
-        lbTitre.setText("Edition du ");
+        lbTitre.setText("Application VIP");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,8 +125,8 @@ public class FenetreApplication extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(lbPhoto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addComponent(lbTitre)
+                .addGap(189, 189, 189))
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -140,8 +149,10 @@ public class FenetreApplication extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jpGestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jpGestion.getAccessibleContext().setAccessibleName("Gestion des VIP");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,7 +173,7 @@ public class FenetreApplication extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             classmetier2 emp = new classmetier2();
-            FenetreSaisie laSaisie = new FenetreSaisie(this, emp);
+            FenetreAjout laSaisie = new FenetreAjout(this, emp);
             if (laSaisie.doModal() == true) {
                 leModele.insererEmploye(emp);
             }
@@ -179,8 +190,13 @@ public class FenetreApplication extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void btModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifierActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btModifierActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btInserer;
+    private javax.swing.JButton btModifier;
     private javax.swing.JButton btSupprimer;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpGestion;
