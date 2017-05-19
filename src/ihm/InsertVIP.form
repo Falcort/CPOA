@@ -34,13 +34,15 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lbLName" min="-2" max="-2" attributes="0"/>
                   <Component id="lbFName" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbLName1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="FName" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
                       <Component id="LName" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
+                      <Component id="DateBirth" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
@@ -62,7 +64,12 @@
                   <Component id="lbLName" min="-2" max="-2" attributes="0"/>
                   <Component id="LName" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="362" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="DateBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbLName1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="327" max="32767" attributes="0"/>
               <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
           </Group>
@@ -98,6 +105,16 @@
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="ADD"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="DateBirth">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DateBirthActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbLName1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date of birth (dd/mm/aaaa)"/>
       </Properties>
     </Component>
   </SubComponents>

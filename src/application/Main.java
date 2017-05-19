@@ -5,6 +5,7 @@
  */
 package application;
 
+import database.DaoVIP;
 import database.SourceMariaDB;
 import ihm.Login;
 import ihm.MainMenu;
@@ -22,6 +23,12 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class Main
 {
+    private static DaoVIP daoVIP;
+
+    public static DaoVIP getDaoVIP() {
+        return daoVIP;
+    }
+    
     public static void main(String[] args)
     {
         DataSource database;
@@ -62,15 +69,18 @@ public class Main
                     JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(), "avertissement", JOptionPane.WARNING_MESSAGE);
                 }
             }
-        }
-        while (etat == false);
+        }while (etat == false);
+        // les DAO nécessaires
+        daoVIP = new DaoVIP(connection);
+        // la fenetre principale de l'application qui tourne dans l'EDT
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MainMenu().setVisible(true);
+            }
+        });
         showMessageDialog(null, "Vous êtes conecté", "Succès", JOptionPane.INFORMATION_MESSAGE);
-          javax.swing.SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    new MainMenu().setVisible(true);
-                }
-            });
+          
         
     }
 }

@@ -33,6 +33,8 @@ public class InsertVIP extends javax.swing.JFrame {
         lbFName = new javax.swing.JLabel();
         lbLName = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
+        DateBirth = new javax.swing.JTextField();
+        lbLName1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insert VIP");
@@ -57,6 +59,14 @@ public class InsertVIP extends javax.swing.JFrame {
 
         btnAdd.setText("ADD");
 
+        DateBirth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DateBirthActionPerformed(evt);
+            }
+        });
+
+        lbLName1.setText("Date of birth (dd/mm/aaaa)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,13 +79,15 @@ public class InsertVIP extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbLName)
-                    .addComponent(lbFName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                    .addComponent(lbFName)
+                    .addComponent(lbLName1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(FName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(LName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DateBirth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
@@ -91,7 +103,11 @@ public class InsertVIP extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbLName)
                     .addComponent(LName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbLName1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
                 .addComponent(btnAdd)
                 .addGap(39, 39, 39))
         );
@@ -106,6 +122,10 @@ public class InsertVIP extends javax.swing.JFrame {
     private void LNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LNameActionPerformed
+
+    private void DateBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateBirthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DateBirthActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,11 +163,13 @@ public class InsertVIP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DateBirth;
     private javax.swing.JTextField FName;
     private javax.swing.JTextField LName;
     private javax.swing.JLabel Title;
     private javax.swing.JButton btnAdd;
     private javax.swing.JLabel lbFName;
     private javax.swing.JLabel lbLName;
+    private javax.swing.JLabel lbLName1;
     // End of variables declaration//GEN-END:variables
 }
