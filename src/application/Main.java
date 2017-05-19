@@ -11,6 +11,7 @@ import java.net.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 /**
@@ -38,5 +39,27 @@ public class Main
            connected = true;
         }
         while(connected == false);*/
+        
+          
+        
+
+
+
+        // Etablissement de la connexion à la base MariaDB avec affichage de la fenetre d'identification 
+        boolean etat = false;
+        do {
+           
+            PasswordAuthentication login = loginWindow.identifier();
+            try {
+                laSourceDeDonnees = SourceMariaDB.getSource(login);
+                laConnexion = laSourceDeDonnees.getConnection();
+                etat = true;
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(),
+                        "avertissement", JOptionPane.WARNING_MESSAGE);
+            }
+        } while (etat == false); // tant que la saisie n'est pas correcte
+    
+    
     }
 }

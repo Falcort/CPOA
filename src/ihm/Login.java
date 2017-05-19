@@ -5,6 +5,8 @@
  */
 package ihm;
 
+import java.net.PasswordAuthentication;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
@@ -19,6 +21,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         setVisible(true);
+    }
+    
+    private PasswordAuthentication identifier() {
+        return new PasswordAuthentication(jTextField1.getText(), jPasswordField1.getPassword());
     }
 
     /**
@@ -175,6 +181,15 @@ public class Login extends javax.swing.JFrame {
         else
         {
             showMessageDialog(null, "Ok !");
+            PasswordAuthentication login = this.identifier();
+              try {
+                laSourceDeDonnees = SourceMariaDB.getSource(login);
+                laConnexion = laSourceDeDonnees.getConnection();
+                etat = true;
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(),
+                        "avertissement", JOptionPane.WARNING_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
