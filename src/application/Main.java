@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 /**
@@ -32,34 +33,33 @@ public class Main
         }
         
         boolean connected = false;
-        Login loginWindow = new Login();
-        /*do
-        {
-           Login loginWindow = new Login();
-           connected = true;
-        }
-        while(connected == false);*/
         
-          
-        
-
-
-
-        // Etablissement de la connexion à la base MariaDB avec affichage de la fenetre d'identification 
-        boolean etat = false;
+         boolean etat = false;
         do {
-           
+            Login loginWindow = new Login(null);
             PasswordAuthentication login = loginWindow.identifier();
-            try {
+            /*try {
                 database = SourceMariaDB.getSource(login);
                 connection = database.getConnection();
                 etat = true;
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(),
                         "avertissement", JOptionPane.WARNING_MESSAGE);
+            }*/
+            String password = login.getPassword().hashCode() + "";
+            System.out.println("password " + password);
+            System.out.println("login " + login.getUserName());
+            if(password.equals("96639997") || (login.getUserName().equals("")))
+            {
+                showMessageDialog(null, "Champs vides !");
+                etat = false;
+            }
+            else
+            {
+                 showMessageDialog(null, "Ok !");
+                 etat = true;
             }
         } while (etat == false); // tant que la saisie n'est pas correcte
-    
     
     }
 }

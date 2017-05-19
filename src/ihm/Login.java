@@ -6,24 +6,23 @@
 package ihm;
 
 import java.net.PasswordAuthentication;
-import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
  * @author Thinkpad-Falcort
  */
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JDialog {
 
     /**
-     * Creates new form login
+     * Creates new form Login
      */
-    public Login() {
+    public Login(java.awt.Frame parent) {
+        super(parent, true);
         initComponents();
-        setVisible(true);
     }
     
-    private PasswordAuthentication identifier() {
+    public PasswordAuthentication identifier() {
+        setVisible(true);
         return new PasswordAuthentication(jTextField1.getText(), jPasswordField1.getPassword());
     }
 
@@ -45,9 +44,7 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Connexion");
-        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Connexion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Connexion"));
 
@@ -166,32 +163,14 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        String username = jTextField1.getText();
-        String password = jPasswordField1.getText();
-        
-        if(password.isEmpty() && username.isEmpty())
-        {
-            showMessageDialog(null, "Champs vides !");
-        }
-        else
-        {
-            showMessageDialog(null, "Ok !");
-            PasswordAuthentication login = this.identifier();
-              try {
-                laSourceDeDonnees = SourceMariaDB.getSource(login);
-                laConnexion = laSourceDeDonnees.getConnection();
-                etat = true;
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(),
-                        "avertissement", JOptionPane.WARNING_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
