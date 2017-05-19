@@ -23,7 +23,7 @@ public class Main
     public static void main(String[] args)
     {
         DataSource database;
-        Connection connection;
+        Connection connection = null;
         
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -51,8 +51,8 @@ public class Main
            
             PasswordAuthentication login = loginWindow.identifier();
             try {
-                laSourceDeDonnees = SourceMariaDB.getSource(login);
-                laConnexion = laSourceDeDonnees.getConnection();
+                database = SourceMariaDB.getSource(login);
+                connection = database.getConnection();
                 etat = true;
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(),
