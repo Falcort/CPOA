@@ -8,7 +8,6 @@ package application;
 import database.SourceMariaDB;
 import ihm.Login;
 import ihm.MainMenu;
-import ihm.MainMenu;
 import java.net.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.SQLException;
