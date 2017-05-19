@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src;
+package application;
 
 import database.SourceMariaDB;
-import database.DaoEmp;
 import ihm.Login;
 import java.net.PasswordAuthentication;
 import java.sql.Connection;
@@ -18,7 +17,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author Thinkpad-Falcort
  */
-public class Application
+public class Main
 {
     public static void main(String[] args)
     {
