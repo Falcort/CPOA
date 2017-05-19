@@ -7,6 +7,8 @@ package application;
 
 import database.SourceMariaDB;
 import ihm.Login;
+import ihm.MainMenu;
+import ihm.MainMenu;
 import java.net.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -63,6 +65,13 @@ public class Main
             }
         }
         while (etat == false);
-        showMessageDialog(null, "Vous ete conectez", "Succes", JOptionPane.INFORMATION_MESSAGE);
+        showMessageDialog(null, "Vous êtes conecté", "Succès", JOptionPane.INFORMATION_MESSAGE);
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new MainMenu().setVisible(true);
+                }
+            });
+        
     }
 }
