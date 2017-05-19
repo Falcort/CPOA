@@ -22,7 +22,7 @@ public class SourceMariaDB {
         String pwd = new String(login.getPassword());
         // création d'un objet Properties à parir du fichier 
         Properties props = new Properties();
-        FileInputStream fichier = new FileInputStream("src/connexion.properties");
+        FileInputStream fichier = new FileInputStream("src/database/connexion.properties");
         props.load(fichier);
         MariaDbDataSource ds = new MariaDbDataSource();
         ds.setPortNumber(Integer.parseInt(props.getProperty("port")));

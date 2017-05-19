@@ -25,41 +25,44 @@ public class Main
     {
         DataSource database;
         Connection connection = null;
-        
-        try {
+   
+        try
+        {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        }
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
+        {
             System.out.print(e.getMessage());
         }
-        
         boolean connected = false;
         
-         boolean etat = false;
-        do {
+        boolean etat = false;
+        do
+        {
             Login loginWindow = new Login(null);
             PasswordAuthentication login = loginWindow.identifier();
-            /*try {
-                database = SourceMariaDB.getSource(login);
-                connection = database.getConnection();
-                etat = true;
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(),
-                        "avertissement", JOptionPane.WARNING_MESSAGE);
-            }*/
-            String password = login.getPassword().hashCode() + "";
-            System.out.println("password " + password);
-            System.out.println("login " + login.getUserName());
-            if(password.equals("96639997") || (login.getUserName().equals("")))
+            
+            String password = String.valueOf(login.getPassword());
+            if(password.equals("") || (login.getUserName().equals("")))
             {
-                showMessageDialog(null, "Champs vides !");
+                showMessageDialog(null, "Champs vides !", "Erreur", JOptionPane.ERROR_MESSAGE);
                 etat = false;
             }
             else
             {
-                 showMessageDialog(null, "Ok !");
-                 etat = true;
+                try
+                {
+                    database = SourceMariaDB.getSource(login);
+                    connection = database.getConnection();
+                    etat = true;
+                }
+                catch (Exception ex)
+                {
+                    JOptionPane.showMessageDialog(null, "login incorrect : " + ex.getMessage(), "avertissement", JOptionPane.WARNING_MESSAGE);
+                }
             }
-        } while (etat == false); // tant que la saisie n'est pas correcte
-    
+        }
+        while (etat == false);
+        showMessageDialog(null, "Vous ete conectez", "Succes", JOptionPane.INFORMATION_MESSAGE);
     }
 }
