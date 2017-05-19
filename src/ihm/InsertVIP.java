@@ -27,34 +27,35 @@ public class InsertVIP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Titre = new javax.swing.JLabel();
-        Prenom = new javax.swing.JTextField();
-        Nom = new javax.swing.JTextField();
-        lbPrenom = new javax.swing.JLabel();
-        lbNom = new javax.swing.JLabel();
-        btnAjouter = new javax.swing.JButton();
+        Title = new javax.swing.JLabel();
+        FName = new javax.swing.JTextField();
+        LName = new javax.swing.JTextField();
+        lbFName = new javax.swing.JLabel();
+        lbLName = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Insert VIP");
 
-        Titre.setText("Insertion VIP");
+        Title.setText("Insert VIP");
 
-        Prenom.addActionListener(new java.awt.event.ActionListener() {
+        FName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrenomActionPerformed(evt);
+                FNameActionPerformed(evt);
             }
         });
 
-        Nom.addActionListener(new java.awt.event.ActionListener() {
+        LName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NomActionPerformed(evt);
+                LNameActionPerformed(evt);
             }
         });
 
-        lbPrenom.setText("Prenom");
+        lbFName.setText("First name");
 
-        lbNom.setText("Nom");
+        lbLName.setText("Last name");
 
-        btnAjouter.setText("Ajouter");
+        btnAdd.setText("ADD");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,49 +63,49 @@ public class InsertVIP extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(161, 161, 161)
-                .addComponent(Titre)
+                .addComponent(Title)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbNom)
-                    .addComponent(lbPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                    .addComponent(lbLName)
+                    .addComponent(lbFName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAjouter)
+                    .addComponent(btnAdd)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Prenom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Nom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(FName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Titre)
+                .addComponent(Title)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbPrenom))
+                    .addComponent(FName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbFName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNom)
-                    .addComponent(Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbLName)
+                    .addComponent(LName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
-                .addComponent(btnAjouter)
+                .addComponent(btnAdd)
                 .addGap(39, 39, 39))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrenomActionPerformed
+    private void FNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PrenomActionPerformed
+    }//GEN-LAST:event_FNameActionPerformed
 
-    private void NomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomActionPerformed
+    private void LNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NomActionPerformed
+    }//GEN-LAST:event_LNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,11 +143,11 @@ public class InsertVIP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Nom;
-    private javax.swing.JTextField Prenom;
-    private javax.swing.JLabel Titre;
-    private javax.swing.JButton btnAjouter;
-    private javax.swing.JLabel lbNom;
-    private javax.swing.JLabel lbPrenom;
+    private javax.swing.JTextField FName;
+    private javax.swing.JTextField LName;
+    private javax.swing.JLabel Title;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JLabel lbFName;
+    private javax.swing.JLabel lbLName;
     // End of variables declaration//GEN-END:variables
 }

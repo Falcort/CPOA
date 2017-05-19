@@ -28,49 +28,52 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        AjoutVIP = new javax.swing.JButton();
-        SupprimerVIP = new javax.swing.JButton();
-        InsertMariage = new javax.swing.JButton();
+        AddVIP = new javax.swing.JButton();
+        DeleteVIP = new javax.swing.JButton();
+        InsertWedding = new javax.swing.JButton();
         InsertDivorce = new javax.swing.JButton();
-        Titre = new javax.swing.JLabel();
-        ModifierVIP = new javax.swing.JButton();
+        Title = new javax.swing.JLabel();
+        EditVIP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu");
 
-        AjoutVIP.setText("Ajouter VIP");
-        AjoutVIP.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setToolTipText("");
+
+        AddVIP.setText("Add VIP");
+        AddVIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AjoutVIPActionPerformed(evt);
+                AddVIPActionPerformed(evt);
             }
         });
 
-        SupprimerVIP.setText("Supprimer VIP");
-        SupprimerVIP.addActionListener(new java.awt.event.ActionListener() {
+        DeleteVIP.setText("Delete VIP");
+        DeleteVIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupprimerVIPActionPerformed(evt);
+                DeleteVIPActionPerformed(evt);
             }
         });
 
-        InsertMariage.setText("Insérer mariage");
-        InsertMariage.addActionListener(new java.awt.event.ActionListener() {
+        InsertWedding.setText("Insert wedding");
+        InsertWedding.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertMariageActionPerformed(evt);
+                InsertWeddingActionPerformed(evt);
             }
         });
 
-        InsertDivorce.setText("Insérer divorce");
+        InsertDivorce.setText("Insert divorce");
         InsertDivorce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InsertDivorceActionPerformed(evt);
             }
         });
 
-        Titre.setText("Application VIP");
+        Title.setText("Application VIP");
 
-        ModifierVIP.setText("Modifier VIP");
-        ModifierVIP.addActionListener(new java.awt.event.ActionListener() {
+        EditVIP.setText("Edit VIP");
+        EditVIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModifierVIPActionPerformed(evt);
+                EditVIPActionPerformed(evt);
             }
         });
 
@@ -83,33 +86,33 @@ public class MainMenu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ModifierVIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AjoutVIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SupprimerVIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(EditVIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AddVIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DeleteVIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(71, 71, 71)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(InsertDivorce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InsertMariage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(InsertWedding, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(Titre)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGap(104, 104, 104)
+                        .addComponent(Title)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(Titre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
+                .addComponent(Title)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AjoutVIP)
-                    .addComponent(InsertMariage))
+                    .addComponent(AddVIP)
+                    .addComponent(InsertWedding))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ModifierVIP)
+                .addComponent(EditVIP)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InsertDivorce)
-                    .addComponent(SupprimerVIP))
+                    .addComponent(DeleteVIP))
                 .addGap(72, 72, 72))
         );
 
@@ -137,25 +140,25 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AjoutVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutVIPActionPerformed
+    private void AddVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVIPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AjoutVIPActionPerformed
+    }//GEN-LAST:event_AddVIPActionPerformed
 
-    private void SupprimerVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerVIPActionPerformed
+    private void DeleteVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteVIPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SupprimerVIPActionPerformed
+    }//GEN-LAST:event_DeleteVIPActionPerformed
 
-    private void InsertMariageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertMariageActionPerformed
+    private void InsertWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertWeddingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_InsertMariageActionPerformed
+    }//GEN-LAST:event_InsertWeddingActionPerformed
 
     private void InsertDivorceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertDivorceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InsertDivorceActionPerformed
 
-    private void ModifierVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierVIPActionPerformed
+    private void EditVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditVIPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ModifierVIPActionPerformed
+    }//GEN-LAST:event_EditVIPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,12 +197,12 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AjoutVIP;
+    private javax.swing.JButton AddVIP;
+    private javax.swing.JButton DeleteVIP;
+    private javax.swing.JButton EditVIP;
     private javax.swing.JButton InsertDivorce;
-    private javax.swing.JButton InsertMariage;
-    private javax.swing.JButton ModifierVIP;
-    private javax.swing.JButton SupprimerVIP;
-    private javax.swing.JLabel Titre;
+    private javax.swing.JButton InsertWedding;
+    private javax.swing.JLabel Title;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
