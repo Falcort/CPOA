@@ -165,7 +165,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        showMessageDialog(null, "Champs vides !");
+        String username = jTextField1.getText();
+        String password = jPasswordField1.getText();
+        
+        if(password.isEmpty() && username.isEmpty())
+        {
+            showMessageDialog(null, "Champs vides !");
+        }
+        else
+        {
+            showMessageDialog(null, "Ok !");
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
 
