@@ -25,7 +25,8 @@ public class Main
 {
     private static DaoVIP daoVIP;
 
-    public static DaoVIP getDaoVIP() {
+    public static DaoVIP getDaoVIP()
+    {
         return daoVIP;
     }
     
@@ -70,17 +71,17 @@ public class Main
                 }
             }
         }while (etat == false);
-        // les DAO nécessaires
+        
         daoVIP = new DaoVIP(connection);
-        // la fenetre principale de l'application qui tourne dans l'EDT
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        
+        javax.swing.SwingUtilities.invokeLater(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 new MainMenu().setVisible(true);
             }
         });
-        showMessageDialog(null, "Vous êtes conecté", "Succès", JOptionPane.INFORMATION_MESSAGE);
-          
-        
+
     }
 }
