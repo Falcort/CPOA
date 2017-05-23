@@ -73,6 +73,38 @@ public class VIP
         return codeStatus;
     }
 
+    public void setNumVIP(int numVIP) {
+        this.numVIP = numVIP;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setCivilite(String civilite) {
+        this.civilite = civilite;
+    }
+
+    public void setBornDate(LocalDate bornDate) {
+        this.bornDate = bornDate;
+    }
+
+    public void setWhereBorn(String whereBorn) {
+        this.whereBorn = whereBorn;
+    }
+
+    public void setCodeStatus(String codeStatus) {
+        this.codeStatus = codeStatus;
+    }
+
+    public void setCodeRole(String codeRole) {
+        this.codeRole = codeRole;
+    }
+
     public String getCodeRole()
     {
         return codeRole;

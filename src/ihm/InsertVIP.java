@@ -5,6 +5,9 @@
  */
 package ihm;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
 import tables.VIP;
 
 /**
@@ -13,16 +16,19 @@ import tables.VIP;
  */
 public class InsertVIP extends javax.swing.JDialog {
 
-    /**
-     * Creates new form NewJDialog
-     */
+    private final VIP vip;
+    private boolean etatSortie;
+    
+    
     public InsertVIP(java.awt.Frame parent, VIP vip) {
         super(parent, true);
         initComponents();
+        this.vip = vip;
+        this.setLocation(parent.getLocation());
+        etatSortie = false;
     }
     
-     private boolean etatSortie;
-    
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +68,11 @@ public class InsertVIP extends javax.swing.JDialog {
         btnAdd.setMaximumSize(new java.awt.Dimension(77, 25));
         btnAdd.setMinimumSize(new java.awt.Dimension(77, 25));
         btnAdd.setPreferredSize(new java.awt.Dimension(77, 25));
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         DateBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +234,65 @@ public class InsertVIP extends javax.swing.JDialog {
     private void LNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LNameActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        try {
+            //Insertion of first name
+            String FirstName = FName.getText();
+             if (FirstName.isEmpty()) {
+                throw new Exception("Field first name empty");
+            }
+             vip.setFirstName(FirstName);
+             
+             //Insertion of last name
+            String LastName = LName.getText();
+             if (LastName.isEmpty()) {
+                throw new Exception("Field last name empty");
+            }
+             vip.setLastName(LastName);
+             
+            // vérification empty or not date of birth
+            String laDate = DateBirth.getText();
+            if (laDate.isEmpty()) {
+                throw new Exception("champ date vide");
+            }
+           //Insertion date of birth  
+              String[] champsDate = laDate.split("/");
+            try {
+                LocalDate dateBirth = LocalDate.of(
+                        Integer.parseInt(champsDate[2]),
+                        Integer.parseInt(champsDate[1]),
+                        Integer.parseInt(champsDate[0])
+                );
+                LocalDate aujourdhui = LocalDate.now();
+                if (dateBirth.isAfter(aujourdhui)) {
+                    throw new Exception("date embauche postérieure à date aujour'hui");
+                }
+                vip.setBornDate(dateBirth);
+            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+                throw new Exception("format de date incorrect");
+            }
+            
+             //Insertion of place of birth
+            String placeBirth = PlaceOfBirth.getText();
+             if (placeBirth.isEmpty()) {
+                throw new Exception("Fieldplace of birth empty");
+            }
+             vip.setWhereBorn(placeBirth);
+            
+            
+            
+            
+            
+            
+            etatSortie = true;
+            this.dispose();
+       } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
