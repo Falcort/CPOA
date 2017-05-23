@@ -36,13 +36,13 @@ public class InsertVIP extends javax.swing.JFrame {
         DateBirth = new javax.swing.JTextField();
         lbLName1 = new javax.swing.JLabel();
         lbCivility = new javax.swing.JLabel();
-        Civility = new javax.swing.JTextField();
         PlaceOfBirth = new javax.swing.JTextField();
         lbPlaceOfBirth = new javax.swing.JLabel();
         jCodeStatus = new javax.swing.JComboBox<>();
         lbCodeStatus = new javax.swing.JLabel();
         jCodeRole = new javax.swing.JComboBox<>();
         lbCodeRole = new javax.swing.JLabel();
+        jCivility = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insert VIP");
@@ -80,12 +80,6 @@ public class InsertVIP extends javax.swing.JFrame {
 
         lbCivility.setText("Civility");
 
-        Civility.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CivilityActionPerformed(evt);
-            }
-        });
-
         PlaceOfBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PlaceOfBirthActionPerformed(evt);
@@ -112,6 +106,13 @@ public class InsertVIP extends javax.swing.JFrame {
 
         lbCodeRole.setText("Code Role");
 
+        jCivility.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "F", "M" }));
+        jCivility.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCivilityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,9 +135,9 @@ public class InsertVIP extends javax.swing.JFrame {
                         .addComponent(FName, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                         .addComponent(LName, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                         .addComponent(DateBirth, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                        .addComponent(Civility, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                         .addComponent(jCodeStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCodeRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jCodeRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCivility, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(114, 114, 114))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -166,8 +167,8 @@ public class InsertVIP extends javax.swing.JFrame {
                     .addComponent(lbPlaceOfBirth))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Civility, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCivility))
+                    .addComponent(lbCivility)
+                    .addComponent(jCivility, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCodeStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,10 +197,6 @@ public class InsertVIP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DateBirthActionPerformed
 
-    private void CivilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CivilityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CivilityActionPerformed
-
     private void PlaceOfBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOfBirthActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PlaceOfBirthActionPerformed
@@ -211,6 +208,10 @@ public class InsertVIP extends javax.swing.JFrame {
     private void jCodeRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCodeRoleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCodeRoleActionPerformed
+
+    private void jCivilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCivilityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCivilityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,13 +249,13 @@ public class InsertVIP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Civility;
     private javax.swing.JTextField DateBirth;
     private javax.swing.JTextField FName;
     private javax.swing.JTextField LName;
     private javax.swing.JTextField PlaceOfBirth;
     private javax.swing.JLabel Title;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JComboBox<String> jCivility;
     private javax.swing.JComboBox<String> jCodeRole;
     private javax.swing.JComboBox<String> jCodeStatus;
     private javax.swing.JLabel lbCivility;
