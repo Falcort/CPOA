@@ -35,6 +35,14 @@ public class InsertVIP extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         DateBirth = new javax.swing.JTextField();
         lbLName1 = new javax.swing.JLabel();
+        lbCivility = new javax.swing.JLabel();
+        Civility = new javax.swing.JTextField();
+        PlaceOfBirth = new javax.swing.JTextField();
+        lbPlaceOfBirth = new javax.swing.JLabel();
+        jCodeStatus = new javax.swing.JComboBox<>();
+        lbCodeStatus = new javax.swing.JLabel();
+        jCodeRole = new javax.swing.JComboBox<>();
+        lbCodeRole = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insert VIP");
@@ -58,6 +66,9 @@ public class InsertVIP extends javax.swing.JFrame {
         lbLName.setText("Last name");
 
         btnAdd.setText("ADD");
+        btnAdd.setMaximumSize(new java.awt.Dimension(77, 25));
+        btnAdd.setMinimumSize(new java.awt.Dimension(77, 25));
+        btnAdd.setPreferredSize(new java.awt.Dimension(77, 25));
 
         DateBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,28 +78,70 @@ public class InsertVIP extends javax.swing.JFrame {
 
         lbLName1.setText("Date of birth (dd/mm/aaaa)");
 
+        lbCivility.setText("Civility");
+
+        Civility.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CivilityActionPerformed(evt);
+            }
+        });
+
+        PlaceOfBirth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlaceOfBirthActionPerformed(evt);
+            }
+        });
+
+        lbPlaceOfBirth.setText("Place of birth");
+
+        jCodeStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "L" }));
+        jCodeStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCodeStatusActionPerformed(evt);
+            }
+        });
+
+        lbCodeStatus.setText("Code Status");
+
+        jCodeRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "R", "AR" }));
+        jCodeRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCodeRoleActionPerformed(evt);
+            }
+        });
+
+        lbCodeRole.setText("Code Role");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(Title)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbCivility)
                     .addComponent(lbLName)
                     .addComponent(lbFName)
-                    .addComponent(lbLName1))
+                    .addComponent(lbLName1)
+                    .addComponent(lbPlaceOfBirth)
+                    .addComponent(lbCodeStatus)
+                    .addComponent(lbCodeRole))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdd)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(FName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DateBirth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Title)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(PlaceOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                        .addComponent(FName, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                        .addComponent(LName, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                        .addComponent(DateBirth, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                        .addComponent(Civility, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                        .addComponent(jCodeStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCodeRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(114, 114, 114))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,9 +160,25 @@ public class InsertVIP extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbLName1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
-                .addComponent(btnAdd)
-                .addGap(39, 39, 39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PlaceOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPlaceOfBirth))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Civility, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCivility))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCodeStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCodeStatus))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCodeRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCodeRole))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -126,6 +195,22 @@ public class InsertVIP extends javax.swing.JFrame {
     private void DateBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateBirthActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DateBirthActionPerformed
+
+    private void CivilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CivilityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CivilityActionPerformed
+
+    private void PlaceOfBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOfBirthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlaceOfBirthActionPerformed
+
+    private void jCodeStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCodeStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCodeStatusActionPerformed
+
+    private void jCodeRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCodeRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCodeRoleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,13 +248,21 @@ public class InsertVIP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Civility;
     private javax.swing.JTextField DateBirth;
     private javax.swing.JTextField FName;
     private javax.swing.JTextField LName;
+    private javax.swing.JTextField PlaceOfBirth;
     private javax.swing.JLabel Title;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JComboBox<String> jCodeRole;
+    private javax.swing.JComboBox<String> jCodeStatus;
+    private javax.swing.JLabel lbCivility;
+    private javax.swing.JLabel lbCodeRole;
+    private javax.swing.JLabel lbCodeStatus;
     private javax.swing.JLabel lbFName;
     private javax.swing.JLabel lbLName;
     private javax.swing.JLabel lbLName1;
+    private javax.swing.JLabel lbPlaceOfBirth;
     // End of variables declaration//GEN-END:variables
 }
