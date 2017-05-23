@@ -34,6 +34,10 @@ public class VIP
         this.codeRole = codeRole;
     }
     
+    public VIP(){
+        
+    }
+    
      public int getNumVIP()
      {
         return numVIP;

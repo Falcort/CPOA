@@ -6,7 +6,10 @@
 package ihm;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import modele.ModeleJTableVIP;
+import tables.VIP;
+import ihm.InsertVIP;
 
 /**
  *
@@ -323,7 +326,17 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteVIPActionPerformed
 
     private void btnAddVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVIPActionPerformed
-        // TODO add your handling code here:
+        try {
+            VIP newVIP = new VIP();
+            InsertVIP AddVIP = new InsertVIP(this, newVIP);
+            if (AddVIP.doModal() == true) {
+                modeleVIP.insertVIP(newVIP);
+            }
+            
+            
+        } catch (SQLException e) {
+            System.out.println("Erreur à l'insertion : " + e.getMessage());
+        }
     }//GEN-LAST:event_btnAddVIPActionPerformed
 
     private void btnDeleteMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteMovieActionPerformed
