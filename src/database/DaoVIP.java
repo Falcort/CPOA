@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.List;
 
 public class DaoVIP
@@ -26,7 +27,7 @@ public class DaoVIP
             String lastName = rset.getString(2);
             String firstName = rset.getString(3);
             String civilite = rset.getString(4);
-            String bornDate = rset.getString(5);
+            LocalDate bornDate = rset.getDate(5).toLocalDate();
             String whereDate = rset.getString(6);
             String codeStatus = rset.getString(7);
             String codeRole = rset.getString(8);

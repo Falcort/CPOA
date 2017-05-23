@@ -3,6 +3,7 @@ package modele;
 import application.Main;
 import database.DaoVIP;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -50,7 +51,7 @@ public class ModeleJTableVIP extends AbstractTableModel
             case 3:
                 return vip.getCivilite();
             case 4:
-                return vip.getBornDate();
+                return vip.getBornDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             case 5:
                 return vip.getWhereBorn();
             case 6:
