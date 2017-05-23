@@ -73,4 +73,11 @@ public class ModeleJTableVIP extends AbstractTableModel
         DaoVIP.recupererVIP(leConteneur);
         this.fireTableDataChanged();
     }
+    
+    public void insertVIP(VIP vip) throws SQLException
+    {
+        DaoVIP.insererVIP(vip);
+        leConteneur.add(vip);
+        this.fireTableDataChanged();
+    }
 }

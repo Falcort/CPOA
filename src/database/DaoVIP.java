@@ -2,6 +2,7 @@ package database;
 
 import tables.VIP;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -36,5 +37,20 @@ public class DaoVIP
         }        
         rset.close();
         stmt.close();
+    }
+    
+    public void insererVIP(VIP vip) throws SQLException
+    {
+        String query = "INSERT INTO VIP(nomVIP, prénomVIP, civilitéVIP, dateNaissance, lieuNaissance, codeStatut, codeRole) VALUES (?,?,?,?,?,?,?)";
+        PreparedStatement pstmt = connexion.prepareStatement(query);
+        pstmt.setString(1, vip.getLastName());
+        pstmt.setString(2, vip.getFirstName());
+        pstmt.setString(3, vip.getCivilite());
+        pstmt.setDate(4, java.sql.Date.valueOf(vip.getBornDate()));
+        pstmt.setString(5, vip.getWhereBorn());
+        pstmt.setString(6, vip.getCodeStatus());
+        pstmt.setString(7, vip.getCodeRole());
+        pstmt.executeUpdate();
+        pstmt.close();
     }
 }
