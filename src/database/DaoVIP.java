@@ -53,4 +53,13 @@ public class DaoVIP
         pstmt.executeUpdate();
         pstmt.close();
     }
+    
+    public void deleteVIP(int numVIP) throws SQLException
+    {
+        String query = "DELETE FROM VIP WHERE numVIP = ?";
+        PreparedStatement pstmt = connexion.prepareStatement(query);
+        pstmt.setInt(1, numVIP);
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
 }

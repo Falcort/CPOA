@@ -80,4 +80,12 @@ public class ModeleJTableVIP extends AbstractTableModel
         leConteneur.add(vip);
         this.fireTableDataChanged();
     }
+    
+    public void deleteVIP(int numLine) throws SQLException
+    {
+        int numVIP = (int) getValueAt(numLine, 0);
+        DaoVIP.deleteVIP(numVIP);
+        leConteneur.remove(numLine);
+        this.fireTableDataChanged();
+    }
 }
