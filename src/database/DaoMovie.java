@@ -25,7 +25,7 @@ public class DaoMovie
         this.connection = connection;
     }
     
-    public void recuprerMovie(List<Movie> movies) throws SQLException
+    public void recupererMovie(List<Movie> movies) throws SQLException
     {
         String query = "SELECT * FROM FILM";
         Statement stmt = connection.createStatement();
@@ -36,7 +36,7 @@ public class DaoMovie
             String title = rset.getString(2);
             String gender = rset.getString(3);
             int date = rset.getInt(4);
-            Movie movie = new Movie();
+            Movie movie = new Movie(visa, title, date, gender);
             movies.add(movie);
         }
         rset.close();

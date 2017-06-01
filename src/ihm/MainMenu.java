@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import modele.ModeleJTableVIP;
 import tables.VIP;
 import ihm.InsertVIP;
+import modele.ModeleJTableMovie;
 
 /**
  *
@@ -18,18 +19,27 @@ import ihm.InsertVIP;
 public class MainMenu extends javax.swing.JFrame {
     
     private ModeleJTableVIP modeleVIP;
+    private ModeleJTableMovie modeleMovie;
 
     /**
      * Creates new form MainMenuTest
      */
     public MainMenu() {
         this.modeleVIP = new ModeleJTableVIP();
+        this.modeleMovie = new ModeleJTableMovie();
         
         initComponents();
         
         try
         {
             modeleVIP.chargerLesVIP();
+        } catch (SQLException ex) {
+            System.out.println(" Erreur au chargement : " + ex.getMessage());
+        }
+        
+        try
+        {
+            modeleMovie.chargerMovie();
         } catch (SQLException ex) {
             System.out.println(" Erreur au chargement : " + ex.getMessage());
         }
@@ -143,17 +153,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         VIP.addTab("Manage VIP", Onglet1);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable2.setModel(modeleMovie);
         jScrollPane3.setViewportView(jTable2);
 
         Actions2.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));

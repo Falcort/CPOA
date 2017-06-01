@@ -5,6 +5,7 @@
  */
 package application;
 
+import database.DaoMovie;
 import database.DaoVIP;
 import database.SourceMariaDB;
 import ihm.Login;
@@ -28,6 +29,13 @@ public class Main
     public static DaoVIP getDaoVIP()
     {
         return daoVIP;
+    }
+    
+    private static DaoMovie daoMovie;
+
+    public static DaoMovie getDaoMovie()
+    {
+        return daoMovie;
     }
     
     public static void main(String[] args)

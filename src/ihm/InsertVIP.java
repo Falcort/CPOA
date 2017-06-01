@@ -78,7 +78,7 @@ public class InsertVIP extends javax.swing.JDialog {
             }
         });
 
-        DateBirth.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        DateBirth.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         DateBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DateBirthActionPerformed(evt);
