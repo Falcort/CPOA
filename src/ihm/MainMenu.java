@@ -322,7 +322,14 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteVIPActionPerformed
-        // TODO add your handling code here:
+        int ligne = jTable1.getSelectedRow();
+        if (ligne != -1) {
+            try {
+                modeleVIP.deleteVIP(ligne);
+            } catch (SQLException e) {
+                System.out.println("Erreur à la suppression : " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_btnDeleteVIPActionPerformed
 
     private void btnAddVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVIPActionPerformed
