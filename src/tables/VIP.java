@@ -21,8 +21,17 @@ public class VIP
     private String whereBorn;
     private String codeStatus;
     private String codeRole;
+    private String nationality;
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
     
-    public VIP(int numVIP, String firstName, String lastName, String civilite, LocalDate bornDate, String whereBorn, String codeStatus, String codeRole)
+    public VIP(int numVIP, String firstName, String lastName, String civilite, LocalDate bornDate, String whereBorn, String codeStatus, String codeRole, String nationality)
     {
         this.numVIP = numVIP;
         this.firstName = firstName;
@@ -32,6 +41,7 @@ public class VIP
         this.whereBorn = whereBorn;
         this.codeStatus = codeStatus;
         this.codeRole = codeRole;
+        this.nationality = nationality;
     }
     
     public VIP(){
