@@ -20,7 +20,7 @@ public class ModeleJTableVIP extends AbstractTableModel
     public ModeleJTableVIP()
     {
         this.leConteneur = new ArrayList<>();
-        this.title = new String[]{"Num", "Last Name", "First Name", "Civilite", "Birthdate", "Born place", "Status", "Role"};
+        this.title = new String[]{"Num", "Last Name", "First Name", "Civilite", "Birthdate", "Born place", "Status", "Role", "Nationality"};
         this.DaoVIP = Main.getDaoVIP();
     }
 
