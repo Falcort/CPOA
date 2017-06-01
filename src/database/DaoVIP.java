@@ -32,7 +32,8 @@ public class DaoVIP
             String whereDate = rset.getString(6);
             String codeStatus = rset.getString(7);
             String codeRole = rset.getString(8);
-            VIP vip = new VIP(numVIP, firstName, lastName, civilite, bornDate, whereDate, codeStatus, codeRole);
+            String nationality = rset.getString(9);
+            VIP vip = new VIP(numVIP, firstName, lastName, civilite, bornDate, whereDate, codeStatus, codeRole, nationality);
             VIPs.add(vip);
         }        
         rset.close();
@@ -41,7 +42,7 @@ public class DaoVIP
     
     public void insererVIP(VIP vip) throws SQLException
     {
-        String query = "INSERT INTO VIP(nomVIP, prénomVIP, civilitéVIP, dateNaissance, lieuNaissance, codeStatut, codeRole, Pays) VALUES (?,?,?,?,?,?,?,'ok')";
+        String query = "INSERT INTO VIP(nomVIP, prénomVIP, civilitéVIP, dateNaissance, lieuNaissance, codeStatut, codeRole, nationality) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = connexion.prepareStatement(query);
         pstmt.setString(1, vip.getLastName());
         pstmt.setString(2, vip.getFirstName());
@@ -50,6 +51,7 @@ public class DaoVIP
         pstmt.setString(5, vip.getWhereBorn());
         pstmt.setString(6, vip.getCodeStatus());
         pstmt.setString(7, vip.getCodeRole());
+        pstmt.setString(8, vip.getNationality());
         pstmt.executeUpdate();
         pstmt.close();
     }

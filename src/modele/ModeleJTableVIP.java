@@ -58,6 +58,8 @@ public class ModeleJTableVIP extends AbstractTableModel
                 return vip.getCodeStatus();
             case 7:
                 return vip.getCodeRole();
+            case 8:
+                return vip.getNationality();
         }
         return null;
     }

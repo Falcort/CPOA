@@ -25,29 +25,47 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lbCivility" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbLName" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbFName" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbLName1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbPlaceOfBirth" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbCodeStatus" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbCodeRole" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Title" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="PlaceOfBirth" alignment="0" pref="141" max="32767" attributes="0"/>
-                      <Component id="FName" alignment="0" pref="141" max="32767" attributes="0"/>
-                      <Component id="LName" alignment="0" pref="141" max="32767" attributes="0"/>
-                      <Component id="DateBirth" alignment="0" pref="141" max="32767" attributes="0"/>
-                      <Component id="jCodeStatus" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jCodeRole" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jCivility" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbLName" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbFName" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbLName1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbPlaceOfBirth" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Title" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="PlaceOfBirth" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="FName" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="LName" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="DateBirth" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lbNationality" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="Nationality" pref="199" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbCivility" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbCodeStatus" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbCodeRole" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jCodeStatus" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jCodeRole" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jCivility" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -81,7 +99,12 @@
                   <Component id="PlaceOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbPlaceOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Nationality" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbNationality" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbCivility" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jCivility" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,7 +119,7 @@
                   <Component id="jCodeRole" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbCodeRole" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="141" max="32767" attributes="0"/>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
               <Component id="btnAdd" min="-2" pref="80" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -229,6 +252,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Last name"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbNationality">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nationality"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Nationality">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NationalityActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
