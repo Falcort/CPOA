@@ -34,8 +34,8 @@ public class DaoMovie
         {
             int visa = rset.getInt(1);
             String title = rset.getString(2);
-            String gender = rset.getString(3);
-            int date = rset.getInt(4);
+            String gender = rset.getString(4);
+            int date = rset.getInt(3);
             Movie movie = new Movie(visa, title, date, gender);
             movies.add(movie);
         }

@@ -81,6 +81,7 @@ public class Main
         }while (etat == false);
         
         daoVIP = new DaoVIP(connection);
+        daoMovie = new DaoMovie(connection);
         
         javax.swing.SwingUtilities.invokeLater(new Runnable()
         {

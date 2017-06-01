@@ -33,16 +33,13 @@ public class MainMenu extends javax.swing.JFrame {
         try
         {
             modeleVIP.chargerLesVIP();
+            modeleMovie.chargerMovie();
+            
         } catch (SQLException ex) {
             System.out.println(" Erreur au chargement : " + ex.getMessage());
         }
         
-        try
-        {
-            modeleMovie.chargerMovie();
-        } catch (SQLException ex) {
-            System.out.println(" Erreur au chargement : " + ex.getMessage());
-        }
+        
     }
 
     /**

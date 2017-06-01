@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import tables.Movie;
-import tables.VIP;
 
 
 public class ModeleJTableMovie extends AbstractTableModel {
@@ -53,7 +52,6 @@ public class ModeleJTableMovie extends AbstractTableModel {
                 return movie.getReleaseDate();
             case 3:
                 return movie.getGenre();
-            case 4:
         }
         return null;
     }
