@@ -11,6 +11,19 @@ public class Movie {
     private String title;
     private int releaseDate;
     private String genre;
+    
+    public Movie()
+    {
+        
+    }
+    
+    public Movie(int numVisa, String title, int releaseDate, String genre)
+    {
+        this.numVisa = numVisa;
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+    }
 
     public int getNumVisa() {
         return numVisa;
