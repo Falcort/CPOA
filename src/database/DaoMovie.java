@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import tables.Movie;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class DaoMovie
             int visa = rset.getInt(1);
             String title = rset.getString(2);
             String gender = rset.getString(4);
-            int date = rset.getInt(3);
+            LocalDate date = rset.getDate(3).toLocalDate();
             Movie movie = new Movie(visa, title, date, gender);
             movies.add(movie);
         }
