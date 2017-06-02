@@ -13,10 +13,6 @@ import ihm.InsertVIP;
 import modele.ModeleJTableMovie;
 import tables.Movie;
 
-/**
- *
- * @author Thinkpad-Falcort
- */
 public class MainMenu extends javax.swing.JFrame {
     
     private ModeleJTableVIP modeleVIP;

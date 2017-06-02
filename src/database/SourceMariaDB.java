@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package database;
 
 import java.io.FileInputStream;
@@ -10,10 +6,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 import org.mariadb.jdbc.MariaDbDataSource;
 
-/**
- *
- * @author Alain
- */
+
 public class SourceMariaDB {
     
     public static DataSource getSource(PasswordAuthentication login) throws Exception {
