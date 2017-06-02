@@ -2,6 +2,7 @@ package modele;
 
 import application.Main;
 import database.DaoVIP;
+import database.DaoWedding;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +15,9 @@ public class ModeleJTableWedding extends AbstractTableModel {
     
     private final String[] title;
     
-    private final DaoVIP DaoWedding;
+    private final DaoWedding DaoWedding;
     
-    public ModeleJTableVIP()
+    public ModeleJTableWedding()
     {
         this.leConteneur = new ArrayList<>();
         this.title = new String[]{"Num VIP1", "Wedding Date", "Num VIP2", "Wedding Place", "Divorce Date"};

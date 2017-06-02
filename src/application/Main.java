@@ -2,6 +2,7 @@ package application;
 
 import database.DaoMovie;
 import database.DaoVIP;
+import database.DaoWedding;
 import database.SourceMariaDB;
 import ihm.Login;
 import ihm.MainMenu;
@@ -29,6 +30,13 @@ public class Main
     public static DaoMovie getDaoMovie()
     {
         return daoMovie;
+    }
+    
+    private static DaoWedding daoWedding;
+
+    public static DaoWedding getDaoWedding()
+    {
+        return daoWedding;
     }
     
     public static void main(String[] args)
@@ -75,6 +83,7 @@ public class Main
         
         daoVIP = new DaoVIP(connection);
         daoMovie = new DaoMovie(connection);
+        daoWedding = new DaoWedding(connection);
         
         javax.swing.SwingUtilities.invokeLater(new Runnable()
         {
