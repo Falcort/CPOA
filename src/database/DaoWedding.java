@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.List;
 import tables.Wedding;
 
@@ -24,9 +25,11 @@ public class DaoWedding {
         while (rset.next())
         {
             int numVIP1 = rset.getInt(1);
-            String title = rset.getString(2);
+            LocalDate weddingDate = rset.getDate(2).toLocalDate();
             int numVIP2 = rset.getInt(3);
-            Wedding wedding = new Wedding(visa, title, date, gender);
+            String placeWedding = rset.getString(4);
+            LocalDate divorceDate = rset.getDate(5).toLocalDate();
+            Wedding wedding = new Wedding(numVIP1, weddingDate, numVIP2, placeWedding, divorceDate);
             weddings.add(wedding);
         }
         rset.close();
@@ -35,19 +38,20 @@ public class DaoWedding {
     
     public void insertWedding(Wedding wedding) throws SQLException
     {
-        String query = "INSERT INTO FILM(numVisa, title, gender, releaseDate) VALUES (?,?,?,?)";
+        String query = "INSERT INTO EVENEMENT(numVIP, dateMariage, numCojoint, lieuMariage, dateDivorce) VALUES (?,?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
-        pstmt.setInt(1, wedding.getNumVisa());
-        pstmt.setString(2, wedding.getTitle());
-        pstmt.setString(3, wedding.getGenre());
-        pstmt.setInt(4, wedding.getReleaseDate());
+        pstmt.setInt(1, wedding.getNumVIP1());
+        pstmt.setDate(2, java.sql.Date.valueOf(wedding.getwWeddingDate()));
+        pstmt.setInt(3, wedding.getNumVIP2());
+        pstmt.setString(4, wedding.getPlaceWedding());
+        pstmt.setDate(5, java.sql.Date.valueOf(wedding.getwDivorceDate()));
         pstmt.executeUpdate();
         pstmt.close();
     }
     
     public void deleteWedding(int numWedding) throws SQLException
     {
-        String query = "DELETE FROM FILM WHERE numVIP = ?";
+        String query = "DELETE FROM EVENEMENT WHERE numWedding = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, numWedding);
         pstmt.executeUpdate();
