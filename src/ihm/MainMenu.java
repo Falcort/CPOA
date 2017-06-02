@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ihm;
 
 import java.sql.SQLException;
@@ -11,15 +6,14 @@ import modele.ModeleJTableVIP;
 import tables.VIP;
 import ihm.InsertVIP;
 import modele.ModeleJTableMovie;
+import modele.ModeleJTableWedding;
 
-/**
- *
- * @author Thinkpad-Falcort
- */
+
 public class MainMenu extends javax.swing.JFrame {
     
     private ModeleJTableVIP modeleVIP;
     private ModeleJTableMovie modeleMovie;
+    private ModeleJTableWedding modeleWedding;
 
     /**
      * Creates new form MainMenuTest
@@ -27,6 +21,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         this.modeleVIP = new ModeleJTableVIP();
         this.modeleMovie = new ModeleJTableMovie();
+        this.modeleWedding = new ModeleJTableWedding();
         
         initComponents();
         
@@ -213,17 +208,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         VIP.addTab("Manage Movies", Onglet2);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable3.setModel(modeleWedding);
         jScrollPane4.setViewportView(jTable3);
 
         Actions3.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
@@ -290,11 +275,11 @@ public class MainMenu extends javax.swing.JFrame {
         Onglet4.setLayout(Onglet4Layout);
         Onglet4Layout.setHorizontalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1078, Short.MAX_VALUE)
+            .addGap(0, 1086, Short.MAX_VALUE)
         );
         Onglet4Layout.setVerticalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 665, Short.MAX_VALUE)
         );
 
         VIP.addTab("Pictures", Onglet4);
