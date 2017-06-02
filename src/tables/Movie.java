@@ -5,11 +5,13 @@
  */
 package tables;
 
+import java.time.LocalDate;
+
 
 public class Movie {
     private int numVisa;
     private String title;
-    private int releaseDate;
+    private LocalDate releaseDate;
     private String genre;
     
     public Movie()
@@ -17,7 +19,7 @@ public class Movie {
         
     }
     
-    public Movie(int numVisa, String title, int releaseDate, String genre)
+    public Movie(int numVisa, String title, LocalDate releaseDate, String genre)
     {
         this.numVisa = numVisa;
         this.title = title;
@@ -33,7 +35,7 @@ public class Movie {
         return title;
     }
 
-    public int getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
@@ -49,7 +51,7 @@ public class Movie {
         this.title = title;
     }
 
-    public void setReleaseDate(int releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 

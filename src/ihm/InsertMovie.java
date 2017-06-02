@@ -5,18 +5,32 @@
  */
 package ihm;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+import tables.Movie;
+
 /**
  *
  * @author Jennifer
  */
 public class InsertMovie extends javax.swing.JDialog {
 
-    /**
-     * Creates new form InsertMovie
-     */
-    public InsertMovie(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    private final Movie movie;
+    private boolean etatSortie;
+    
+    
+    public InsertMovie(java.awt.Frame parent, Movie movie) {
+        super(parent, true);
         initComponents();
+        this.movie = movie;
+        this.setLocation(parent.getLocation());
+        etatSortie = false;
+    }
+    
+    public boolean doModal() {
+        setVisible(true);
+        return etatSortie;
     }
 
     /**
@@ -28,7 +42,7 @@ public class InsertMovie extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TitleInMov = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
         jVisa = new javax.swing.JLabel();
         jTitleMov = new javax.swing.JLabel();
         jDateOut = new javax.swing.JLabel();
@@ -44,8 +58,8 @@ public class InsertMovie extends javax.swing.JDialog {
         setPreferredSize(new java.awt.Dimension(500, 486));
         setResizable(false);
 
-        TitleInMov.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        TitleInMov.setText("Insert Movie");
+        title.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        title.setText("Insert Movie");
 
         jVisa.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jVisa.setText("VISA");
@@ -60,6 +74,11 @@ public class InsertMovie extends javax.swing.JDialog {
         jGenre.setText("Movie genre");
 
         AddMovie.setText("ADD");
+        AddMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddMovieActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,7 +104,7 @@ public class InsertMovie extends javax.swing.JDialog {
                                     .addGap(0, 0, Short.MAX_VALUE))))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(187, 187, 187)
-                            .addComponent(TitleInMov)))
+                            .addComponent(title)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(202, 202, 202)
                         .addComponent(AddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -95,7 +114,7 @@ public class InsertMovie extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(TitleInMov)
+                .addComponent(title)
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jVisa)
@@ -120,58 +139,70 @@ public class InsertMovie extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void AddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMovieActionPerformed
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            //Insertion of visa
+            int numVisa = Integer.parseInt(Visa.getText());
+            String visaHelper = Visa.getText();
+            if (visaHelper.isEmpty()) {
+                throw new Exception("Field visa empty");
+            }
+            movie.setNumVisa(numVisa);
+             
+             //Insertion of title
+            String titleMovie = TitleMovie.getText();
+             if (titleMovie.isEmpty()) {
+                throw new Exception("Field title empty");
+            }
+             movie.setTitle(titleMovie);
+             
+            // vérification empty or not date of release
+            String releaseDate = DateOut.getText();
+            if (releaseDate.isEmpty()) {
+                throw new Exception("champ date vide");
+            }
+           //Insertion date of release  
+              String[] champsDate = releaseDate.split("/");
+            try {
+                LocalDate dateOut = LocalDate.of(
+                        Integer.parseInt(champsDate[2]),
+                        Integer.parseInt(champsDate[1]),
+                        Integer.parseInt(champsDate[0])
+                );
+                LocalDate aujourdhui = LocalDate.now();
+                if (dateOut.isAfter(aujourdhui)) {
+                    throw new Exception("date de sortie postérieure à date aujourd'hui");
                 }
+                movie.setReleaseDate(dateOut);
+            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+                throw new Exception("format de date incorrect");
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InsertMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InsertMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InsertMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InsertMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
+             //Insertion of place of birth
+            String genreMovie = Genre.getText();
+             if (genreMovie.isEmpty()) {
+                throw new Exception("Fiel genre empty");
+            }
+            movie.setGenre(genreMovie);
+            
+            etatSortie = true;
+            this.dispose();
+       } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.WARNING_MESSAGE);
         }
-        //</editor-fold>
+    }//GEN-LAST:event_AddMovieActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                InsertMovie dialog = new InsertMovie(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                   @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddMovie;
     private javax.swing.JTextField DateOut;
     private javax.swing.JTextField Genre;
-    private javax.swing.JLabel TitleInMov;
     private javax.swing.JTextField TitleMovie;
     private javax.swing.JTextField Visa;
     private javax.swing.JLabel jDateOut;
     private javax.swing.JLabel jGenre;
     private javax.swing.JLabel jTitleMov;
     private javax.swing.JLabel jVisa;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
