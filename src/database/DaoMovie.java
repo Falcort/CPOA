@@ -12,10 +12,7 @@ import java.sql.Statement;
 import tables.Movie;
 import java.util.List;
 
-/**
- *
- * @author Thinkpad-Falcort
- */
+
 public class DaoMovie
 {
     private final Connection connection;
