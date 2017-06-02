@@ -41,10 +41,10 @@ public class DaoWedding {
         String query = "INSERT INTO EVENEMENT(numVIP, dateMariage, numCojoint, lieuMariage, dateDivorce) VALUES (?,?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, wedding.getNumVIP1());
-        pstmt.setDate(2, java.sql.Date.valueOf(wedding.getwWeddingDate()));
+        pstmt.setDate(2, java.sql.Date.valueOf(wedding.getWeddingDate()));
         pstmt.setInt(3, wedding.getNumVIP2());
         pstmt.setString(4, wedding.getPlaceWedding());
-        pstmt.setDate(5, java.sql.Date.valueOf(wedding.getwDivorceDate()));
+        pstmt.setDate(5, java.sql.Date.valueOf(wedding.getDivorceDate()));
         pstmt.executeUpdate();
         pstmt.close();
     }
