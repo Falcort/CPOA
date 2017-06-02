@@ -68,9 +68,9 @@ public class ModeleJTableMovie extends AbstractTableModel {
         this.fireTableDataChanged();
     }
     
-    /*public void insertMovie(Movie movie) throws SQLException
+    public void insertMovie(Movie movie) throws SQLException
     {
-        DaoMovie.insererMovie(movie);
+        DaoMovie.insertMovie(movie);
         leConteneur.add(movie);
         this.fireTableDataChanged();
     }
@@ -81,6 +81,6 @@ public class ModeleJTableMovie extends AbstractTableModel {
         DaoMovie.deleteMovie(numMovie);
         leConteneur.remove(numLine);
         this.fireTableDataChanged();
-    }*/
+    }
 
    }
