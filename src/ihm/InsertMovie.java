@@ -73,6 +73,12 @@ public class InsertMovie extends javax.swing.JDialog {
         jGenre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jGenre.setText("Movie genre");
 
+        Visa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VisaActionPerformed(evt);
+            }
+        });
+
         AddMovie.setText("ADD");
         AddMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,10 +165,10 @@ public class InsertMovie extends javax.swing.JDialog {
             // vérification empty or not date of release
             String releaseDate = DateOut.getText();
             if (releaseDate.isEmpty()) {
-                throw new Exception("champ date vide");
+                throw new Exception("champ date release vide");
             }
-           //Insertion date of release  
-              String[] champsDate = releaseDate.split("/");
+            //Insertion date of release  
+            String[] champsDate = releaseDate.split("/");
             try {
                 LocalDate dateOut = LocalDate.of(
                         Integer.parseInt(champsDate[2]),
@@ -191,6 +197,10 @@ public class InsertMovie extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_AddMovieActionPerformed
+
+    private void VisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VisaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

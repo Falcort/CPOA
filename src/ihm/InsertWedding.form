@@ -40,21 +40,21 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="placeWedding" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbPlaceWedding" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="VIP1" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateWedding" min="-2" max="-2" attributes="0"/>
-                              <Component id="VIP2" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbVIP1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbDateWedding" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbVIP2" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="dateDivorce" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbDateDivorce" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="datewedd" max="32767" attributes="0"/>
-                          <Component id="vip1" max="32767" attributes="0"/>
-                          <Component id="dateDiv" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="placeWedd" alignment="0" max="32767" attributes="0"/>
-                          <Component id="vip2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="DateWedding" max="32767" attributes="0"/>
+                          <Component id="NumVIP1" max="32767" attributes="0"/>
+                          <Component id="DateDivorce" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="PlaceWedding" alignment="0" max="32767" attributes="0"/>
+                          <Component id="NumVIP2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -69,28 +69,28 @@
               <Component id="title" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="vip1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="VIP1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="NumVIP1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbVIP1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="dateWedding" min="-2" max="-2" attributes="0"/>
-                  <Component id="datewedd" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbDateWedding" min="-2" max="-2" attributes="0"/>
+                  <Component id="DateWedding" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="VIP2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="vip2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbVIP2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="NumVIP2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="placeWedding" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="placeWedd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbPlaceWedding" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PlaceWedding" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dateDivorce" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dateDiv" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbDateDivorce" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DateDivorce" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="79" max="32767" attributes="0"/>
               <Component id="add" min="-2" pref="40" max="-2" attributes="0"/>
@@ -108,7 +108,7 @@
         <Property name="text" type="java.lang.String" value="Insert Wedding / Divorce"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="VIP1">
+    <Component class="javax.swing.JLabel" name="lbVIP1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -116,7 +116,7 @@
         <Property name="text" type="java.lang.String" value="VIP1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="dateWedding">
+    <Component class="javax.swing.JLabel" name="lbDateWedding">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -124,7 +124,7 @@
         <Property name="text" type="java.lang.String" value="Date of Wedding"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="VIP2">
+    <Component class="javax.swing.JLabel" name="lbVIP2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -132,7 +132,7 @@
         <Property name="text" type="java.lang.String" value="VIP2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="placeWedding">
+    <Component class="javax.swing.JLabel" name="lbPlaceWedding">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -140,7 +140,7 @@
         <Property name="text" type="java.lang.String" value="Place of Wedding"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="dateDivorce">
+    <Component class="javax.swing.JLabel" name="lbDateDivorce">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -152,19 +152,28 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="ADD"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="dateDiv">
-    </Component>
-    <Component class="javax.swing.JTextField" name="datewedd">
-    </Component>
-    <Component class="javax.swing.JTextField" name="vip1">
-    </Component>
-    <Component class="javax.swing.JTextField" name="placeWedd">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="placeWeddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="vip2">
+    <Component class="javax.swing.JTextField" name="DateDivorce">
+    </Component>
+    <Component class="javax.swing.JTextField" name="DateWedding">
+    </Component>
+    <Component class="javax.swing.JTextField" name="NumVIP1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NumVIP1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="PlaceWedding">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PlaceWeddingActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="NumVIP2">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NumVIP2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

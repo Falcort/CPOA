@@ -1,12 +1,15 @@
 package ihm;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
 import tables.Wedding;
 
 public class InsertWedding extends javax.swing.JDialog {
 
     private final Wedding wedding;
     private boolean etatSortie;
-    
+
     public InsertWedding(java.awt.Frame parent, Wedding wedding) {
         super(parent, true);
         initComponents();
@@ -15,11 +18,11 @@ public class InsertWedding extends javax.swing.JDialog {
         etatSortie = false;
     }
 
-     public boolean doModal() {
+    public boolean doModal() {
         setVisible(true);
         return etatSortie;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,17 +33,17 @@ public class InsertWedding extends javax.swing.JDialog {
     private void initComponents() {
 
         title = new javax.swing.JLabel();
-        VIP1 = new javax.swing.JLabel();
-        dateWedding = new javax.swing.JLabel();
-        VIP2 = new javax.swing.JLabel();
-        placeWedding = new javax.swing.JLabel();
-        dateDivorce = new javax.swing.JLabel();
+        lbVIP1 = new javax.swing.JLabel();
+        lbDateWedding = new javax.swing.JLabel();
+        lbVIP2 = new javax.swing.JLabel();
+        lbPlaceWedding = new javax.swing.JLabel();
+        lbDateDivorce = new javax.swing.JLabel();
         add = new javax.swing.JButton();
-        dateDiv = new javax.swing.JTextField();
-        datewedd = new javax.swing.JTextField();
-        vip1 = new javax.swing.JTextField();
-        placeWedd = new javax.swing.JTextField();
-        vip2 = new javax.swing.JTextField();
+        DateDivorce = new javax.swing.JTextField();
+        DateWedding = new javax.swing.JTextField();
+        NumVIP1 = new javax.swing.JTextField();
+        PlaceWedding = new javax.swing.JTextField();
+        NumVIP2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 485));
@@ -49,26 +52,43 @@ public class InsertWedding extends javax.swing.JDialog {
         title.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         title.setText("Insert Wedding / Divorce");
 
-        VIP1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        VIP1.setText("VIP1");
+        lbVIP1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbVIP1.setText("VIP1");
 
-        dateWedding.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        dateWedding.setText("Date of Wedding");
+        lbDateWedding.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbDateWedding.setText("Date of Wedding");
 
-        VIP2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        VIP2.setText("VIP2");
+        lbVIP2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbVIP2.setText("VIP2");
 
-        placeWedding.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        placeWedding.setText("Place of Wedding");
+        lbPlaceWedding.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbPlaceWedding.setText("Place of Wedding");
 
-        dateDivorce.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        dateDivorce.setText("Date of Divorce");
+        lbDateDivorce.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbDateDivorce.setText("Date of Divorce");
 
         add.setText("ADD");
-
-        placeWedd.addActionListener(new java.awt.event.ActionListener() {
+        add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placeWeddActionPerformed(evt);
+                addActionPerformed(evt);
+            }
+        });
+
+        NumVIP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NumVIP1ActionPerformed(evt);
+            }
+        });
+
+        PlaceWedding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlaceWeddingActionPerformed(evt);
+            }
+        });
+
+        NumVIP2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NumVIP2ActionPerformed(evt);
             }
         });
 
@@ -87,19 +107,19 @@ public class InsertWedding extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(placeWedding)
+                            .addComponent(lbPlaceWedding)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(VIP1)
-                                .addComponent(dateWedding)
-                                .addComponent(VIP2))
-                            .addComponent(dateDivorce, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(lbVIP1)
+                                .addComponent(lbDateWedding)
+                                .addComponent(lbVIP2))
+                            .addComponent(lbDateDivorce, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(81, 81, 81)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(datewedd)
-                            .addComponent(vip1)
-                            .addComponent(dateDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(placeWedd)
-                            .addComponent(vip2))))
+                            .addComponent(DateWedding)
+                            .addComponent(NumVIP1)
+                            .addComponent(DateDivorce, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PlaceWedding)
+                            .addComponent(NumVIP2))))
                 .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -109,24 +129,24 @@ public class InsertWedding extends javax.swing.JDialog {
                 .addComponent(title)
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VIP1))
+                    .addComponent(NumVIP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbVIP1))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dateWedding)
-                    .addComponent(datewedd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbDateWedding)
+                    .addComponent(DateWedding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VIP2)
-                    .addComponent(vip2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbVIP2)
+                    .addComponent(NumVIP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(placeWedding)
-                    .addComponent(placeWedd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbPlaceWedding)
+                    .addComponent(PlaceWedding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateDivorce)
-                    .addComponent(dateDiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbDateDivorce)
+                    .addComponent(DateDivorce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
@@ -135,23 +155,111 @@ public class InsertWedding extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void placeWeddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeWeddActionPerformed
+    private void PlaceWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceWeddingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placeWeddActionPerformed
+    }//GEN-LAST:event_PlaceWeddingActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        try {
+            //Insertion of numVIP1
+            int numVip1 = Integer.parseInt(NumVIP1.getText());
+            String VIP1Helper = NumVIP1.getText();
+            if (VIP1Helper.isEmpty()) {
+                throw new Exception("Field vip1 empty");
+            }
+            wedding.setNumVIP1(numVip1);
+             
+            // vérification empty or not date of release
+            String dateWedding = DateWedding.getText();
+            if (dateWedding.isEmpty()) {
+                throw new Exception("champ date vide");
+            }
+           //Insertion date of wedding  
+              String[] champsDate = dateWedding.split("/");
+            try {
+                LocalDate dateOut = LocalDate.of(
+                        Integer.parseInt(champsDate[2]),
+                        Integer.parseInt(champsDate[1]),
+                        Integer.parseInt(champsDate[0])
+                );
+                LocalDate aujourdhui = LocalDate.now();
+                if (dateOut.isAfter(aujourdhui)) {
+                    throw new Exception("date de sortie postérieure à date aujourd'hui");
+                }
+                wedding.setWeddingDate(dateOut);
+            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+                throw new Exception("format de date incorrect");
+            }
+            
+            //Insertion of numVIP2
+            int numVip2 = Integer.parseInt(NumVIP2.getText());
+            String VIP2Helper = NumVIP2.getText();
+            if (VIP2Helper.isEmpty()) {
+                throw new Exception("Field vip1 empty");
+            }
+            wedding.setNumVIP2(numVip2);
+
+            //Insertion place of wedding
+            String placeWedding = PlaceWedding.getText();
+             if (placeWedding.isEmpty()) {
+                throw new Exception("Field title empty");
+            }
+            wedding.setPlaceWedding(placeWedding);
+            
+            
+            // vérification empty or not date of divorce
+            String dateDivorce;
+            dateDivorce = DateDivorce.getText();
+            if (dateDivorce.isEmpty()) {
+                throw new Exception("champ date divorce vide");
+            }
+            //Insertion date of divorce
+            String[] champsWeddingDate = dateDivorce.split("/");
+            try {
+                LocalDate dateOut = LocalDate.of(
+                        Integer.parseInt(champsWeddingDate[2]),
+                        Integer.parseInt(champsWeddingDate[1]),
+                        Integer.parseInt(champsWeddingDate[0])
+                );
+                LocalDate aujourdhui = LocalDate.now();
+                if (dateOut.isAfter(aujourdhui)) {
+                    throw new Exception("Wrong date input (prob too early in calendar)");
+                }
+                wedding.setWeddingDate(dateOut);
+            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+                throw new Exception("date format incorrect");
+            }
+            
+            
+            etatSortie = true;
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_addActionPerformed
+
+    private void NumVIP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumVIP1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NumVIP1ActionPerformed
+
+    private void NumVIP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumVIP2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NumVIP2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel VIP1;
-    private javax.swing.JLabel VIP2;
+    private javax.swing.JTextField DateDivorce;
+    private javax.swing.JTextField DateWedding;
+    private javax.swing.JTextField NumVIP1;
+    private javax.swing.JTextField NumVIP2;
+    private javax.swing.JTextField PlaceWedding;
     private javax.swing.JButton add;
-    private javax.swing.JTextField dateDiv;
-    private javax.swing.JLabel dateDivorce;
-    private javax.swing.JLabel dateWedding;
-    private javax.swing.JTextField datewedd;
-    private javax.swing.JTextField placeWedd;
-    private javax.swing.JLabel placeWedding;
+    private javax.swing.JLabel lbDateDivorce;
+    private javax.swing.JLabel lbDateWedding;
+    private javax.swing.JLabel lbPlaceWedding;
+    private javax.swing.JLabel lbVIP1;
+    private javax.swing.JLabel lbVIP2;
     private javax.swing.JLabel title;
-    private javax.swing.JTextField vip1;
-    private javax.swing.JTextField vip2;
     // End of variables declaration//GEN-END:variables
 }
