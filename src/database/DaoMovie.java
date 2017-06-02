@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package database;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,9 +9,7 @@ import java.time.LocalDate;
 import tables.Movie;
 import java.util.List;
 
-
-public class DaoMovie
-{
+public class DaoMovie {
     private final Connection connection;
     
     public DaoMovie(Connection connection)
@@ -25,7 +19,7 @@ public class DaoMovie
     
     public void recupererMovie(List<Movie> movies) throws SQLException
     {
-        String query = "SELECT * FROM FILM";
+        String query = "SELECT * FROM MOVIE";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
         while (rset.next())
@@ -39,5 +33,26 @@ public class DaoMovie
         }
         rset.close();
         stmt.close();
+    }
+    
+    public void insertMovie(Movie movie) throws SQLException
+    {
+        String query = "INSERT INTO MOVIE(visa, title, gender, date) VALUES (?,?,?,?)";
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.setInt(1, movie.getNumVisa());
+        pstmt.setString(2, movie.getTitle());
+        pstmt.setString(3, movie.getGenre());
+        pstmt.setDate(4, java.sql.Date.valueOf(movie.getReleaseDate()));
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+    
+    public void deleteMovie(int numMovie) throws SQLException
+    {
+        String query = "DELETE FROM MOVIE WHERE numMovie = ?";
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.setInt(1, numMovie);
+        pstmt.executeUpdate();
+        pstmt.close();
     }
 }

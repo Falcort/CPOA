@@ -7,6 +7,8 @@ import tables.VIP;
 import ihm.InsertVIP;
 import modele.ModeleJTableMovie;
 import modele.ModeleJTableWedding;
+import tables.Movie;
+import tables.Wedding;
 
 
 public class MainMenu extends javax.swing.JFrame {
@@ -29,6 +31,7 @@ public class MainMenu extends javax.swing.JFrame {
         {
             modeleVIP.chargerLesVIP();
             modeleMovie.chargerMovie();
+            modeleWedding.chargerWedding();
             
         } catch (SQLException ex) {
             System.out.println(" Erreur au chargement : " + ex.getMessage());
@@ -329,15 +332,38 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddVIPActionPerformed
 
     private void btnDeleteMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteMovieActionPerformed
-        // TODO add your handling code here:
+        int ligne = jTable2.getSelectedRow();
+        if (ligne != -1) {
+            try {
+                modeleMovie.deleteMovie(ligne);
+            } catch (SQLException e) {
+                System.out.println("Erreur à la suppression : " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_btnDeleteMovieActionPerformed
 
     private void btnAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMovieActionPerformed
-        // TODO add your handling code here:
+        try {
+            Movie newMovie = new Movie();
+            InsertMovie AddMovie = new InsertMovie(this, newMovie);
+            if (AddMovie.doModal() == true) {
+                modeleMovie.insertMovie(newMovie);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur à l'insertion : " + e.getMessage());
+        }
     }//GEN-LAST:event_btnAddMovieActionPerformed
 
     private void btnAddDivorceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDivorceActionPerformed
-        // TODO add your handling code here:
+        try {
+            Wedding newWedding = new Wedding();
+            InsertWedding AddWedding = new InsertWedding(this, newWedding);
+            if (AddWedding.doModal() == true) {
+                modeleWedding.insertWedding(newWedding);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur à l'insertion : " + e.getMessage());
+        }
     }//GEN-LAST:event_btnAddDivorceActionPerformed
 
     private void btnAddWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWeddingActionPerformed

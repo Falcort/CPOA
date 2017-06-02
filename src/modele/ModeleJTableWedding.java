@@ -3,6 +3,7 @@ package modele;
 import application.Main;
 import database.DaoVIP;
 import database.DaoWedding;
+import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,4 +53,35 @@ public class ModeleJTableWedding extends AbstractTableModel {
         }
         return null;
     }
+    
+     @Override
+    public String getColumnName(int column)
+    {
+        return title[column];
+    }
+    
+    public void chargerWedding() throws SQLException
+    {
+        DaoWedding.recupererWedding(leConteneur);
+        this.fireTableDataChanged();
+    }
+    
+    public void insertWedding(Wedding wedding) throws SQLException
+    {
+        DaoWedding.insertWedding(wedding);
+        leConteneur.add(wedding);
+        this.fireTableDataChanged();
+    }
+    
+    public void deleteWedding(int numLine) throws SQLException
+    {
+        int numWedding = (int) getValueAt(numLine, 0);
+        DaoWedding.deleteWedding(numWedding);
+        leConteneur.remove(numLine);
+        this.fireTableDataChanged();
+    }
+    
+    
+    
+    
 }
