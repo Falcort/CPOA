@@ -43,7 +43,7 @@ public class ModeleJTableWedding extends AbstractTableModel {
             case 0:
                 return wedding.getNumVIP1();
             case 1:
-                return wedding.getWeddingDate();
+                return wedding.getWeddingDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             case 2:
                 return wedding.getNumVIP2();
             case 3:

@@ -12,7 +12,7 @@ public class Wedding {
 
     public Wedding(int numVIP1, LocalDate weddingDate, int numVIP2, String placeWedding, LocalDate divorceDate) {
         this.numVIP1 = numVIP1;
-        this.divorceDate = divorceDate;
+        this.weddingDate = weddingDate;
         this.numVIP2 = numVIP2;
         this.placeWedding = placeWedding;
         this.divorceDate = divorceDate;

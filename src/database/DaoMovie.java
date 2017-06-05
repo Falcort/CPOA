@@ -26,8 +26,8 @@ public class DaoMovie {
         {
             int visa = rset.getInt(1);
             String title = rset.getString(2);
-            String gender = rset.getString(4);
             LocalDate date = rset.getDate(3).toLocalDate();
+            String gender = rset.getString(4);
             Movie movie = new Movie(visa, title, date, gender);
             movies.add(movie);
         }
@@ -37,7 +37,7 @@ public class DaoMovie {
     
     public void insertMovie(Movie movie) throws SQLException
     {
-        String query = "INSERT INTO MOVIE(visa, title, gender, date) VALUES (?,?,?,?)";
+        String query = "INSERT INTO MOVIE(numVisa, title, gender, releaseDate) VALUES (?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, movie.getNumVisa());
         pstmt.setString(2, movie.getTitle());
@@ -49,7 +49,7 @@ public class DaoMovie {
     
     public void deleteMovie(int numMovie) throws SQLException
     {
-        String query = "DELETE FROM MOVIE WHERE numMovie = ?";
+        String query = "DELETE FROM MOVIE WHERE numVisa = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, numMovie);
         pstmt.executeUpdate();

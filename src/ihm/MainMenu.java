@@ -368,6 +368,15 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnAddWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWeddingActionPerformed
         // TODO add your handling code here:
+        try {
+            Wedding newWedding = new Wedding();
+            InsertWedding addWedding = new InsertWedding(this, newWedding);
+            if (addWedding.doModal() == true) {
+                modeleWedding.insertWedding(newWedding);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur à l'insertion : " + e.getMessage());
+        }
     }//GEN-LAST:event_btnAddWeddingActionPerformed
 
     /**
