@@ -18,6 +18,21 @@ public class InsertWedding extends javax.swing.JDialog {
         etatSortie = false;
     }
 
+    public InsertWedding(java.awt.Frame parent, String numVIP1, String dateWedding, String numVIP2, String placeWedding, String dateDivorce) {
+        super(parent, true);
+        initComponents();
+        this.setLocation(parent.getLocation());
+        etatSortie = false;
+        this.wedding = null;
+        
+        NumVIP1.setText(numVIP1 + "");
+        DateWedding.setText(dateWedding + "");
+        NumVIP2.setText(numVIP2 + "");
+        PlaceWedding.setText(placeWedding + "");
+        DateDivorce.setText(dateDivorce + "");
+        
+    }
+
     public boolean doModal() {
         setVisible(true);
         return etatSortie;
@@ -168,14 +183,14 @@ public class InsertWedding extends javax.swing.JDialog {
                 throw new Exception("Field vip1 empty");
             }
             wedding.setNumVIP1(numVip1);
-             
+
             // vérification empty or not date of release
             String dateWedding = DateWedding.getText();
             if (dateWedding.isEmpty()) {
                 throw new Exception("champ date vide");
             }
-           //Insertion date of wedding  
-              String[] champsDate = dateWedding.split("/");
+            //Insertion date of wedding  
+            String[] champsDate = dateWedding.split("/");
             try {
                 LocalDate dateOut = LocalDate.of(
                         Integer.parseInt(champsDate[2]),
@@ -190,7 +205,7 @@ public class InsertWedding extends javax.swing.JDialog {
             } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
                 throw new Exception("format de date incorrect");
             }
-            
+
             //Insertion of numVIP2
             int numVip2 = Integer.parseInt(NumVIP2.getText());
             String VIP2Helper = NumVIP2.getText();
@@ -201,36 +216,35 @@ public class InsertWedding extends javax.swing.JDialog {
 
             //Insertion place of wedding
             String placeWedding = PlaceWedding.getText();
-             if (placeWedding.isEmpty()) {
+            if (placeWedding.isEmpty()) {
                 throw new Exception("Field title empty");
             }
             wedding.setPlaceWedding(placeWedding);
-            
-            
+
             // vérification empty or not date of divorce
             String dateDivorce;
             dateDivorce = DateDivorce.getText();
             if (dateDivorce.isEmpty()) {
-                throw new Exception("champ date divorce vide");
-            }
-            //Insertion date of divorce
-            String[] champsWeddingDate = dateDivorce.split("/");
-            try {
-                LocalDate dateOut = LocalDate.of(
-                        Integer.parseInt(champsWeddingDate[2]),
-                        Integer.parseInt(champsWeddingDate[1]),
-                        Integer.parseInt(champsWeddingDate[0])
-                );
-                LocalDate aujourdhui = LocalDate.now();
-                if (dateOut.isAfter(aujourdhui)) {
-                    throw new Exception("Wrong date input (prob too early in calendar)");
+                wedding.setDivorceDate(LocalDate.parse("0001-01-01"));
+            } else {
+                //Insertion date of divorce
+                String[] champsDivorceDate = dateDivorce.split("/");
+                try {
+                    LocalDate dateDivorceOut = LocalDate.of(
+                            Integer.parseInt(champsDivorceDate[2]),
+                            Integer.parseInt(champsDivorceDate[1]),
+                            Integer.parseInt(champsDivorceDate[0])
+                    );
+                    LocalDate aujourdhuiDivorce = LocalDate.now();
+                    if (dateDivorceOut.isAfter(aujourdhuiDivorce)) {
+                        throw new Exception("Wrong date input (prob too early in calendar)");
+                    }
+                    wedding.setDivorceDate(dateDivorceOut);
+                } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+                    throw new Exception(" divorce date format incorrect");
                 }
-                wedding.setWeddingDate(dateOut);
-            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
-                throw new Exception("date format incorrect");
             }
-            
-            
+
             etatSortie = true;
             this.dispose();
         } catch (Exception e) {

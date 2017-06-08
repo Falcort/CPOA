@@ -5,14 +5,15 @@ import java.time.LocalDate;
 import modele.ModeleJTableVIP;
 import tables.VIP;
 import ihm.InsertVIP;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modele.ModeleJTableMovie;
 import modele.ModeleJTableWedding;
 import tables.Movie;
 import tables.Wedding;
 
-
 public class MainMenu extends javax.swing.JFrame {
-    
+
     private ModeleJTableVIP modeleVIP;
     private ModeleJTableMovie modeleMovie;
     private ModeleJTableWedding modeleWedding;
@@ -24,20 +25,18 @@ public class MainMenu extends javax.swing.JFrame {
         this.modeleVIP = new ModeleJTableVIP();
         this.modeleMovie = new ModeleJTableMovie();
         this.modeleWedding = new ModeleJTableWedding();
-        
+
         initComponents();
-        
-        try
-        {
+
+        try {
             modeleVIP.chargerLesVIP();
             modeleMovie.chargerMovie();
             modeleWedding.chargerWedding();
-            
+
         } catch (SQLException ex) {
             System.out.println(" Erreur au chargement : " + ex.getMessage());
         }
-        
-        
+
     }
 
     /**
@@ -324,8 +323,7 @@ public class MainMenu extends javax.swing.JFrame {
             if (AddVIP.doModal() == true) {
                 modeleVIP.insertVIP(newVIP);
             }
-            
-            
+
         } catch (SQLException e) {
             System.out.println("Erreur à l'insertion : " + e.getMessage());
         }
@@ -355,14 +353,18 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddMovieActionPerformed
 
     private void btnAddDivorceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDivorceActionPerformed
-        try {
-            Wedding newWedding = new Wedding();
-            InsertWedding AddWedding = new InsertWedding(this, newWedding);
-            if (AddWedding.doModal() == true) {
-                modeleWedding.insertWedding(newWedding);
+        int ligne = jTable3.getSelectedRow();
+        String numVIP1 = modeleWedding.getValueAt(ligne, 0)+"";
+        String DateWedding = modeleWedding.getValueAt(ligne, 1)+"";
+        String numVIP2 = modeleWedding.getValueAt(ligne, 2)+"";
+        String PlaceWedding = modeleWedding.getValueAt(ligne, 3)+"";
+        String DateDivorce = modeleWedding.getValueAt(ligne, 4)+"";
+        if (ligne != -1) {
+            //modeleWedding.addDivorce(ligne);
+            InsertWedding ModifyWedding = new InsertWedding(this, numVIP1, DateWedding, numVIP2, PlaceWedding, DateDivorce);
+            if (ModifyWedding.doModal() == true) {
+                //modeleWedding.insertWedding(newWedding);
             }
-        } catch (SQLException e) {
-            System.out.println("Erreur à l'insertion : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddDivorceActionPerformed
 

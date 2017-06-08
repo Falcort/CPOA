@@ -81,10 +81,10 @@ public class ModeleJTableWedding extends AbstractTableModel {
         this.fireTableDataChanged();
     }
     
-    public void deleteWedding(int numLine) throws SQLException
+    public void addDivorce(int numLine) throws SQLException
     {
         int numWedding = (int) getValueAt(numLine, 0);
-        DaoWedding.deleteWedding(numWedding);
+        DaoWedding.addDivorce(numWedding);
         leConteneur.remove(numLine);
         this.fireTableDataChanged();
     }

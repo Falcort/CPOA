@@ -11,31 +11,26 @@ import java.util.List;
 import tables.Wedding;
 
 public class DaoWedding {
+
     private final Connection connection;
-    
-    public DaoWedding(Connection connection)
-    {
+
+    public DaoWedding(Connection connection) {
         this.connection = connection;
     }
-    
-    public void recupererWedding(List<Wedding> weddings) throws SQLException
-    {
+
+    public void recupererWedding(List<Wedding> weddings) throws SQLException {
         String query = "SELECT * FROM EVENEMENT";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
-        while (rset.next())
-        {
+        while (rset.next()) {
             int numVIP1 = rset.getInt(1);
             LocalDate weddingDate = rset.getDate(2).toLocalDate();
             int numVIP2 = rset.getInt(3);
             String placeWedding = rset.getString(4);
             LocalDate divorceDate;
-            if(rset.getDate(5) == null)
-            {
+            if (rset.getDate(5) == null) {
                 divorceDate = LocalDate.parse("0001-01-01");
-            }
-            else
-            {
+            } else {
                 divorceDate = rset.getDate(5).toLocalDate();
             }
             Wedding wedding = new Wedding(numVIP1, weddingDate, numVIP2, placeWedding, divorceDate);
@@ -44,9 +39,8 @@ public class DaoWedding {
         rset.close();
         stmt.close();
     }
-    
-    public void insertWedding(Wedding wedding) throws SQLException
-    {
+
+    public void insertWedding(Wedding wedding) throws SQLException {
         String query = "INSERT INTO EVENEMENT(numVIP1, dateMariage, numVIPConjoint, lieuMariage, dateDivorce) VALUES (?,?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, wedding.getNumVIP1());
@@ -57,10 +51,9 @@ public class DaoWedding {
         pstmt.executeUpdate();
         pstmt.close();
     }
-    
-    public void deleteWedding(int numWedding) throws SQLException
-    {
-        String query = "DELETE FROM EVENEMENT WHERE numWedding = ?";
+
+    public void addDivorce(int numWedding) throws SQLException {
+        String query = "UPDATE FROM EVENEMENT WHERE numWedding = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, numWedding);
         pstmt.executeUpdate();
