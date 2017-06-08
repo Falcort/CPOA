@@ -49,7 +49,12 @@ public class ModeleJTableWedding extends AbstractTableModel {
             case 3:
                 return wedding.getPlaceWedding();
             case 4:
-                return wedding.getDivorceDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));   
+                if (wedding.getDivorceDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).equals("0001-01-01")) {
+                    return "test";
+                }
+                else {
+                    return wedding.getDivorceDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));   
+                }
         }
         return null;
     }
