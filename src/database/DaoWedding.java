@@ -47,7 +47,7 @@ public class DaoWedding {
     
     public void insertWedding(Wedding wedding) throws SQLException
     {
-        String query = "INSERT INTO EVENEMENT(numVIP, dateMariage, numCojoint, lieuMariage, dateDivorce) VALUES (?,?,?,?,?)";
+        String query = "INSERT INTO EVENEMENT(numVIP1, dateMariage, numVIPConjoint, lieuMariage, dateDivorce) VALUES (?,?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, wedding.getNumVIP1());
         pstmt.setDate(2, java.sql.Date.valueOf(wedding.getWeddingDate()));
