@@ -4,6 +4,7 @@ import application.Main;
 import database.DaoVIP;
 import database.DaoWedding;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,10 +50,12 @@ public class ModeleJTableWedding extends AbstractTableModel {
             case 3:
                 return wedding.getPlaceWedding();
             case 4:
-                if (wedding.getDivorceDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).equals("0001-01-01")) {
-                    return "test";
+                if (wedding.getDivorceDate().equals(LocalDate.parse("0001-01-01")))
+                {
+                    return "Not divorced";
                 }
-                else {
+                else
+                {
                     return wedding.getDivorceDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));   
                 }
         }

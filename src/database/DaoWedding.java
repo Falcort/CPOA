@@ -1,6 +1,7 @@
 package database;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +29,15 @@ public class DaoWedding {
             LocalDate weddingDate = rset.getDate(2).toLocalDate();
             int numVIP2 = rset.getInt(3);
             String placeWedding = rset.getString(4);
-            LocalDate divorceDate = rset.getDate(5).toLocalDate();
+            LocalDate divorceDate;
+            if(rset.getDate(5) == null)
+            {
+                divorceDate = LocalDate.parse("0001-01-01");
+            }
+            else
+            {
+                divorceDate = rset.getDate(5).toLocalDate();
+            }
             Wedding wedding = new Wedding(numVIP1, weddingDate, numVIP2, placeWedding, divorceDate);
             weddings.add(wedding);
         }
