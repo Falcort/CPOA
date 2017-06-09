@@ -2,12 +2,14 @@ package database;
 
 import java.sql.Connection;
 import java.sql.Date;
+import static java.sql.JDBCType.NULL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.List;
+import tables.VIP;
 import tables.Wedding;
 
 public class DaoWedding {
@@ -59,13 +61,40 @@ public class DaoWedding {
         }
         pstmt.executeUpdate();
         pstmt.close();
+        updateWeddingCodeStatusVIP1Maried(wedding.getNumVIP1());
+        updateWeddingCodeStatusVIP2Maried(wedding.getNumVIP2());
     }
-
-    public void addDivorce(int numWedding) throws SQLException {
-        String query = "UPDATE FROM EVENEMENT WHERE numWedding = ?";
+    
+    public void updateWeddingCodeStatusVIP1Maried(int id) throws SQLException {
+        String query = "UPDATE VIP SET codeStatut='Maried' WHERE numVIP="+id;
         PreparedStatement pstmt = connection.prepareStatement(query);
-        pstmt.setInt(1, numWedding);
         pstmt.executeUpdate();
         pstmt.close();
+    }
+    public void updateWeddingCodeStatusVIP2Maried(int id) throws SQLException {
+        String query = "UPDATE VIP SET codeStatut='Maried' WHERE numVIP="+id;
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+    public void updateWeddingCodeStatusVIP1Free(int id) throws SQLException {
+        String query = "UPDATE VIP SET codeStatut='Free' WHERE numVIP="+id;
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+    public void updateWeddingCodeStatusVIP2Free(int id) throws SQLException {
+        String query = "UPDATE VIP SET codeStatut='Free' WHERE numVIP="+id;
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+    
+
+    public void addDivorce(Wedding wedding) throws SQLException {
+        /*String query = "UPDATE EVENEMENT SET dateDivorce="+ NULL +"WHERE numVIP1="+ id;
+        PreparedStatement pstmt = connection.prepareStatement(query);                
+        pstmt.executeUpdate();
+        pstmt.close();*/
     }
 }

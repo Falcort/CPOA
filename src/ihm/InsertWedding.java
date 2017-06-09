@@ -296,7 +296,7 @@ public class InsertWedding extends javax.swing.JDialog {
     }//GEN-LAST:event_NumVIP2ActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_updateActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
