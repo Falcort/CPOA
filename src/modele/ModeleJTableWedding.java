@@ -21,7 +21,7 @@ public class ModeleJTableWedding extends AbstractTableModel {
 
     public ModeleJTableWedding() {
         this.leConteneur = new ArrayList<>();
-        this.title = new String[]{"Num VIP1", "Wedding Date", "Num VIP2", "Wedding Place", "Divorce Date"};
+        this.title = new String[]{"Num VIP1", "Nom Prenom VIP1", "Wedding Date", "Num VIP2", "Nom Prenom VIP2", "Wedding Place", "Divorce Date"};
         this.DaoWedding = Main.getDaoWedding();
     }
 
@@ -42,12 +42,16 @@ public class ModeleJTableWedding extends AbstractTableModel {
             case 0:
                 return wedding.getNumVIP1();
             case 1:
-                return wedding.getWeddingDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                return wedding.getNomVIP1();
             case 2:
-                return wedding.getNumVIP2();
+                return wedding.getWeddingDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             case 3:
-                return wedding.getPlaceWedding();
+                return wedding.getNumVIP2();
             case 4:
+                return wedding.getNomVIP2();
+            case 5:
+                return wedding.getPlaceWedding();
+            case 6:
                 if (wedding.getDivorceDate().equals(LocalDate.parse("0001-01-01"))) {
                     return "Not divorced";
                 } else {
