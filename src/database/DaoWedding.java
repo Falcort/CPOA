@@ -49,7 +49,14 @@ public class DaoWedding {
         pstmt.setDate(2, java.sql.Date.valueOf(wedding.getWeddingDate()));
         pstmt.setInt(3, wedding.getNumVIP2());
         pstmt.setString(4, wedding.getPlaceWedding());
-        pstmt.setDate(5, java.sql.Date.valueOf(wedding.getDivorceDate()));
+        if(LocalDate.parse("0001-01-01").equals(wedding.getDivorceDate()))
+        {
+            pstmt.setDate(5, null);
+        }
+        else
+        {
+            pstmt.setDate(5, java.sql.Date.valueOf(wedding.getDivorceDate()));
+        }
         pstmt.executeUpdate();
         pstmt.close();
     }
