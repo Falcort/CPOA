@@ -35,7 +35,7 @@ public class DaoWedding {
             } else {
                 divorceDate = rset.getDate(5).toLocalDate();
             }
-            Wedding wedding = new Wedding(numVIP1, weddingDate, numVIP2, placeWedding, divorceDate);
+            Wedding wedding = new Wedding(numVIP1, nomVIP1, weddingDate, numVIP2, nomVIP2, placeWedding, divorceDate);
             weddings.add(wedding);
         }
         rset.close();
