@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import database.DaoFunction;
 
 public class Main {
 
@@ -33,6 +34,11 @@ public class Main {
 
     public static DaoWedding getDaoWedding() {
         return daoWedding;
+    }
+    
+    private static DaoFunction daoFunction;
+    public static DaoFunction getDaoFunction() {
+        return daoFunction;
     }
 
     public static void main(String[] args) {
@@ -69,6 +75,7 @@ public class Main {
         daoVIP = new DaoVIP(connection);
         daoMovie = new DaoMovie(connection);
         daoWedding = new DaoWedding(connection);
+        daoFunction = new DaoFunction(connection);
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
