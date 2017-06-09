@@ -28,7 +28,7 @@ public class DaoWedding {
             LocalDate weddingDate = rset.getDate(4).toLocalDate();
             int numVIP2 = rset.getInt(5);
             String nomVIP2 = rset.getString(6) + " " + rset.getString(7);
-            String placeWedding = rset.getString(9);
+            String placeWedding = rset.getString(8);
             LocalDate divorceDate;
             if (rset.getDate(9) == null) {
                 divorceDate = LocalDate.parse("0001-01-01");
