@@ -24,11 +24,13 @@ public class DaoWedding {
         ResultSet rset = stmt.executeQuery(query);
         while (rset.next()) {
             int numVIP1 = rset.getInt(1);
-            LocalDate weddingDate = rset.getDate(2).toLocalDate();
-            int numVIP2 = rset.getInt(3);
-            String placeWedding = rset.getString(4);
+            String nomVIP1 = rset.getString(2) + " " + rset.getString(3);
+            LocalDate weddingDate = rset.getDate(4).toLocalDate();
+            int numVIP2 = rset.getInt(5);
+            String nomVIP2 = rset.getString(6) + " " + rset.getString(7);
+            String placeWedding = rset.getString(9);
             LocalDate divorceDate;
-            if (rset.getDate(5) == null) {
+            if (rset.getDate(9) == null) {
                 divorceDate = LocalDate.parse("0001-01-01");
             } else {
                 divorceDate = rset.getDate(5).toLocalDate();
