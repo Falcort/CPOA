@@ -19,7 +19,7 @@ public class DaoWedding {
     }
 
     public void recupererWedding(List<Wedding> weddings) throws SQLException {
-        String query = "SELECT * FROM EVENEMENT";
+        String query = "SELECT numVIP1, (SELECT nomVIP FROM VIP WHERE numVIP1 = numVIP) AS nVIP1, (SELECT prenomVIP FROM VIP WHERE numVIP1=numVIP) AS pVIP1, dateMariage, numVIPConjoint, (SELECT nomVIP FROM VIP WHERE numVIPConjoint = numVIP) AS nVIP2, (SELECT prenomVIP FROM VIP WHERE numVIPConjoint = numVIP) AS pVIP2, lieuMariage, dateDivorce FROM EVENEMENT;";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
         while (rset.next()) {

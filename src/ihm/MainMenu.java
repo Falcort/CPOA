@@ -354,11 +354,11 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnAddDivorceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDivorceActionPerformed
         int ligne = jTable3.getSelectedRow();
-        String numVIP1 = modeleWedding.getValueAt(ligne, 0)+"";
-        String DateWedding = modeleWedding.getValueAt(ligne, 1)+"";
-        String numVIP2 = modeleWedding.getValueAt(ligne, 2)+"";
-        String PlaceWedding = modeleWedding.getValueAt(ligne, 3)+"";
-        String DateDivorce = modeleWedding.getValueAt(ligne, 4)+"";
+        String numVIP1 = modeleWedding.getValueAt(ligne, 0) + "";
+        String DateWedding = modeleWedding.getValueAt(ligne, 1) + "";
+        String numVIP2 = modeleWedding.getValueAt(ligne, 2) + "";
+        String PlaceWedding = modeleWedding.getValueAt(ligne, 3) + "";
+        String DateDivorce = modeleWedding.getValueAt(ligne, 4) + "";
         if (ligne != -1) {
             //modeleWedding.addDivorce(ligne);
             InsertWedding ModifyWedding = new InsertWedding(this, numVIP1, DateWedding, numVIP2, PlaceWedding, DateDivorce);

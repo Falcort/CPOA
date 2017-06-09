@@ -10,20 +10,18 @@ import tables.Movie;
 import java.util.List;
 
 public class DaoMovie {
+
     private final Connection connection;
-    
-    public DaoMovie(Connection connection)
-    {
+
+    public DaoMovie(Connection connection) {
         this.connection = connection;
     }
-    
-    public void recupererMovie(List<Movie> movies) throws SQLException
-    {
+
+    public void recupererMovie(List<Movie> movies) throws SQLException {
         String query = "SELECT * FROM MOVIE";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
-        while (rset.next())
-        {
+        while (rset.next()) {
             int visa = rset.getInt(1);
             String title = rset.getString(2);
             LocalDate date = rset.getDate(3).toLocalDate();
@@ -34,9 +32,8 @@ public class DaoMovie {
         rset.close();
         stmt.close();
     }
-    
-    public void insertMovie(Movie movie) throws SQLException
-    {
+
+    public void insertMovie(Movie movie) throws SQLException {
         String query = "INSERT INTO MOVIE(numVisa, title, gender, releaseDate) VALUES (?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, movie.getNumVisa());
@@ -46,9 +43,8 @@ public class DaoMovie {
         pstmt.executeUpdate();
         pstmt.close();
     }
-    
-    public void deleteMovie(int numMovie) throws SQLException
-    {
+
+    public void deleteMovie(int numMovie) throws SQLException {
         String query = "DELETE FROM MOVIE WHERE numVisa = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, numMovie);

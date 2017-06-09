@@ -7,20 +7,18 @@ package tables;
 
 import java.time.LocalDate;
 
-
 public class Movie {
+
     private int numVisa;
     private String title;
     private LocalDate releaseDate;
     private String genre;
-    
-    public Movie()
-    {
-        
+
+    public Movie() {
+
     }
-    
-    public Movie(int numVisa, String title, LocalDate releaseDate, String genre)
-    {
+
+    public Movie(int numVisa, String title, LocalDate releaseDate, String genre) {
         this.numVisa = numVisa;
         this.title = title;
         this.releaseDate = releaseDate;
@@ -58,5 +56,5 @@ public class Movie {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-    
+
 }

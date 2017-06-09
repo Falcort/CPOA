@@ -9,39 +9,34 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import tables.VIP;
 
-public class ModeleJTableVIP extends AbstractTableModel
-{
+public class ModeleJTableVIP extends AbstractTableModel {
+
     private final List<VIP> leConteneur;
-    
+
     private final String[] title;
-    
+
     private final DaoVIP DaoVIP;
-    
-    public ModeleJTableVIP()
-    {
+
+    public ModeleJTableVIP() {
         this.leConteneur = new ArrayList<>();
         this.title = new String[]{"Num", "Last Name", "First Name", "Civilite", "Birthdate", "Born place", "Status", "Role", "Nationality"};
         this.DaoVIP = Main.getDaoVIP();
     }
 
     @Override
-    public int getRowCount()
-    {
+    public int getRowCount() {
         return leConteneur.size();
     }
 
     @Override
-    public int getColumnCount()
-    {
+    public int getColumnCount() {
         return title.length;
     }
 
     @Override
-    public Object getValueAt(int row, int column)
-    {
+    public Object getValueAt(int row, int column) {
         VIP vip = leConteneur.get(row);
-        switch (column)
-        {
+        switch (column) {
             case 0:
                 return vip.getNumVIP();
             case 1:
@@ -63,28 +58,24 @@ public class ModeleJTableVIP extends AbstractTableModel
         }
         return null;
     }
-    
+
     @Override
-    public String getColumnName(int column)
-    {
+    public String getColumnName(int column) {
         return title[column];
     }
-    
-    public void chargerLesVIP() throws SQLException
-    {
+
+    public void chargerLesVIP() throws SQLException {
         DaoVIP.recupererVIP(leConteneur);
         this.fireTableDataChanged();
     }
-    
-    public void insertVIP(VIP vip) throws SQLException
-    {
+
+    public void insertVIP(VIP vip) throws SQLException {
         DaoVIP.insererVIP(vip);
         leConteneur.add(vip);
         this.fireTableDataChanged();
     }
-    
-    public void deleteVIP(int numLine) throws SQLException
-    {
+
+    public void deleteVIP(int numLine) throws SQLException {
         int numVIP = (int) getValueAt(numLine, 0);
         DaoVIP.deleteVIP(numVIP);
         leConteneur.remove(numLine);

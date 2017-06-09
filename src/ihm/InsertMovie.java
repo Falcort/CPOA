@@ -18,8 +18,7 @@ public class InsertMovie extends javax.swing.JDialog {
 
     private final Movie movie;
     private boolean etatSortie;
-    
-    
+
     public InsertMovie(java.awt.Frame parent, Movie movie) {
         super(parent, true);
         initComponents();
@@ -27,7 +26,7 @@ public class InsertMovie extends javax.swing.JDialog {
         this.setLocation(parent.getLocation());
         etatSortie = false;
     }
-    
+
     public boolean doModal() {
         setVisible(true);
         return etatSortie;
@@ -154,14 +153,14 @@ public class InsertMovie extends javax.swing.JDialog {
                 throw new Exception("Field visa empty");
             }
             movie.setNumVisa(numVisa);
-             
-             //Insertion of title
+
+            //Insertion of title
             String titleMovie = TitleMovie.getText();
-             if (titleMovie.isEmpty()) {
+            if (titleMovie.isEmpty()) {
                 throw new Exception("Field title empty");
             }
-             movie.setTitle(titleMovie);
-             
+            movie.setTitle(titleMovie);
+
             // vérification empty or not date of release
             String releaseDate = DateOut.getText();
             if (releaseDate.isEmpty()) {
@@ -183,17 +182,17 @@ public class InsertMovie extends javax.swing.JDialog {
             } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
                 throw new Exception("format de date incorrect");
             }
-            
-             //Insertion of place of birth
+
+            //Insertion of place of birth
             String genreMovie = Genre.getText();
-             if (genreMovie.isEmpty()) {
+            if (genreMovie.isEmpty()) {
                 throw new Exception("Fiel genre empty");
             }
             movie.setGenre(genreMovie);
-            
+
             etatSortie = true;
             this.dispose();
-       } catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_AddMovieActionPerformed
@@ -201,7 +200,6 @@ public class InsertMovie extends javax.swing.JDialog {
     private void VisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_VisaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddMovie;

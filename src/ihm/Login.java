@@ -22,7 +22,7 @@ public class Login extends javax.swing.JDialog {
         initComponents();
         this.getRootPane().setDefaultButton(jButton1);
     }
-    
+
     public PasswordAuthentication identifier() {
         setVisible(true);
         return new PasswordAuthentication(jTextField1.getText(), jPasswordField1.getPassword());
@@ -193,12 +193,10 @@ public class Login extends javax.swing.JDialog {
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-        {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             this.dispose();
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Connexion;

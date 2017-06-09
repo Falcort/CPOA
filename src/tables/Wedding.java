@@ -2,8 +2,8 @@ package tables;
 
 import java.time.LocalDate;
 
-
 public class Wedding {
+
     private int numVIP1;
     private LocalDate weddingDate;
     private int numVIP2;
@@ -18,7 +18,7 @@ public class Wedding {
         this.divorceDate = divorceDate;
     }
 
-    public Wedding(){   
+    public Wedding() {
     }
 
     public int getNumVIP1() {
@@ -60,6 +60,5 @@ public class Wedding {
     public void setDivorceDate(LocalDate divorceDate) {
         this.divorceDate = divorceDate;
     }
-    
-    
+
 }

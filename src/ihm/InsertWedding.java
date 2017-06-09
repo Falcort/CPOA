@@ -24,13 +24,13 @@ public class InsertWedding extends javax.swing.JDialog {
         this.setLocation(parent.getLocation());
         etatSortie = false;
         this.wedding = null;
-        
+
         NumVIP1.setText(numVIP1 + "");
         DateWedding.setText(dateWedding + "");
         NumVIP2.setText(numVIP2 + "");
         PlaceWedding.setText(placeWedding + "");
         DateDivorce.setText(dateDivorce + "");
-        
+
     }
 
     public boolean doModal() {
@@ -260,7 +260,6 @@ public class InsertWedding extends javax.swing.JDialog {
     private void NumVIP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumVIP2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NumVIP2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DateDivorce;

@@ -2,9 +2,8 @@ package tables;
 
 import java.time.LocalDate;
 
+public class VIP {
 
-public class VIP
-{
     private int numVIP;
     private String firstName;
     private String lastName;
@@ -22,9 +21,8 @@ public class VIP
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
-    
-    public VIP(int numVIP, String firstName, String lastName, String civilite, LocalDate bornDate, String whereBorn, String codeStatus, String codeRole, String nationality)
-    {
+
+    public VIP(int numVIP, String firstName, String lastName, String civilite, LocalDate bornDate, String whereBorn, String codeStatus, String codeRole, String nationality) {
         this.numVIP = numVIP;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,43 +33,36 @@ public class VIP
         this.codeRole = codeRole;
         this.nationality = nationality;
     }
-    
-    public VIP(){
-        
+
+    public VIP() {
+
     }
-    
-     public int getNumVIP()
-     {
+
+    public int getNumVIP() {
         return numVIP;
     }
 
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName()
-    {
+    public String getLastName() {
         return lastName;
     }
 
-    public String getCivilite()
-    {
+    public String getCivilite() {
         return civilite;
     }
 
-    public LocalDate getBornDate()
-    {
+    public LocalDate getBornDate() {
         return bornDate;
     }
 
-    public String getWhereBorn()
-    {
+    public String getWhereBorn() {
         return whereBorn;
     }
 
-    public String getCodeStatus()
-    {
+    public String getCodeStatus() {
         return codeStatus;
     }
 
@@ -107,8 +98,7 @@ public class VIP
         this.codeRole = codeRole;
     }
 
-    public String getCodeRole()
-    {
+    public String getCodeRole() {
         return codeRole;
     }
 }
