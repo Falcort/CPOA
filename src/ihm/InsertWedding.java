@@ -33,10 +33,15 @@ public class InsertWedding extends javax.swing.JDialog {
         this.wedding = null;
 
         NumVIP1.setText(numVIP1 + "");
+        NumVIP1.setEnabled(false);
         DateWedding.setText(dateWedding + "");
+        DateWedding.setEnabled(false);
         NumVIP2.setText(numVIP2 + "");
+        NumVIP2.setEnabled(false);
         PlaceWedding.setText(placeWedding + "");
+        PlaceWedding.setEnabled(false);
         DateDivorce.setText(dateDivorce + "");
+        DateDivorce.setEnabled(false);
         this.daoFunction = Main.getDaoFunction();
         add.setEnabled(false);
         update.setEnabled(true);
