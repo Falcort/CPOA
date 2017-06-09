@@ -355,7 +355,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnAddWedding" min="-2" pref="500" max="-2" attributes="0"/>
                           <EmptySpace pref="26" max="32767" attributes="0"/>
-                          <Component id="btnAddDivorce" min="-2" pref="500" max="-2" attributes="0"/>
+                          <Component id="btnUpdateWedding" min="-2" pref="500" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -365,7 +365,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnAddDivorce" alignment="3" pref="78" max="32767" attributes="0"/>
+                              <Component id="btnUpdateWedding" alignment="3" pref="78" max="32767" attributes="0"/>
                               <Component id="btnAddWedding" alignment="3" pref="78" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -374,12 +374,12 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnAddDivorce">
+                <Component class="javax.swing.JButton" name="btnUpdateWedding">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Add divorce"/>
+                    <Property name="text" type="java.lang.String" value="Update wedding"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddDivorceActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateWeddingActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAddWedding">

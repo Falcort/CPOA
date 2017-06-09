@@ -20,6 +20,9 @@ public class InsertWedding extends javax.swing.JDialog {
         this.setLocation(parent.getLocation());
         etatSortie = false;
         this.daoFunction = Main.getDaoFunction();
+        add.setEnabled(true);
+        update.setEnabled(false);
+        
     }
 
     public InsertWedding(java.awt.Frame parent, String numVIP1, String dateWedding, String numVIP2, String placeWedding, String dateDivorce) {
@@ -35,6 +38,8 @@ public class InsertWedding extends javax.swing.JDialog {
         PlaceWedding.setText(placeWedding + "");
         DateDivorce.setText(dateDivorce + "");
         this.daoFunction = Main.getDaoFunction();
+        add.setEnabled(false);
+        update.setEnabled(true);
     }
 
     public boolean doModal() {
@@ -63,6 +68,7 @@ public class InsertWedding extends javax.swing.JDialog {
         NumVIP1 = new javax.swing.JTextField();
         PlaceWedding = new javax.swing.JTextField();
         NumVIP2 = new javax.swing.JTextField();
+        update = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 485));
@@ -111,6 +117,13 @@ public class InsertWedding extends javax.swing.JDialog {
             }
         });
 
+        update.setText("Update");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,26 +132,33 @@ public class InsertWedding extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addComponent(title))
+                        .addComponent(title)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbPlaceWedding)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbVIP1)
-                                .addComponent(lbDateWedding)
-                                .addComponent(lbVIP2))
-                            .addComponent(lbDateDivorce, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DateWedding)
-                            .addComponent(NumVIP1)
-                            .addComponent(DateDivorce, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PlaceWedding)
-                            .addComponent(NumVIP2))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbPlaceWedding)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lbVIP1)
+                                        .addComponent(lbDateWedding)
+                                        .addComponent(lbVIP2))
+                                    .addComponent(lbDateDivorce, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(81, 81, 81)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DateWedding)
+                                    .addComponent(NumVIP1)
+                                    .addComponent(DateDivorce, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PlaceWedding)
+                                    .addComponent(NumVIP2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -167,7 +187,9 @@ public class InsertWedding extends javax.swing.JDialog {
                     .addComponent(lbDateDivorce)
                     .addComponent(DateDivorce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
 
@@ -273,6 +295,10 @@ public class InsertWedding extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_NumVIP2ActionPerformed
 
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DateDivorce;
     private javax.swing.JTextField DateWedding;
@@ -286,5 +312,6 @@ public class InsertWedding extends javax.swing.JDialog {
     private javax.swing.JLabel lbVIP1;
     private javax.swing.JLabel lbVIP2;
     private javax.swing.JLabel title;
+    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

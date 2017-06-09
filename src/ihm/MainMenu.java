@@ -67,7 +67,7 @@ public class MainMenu extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         Actions3 = new javax.swing.JPanel();
-        btnAddDivorce = new javax.swing.JButton();
+        btnUpdateWedding = new javax.swing.JButton();
         btnAddWedding = new javax.swing.JButton();
         Onglet4 = new javax.swing.JPanel();
 
@@ -215,10 +215,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         Actions3.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
 
-        btnAddDivorce.setText("Add divorce");
-        btnAddDivorce.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateWedding.setText("Update wedding");
+        btnUpdateWedding.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddDivorceActionPerformed(evt);
+                btnUpdateWeddingActionPerformed(evt);
             }
         });
 
@@ -237,7 +237,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnAddWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(btnAddDivorce, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdateWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         Actions3Layout.setVerticalGroup(
@@ -245,7 +245,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(Actions3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Actions3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddDivorce, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                    .addComponent(btnUpdateWedding, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                     .addComponent(btnAddWedding, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -352,7 +352,7 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddMovieActionPerformed
 
-    private void btnAddDivorceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDivorceActionPerformed
+    private void btnUpdateWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateWeddingActionPerformed
         int ligne = jTable3.getSelectedRow();
         String numVIP1 = modeleWedding.getValueAt(ligne, 0) + "";
         String DateWedding = modeleWedding.getValueAt(ligne, 2) + "";
@@ -366,7 +366,7 @@ public class MainMenu extends javax.swing.JFrame {
                 //modeleWedding.insertWedding(newWedding);
             }
         }
-    }//GEN-LAST:event_btnAddDivorceActionPerformed
+    }//GEN-LAST:event_btnUpdateWeddingActionPerformed
 
     private void btnAddWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWeddingActionPerformed
         // TODO add your handling code here:
@@ -426,12 +426,12 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel Onglet3;
     private javax.swing.JPanel Onglet4;
     private javax.swing.JTabbedPane VIP;
-    private javax.swing.JButton btnAddDivorce;
     private javax.swing.JButton btnAddMovie;
     private javax.swing.JButton btnAddVIP;
     private javax.swing.JButton btnAddWedding;
     private javax.swing.JButton btnDeleteMovie;
     private javax.swing.JButton btnDeleteVIP;
+    private javax.swing.JButton btnUpdateWedding;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
