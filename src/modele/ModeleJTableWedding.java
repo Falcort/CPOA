@@ -13,7 +13,7 @@ import tables.Wedding;
 
 public class ModeleJTableWedding extends AbstractTableModel {
 
-    private final List<Wedding> leConteneur;
+    private List<Wedding> leConteneur;
 
     private final String[] title;
 
@@ -74,6 +74,8 @@ public class ModeleJTableWedding extends AbstractTableModel {
     public void insertWedding(Wedding wedding) throws SQLException {
         DaoWedding.insertWedding(wedding);
         leConteneur.add(wedding);
+        leConteneur = new ArrayList<>();
+        DaoWedding.recupererWedding(leConteneur);
         this.fireTableDataChanged();
     }
 
