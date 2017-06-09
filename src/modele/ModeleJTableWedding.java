@@ -79,10 +79,11 @@ public class ModeleJTableWedding extends AbstractTableModel {
         this.fireTableDataChanged();
     }
 
-    public void addDivorce(int numLine) throws SQLException {
-        int numWedding = (int) getValueAt(numLine, 0);
-        //DaoWedding.addDivorce(numWedding);
-        leConteneur.remove(numLine);
+    public void updateWedding(Wedding wedding) throws SQLException {
+        System.out.println("numVIP (table)= " + wedding.getNumVIP1());
+        DaoWedding.updateWedding(wedding);
+        leConteneur = new ArrayList<>();
+        DaoWedding.recupererWedding(leConteneur);
         this.fireTableDataChanged();
     }
 

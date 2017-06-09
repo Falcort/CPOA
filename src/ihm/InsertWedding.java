@@ -2,6 +2,7 @@ package ihm;
 
 import application.Main;
 import database.DaoFunction;
+import database.DaoWedding;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -22,15 +23,15 @@ public class InsertWedding extends javax.swing.JDialog {
         this.daoFunction = Main.getDaoFunction();
         add.setEnabled(true);
         update.setEnabled(false);
-        
+
     }
 
-    public InsertWedding(java.awt.Frame parent, String numVIP1, String dateWedding, String numVIP2, String placeWedding, String dateDivorce) {
+    public InsertWedding(java.awt.Frame parent, Wedding wedding, String numVIP1, String dateWedding, String numVIP2, String placeWedding, String dateDivorce) {
         super(parent, true);
         initComponents();
         this.setLocation(parent.getLocation());
         etatSortie = false;
-        this.wedding = null;
+        this.wedding = wedding;
 
         NumVIP1.setText(numVIP1 + "");
         NumVIP1.setEnabled(false);
@@ -40,8 +41,6 @@ public class InsertWedding extends javax.swing.JDialog {
         NumVIP2.setEnabled(false);
         PlaceWedding.setText(placeWedding + "");
         PlaceWedding.setEnabled(false);
-        DateDivorce.setText(dateDivorce + "");
-        DateDivorce.setEnabled(false);
         this.daoFunction = Main.getDaoFunction();
         add.setEnabled(false);
         update.setEnabled(true);
@@ -283,7 +282,6 @@ public class InsertWedding extends javax.swing.JDialog {
                     throw new Exception(" divorce date format incorrect");
                 }
             }
-
             etatSortie = true;
             this.dispose();
         } catch (Exception e) {
@@ -301,7 +299,42 @@ public class InsertWedding extends javax.swing.JDialog {
     }//GEN-LAST:event_NumVIP2ActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        int numVip1 = Integer.parseInt(NumVIP1.getText());
+        String VIP1Helper = NumVIP1.getText();
+        wedding.setNumVIP1(numVip1);
+
+        String dateWedding = DateWedding.getText();
+        String[] champsDate = dateWedding.split("/");
+        LocalDate dateOut = LocalDate.of(
+                Integer.parseInt(champsDate[2]),
+                Integer.parseInt(champsDate[1]),
+                Integer.parseInt(champsDate[0])
+        );
+        wedding.setWeddingDate(dateOut);
+
+        int numVip2 = Integer.parseInt(NumVIP2.getText());
+        String VIP2Helper = NumVIP2.getText();
+        wedding.setNumVIP2(numVip2);
+
+        String placeWedding = PlaceWedding.getText();
+        wedding.setPlaceWedding(placeWedding);
         
+        String dateDivorce;
+        dateDivorce = DateDivorce.getText();
+        String[] champsDivorceDate = dateDivorce.split("/");
+        //try {
+        LocalDate dateDivorceOut = LocalDate.of(
+                Integer.parseInt(champsDivorceDate[2]),
+                Integer.parseInt(champsDivorceDate[1]),
+                Integer.parseInt(champsDivorceDate[0])
+        );
+        LocalDate aujourdhuiDivorce = LocalDate.now();
+        wedding.setDivorceDate(dateDivorceOut);
+        System.out.println("numVIP(inser) = " + wedding.getNumVIP1());
+        etatSortie = true;
+        this.dispose();
+
+
     }//GEN-LAST:event_updateActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

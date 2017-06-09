@@ -353,6 +353,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddMovieActionPerformed
 
     private void btnUpdateWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateWeddingActionPerformed
+        Wedding tmp = new Wedding();
         int ligne = jTable3.getSelectedRow();
         String numVIP1 = modeleWedding.getValueAt(ligne, 0) + "";
         String DateWedding = modeleWedding.getValueAt(ligne, 2) + "";
@@ -360,10 +361,16 @@ public class MainMenu extends javax.swing.JFrame {
         String PlaceWedding = modeleWedding.getValueAt(ligne, 5) + "";
         String DateDivorce = modeleWedding.getValueAt(ligne, 6) + "";
         if (ligne != -1) {
-            //modeleWedding.addDivorce(ligne);
-            InsertWedding ModifyWedding = new InsertWedding(this, numVIP1, DateWedding, numVIP2, PlaceWedding, DateDivorce);
+            //modeleWedding.updateWedding(ligne);
+            InsertWedding ModifyWedding = new InsertWedding(this, tmp, numVIP1, DateWedding, numVIP2, PlaceWedding, DateDivorce);
             if (ModifyWedding.doModal() == true) {
-                //modeleWedding.insertWedding(newWedding);
+                try {
+                    System.out.println("AVant update");
+                    System.out.println("numVIP (tmp)= " + tmp.getNumVIP1());
+                    modeleWedding.updateWedding(tmp);
+                } catch (SQLException ex) {
+                    Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }//GEN-LAST:event_btnUpdateWeddingActionPerformed

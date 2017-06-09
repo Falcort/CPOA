@@ -77,24 +77,34 @@ public class DaoWedding {
         pstmt.executeUpdate();
         pstmt.close();
     }
-    public void updateWeddingCodeStatusVIP1Free(int id) throws SQLException {
-        String query = "UPDATE VIP SET codeStatut='Free' WHERE numVIP="+id;
-        PreparedStatement pstmt = connection.prepareStatement(query);
-        pstmt.executeUpdate();
-        pstmt.close();
-    }
-    public void updateWeddingCodeStatusVIP2Free(int id) throws SQLException {
-        String query = "UPDATE VIP SET codeStatut='Free' WHERE numVIP="+id;
-        PreparedStatement pstmt = connection.prepareStatement(query);
-        pstmt.executeUpdate();
-        pstmt.close();
-    }
     
-
-    public void addDivorce(Wedding wedding) throws SQLException {
-        /*String query = "UPDATE EVENEMENT SET dateDivorce="+ NULL +"WHERE numVIP1="+ id;
-        PreparedStatement pstmt = connection.prepareStatement(query);                
+    
+    
+    
+    public void updateWedding(Wedding wedding) throws SQLException {
+        try
+        {
+            System.out.println("1");
+            System.out.println("numVIP = " + wedding.getNumVIP1());
+            String query = "UPDATE EVENEMENT SET dateDivorce=? WHERE numVIP1=? AND dateMariage=?";
+            PreparedStatement pstmt = connection.prepareStatement(query); 
+            pstmt.setDate(1, java.sql.Date.valueOf(wedding.getDivorceDate()));
+            pstmt.setInt(2, wedding.getNumVIP1());
+            pstmt.setDate(3, java.sql.Date.valueOf(wedding.getWeddingDate()));
+            System.out.println("1");
+            pstmt.executeUpdate();
+            pstmt.close();
+            System.out.println("1");
+            updateWeddingCodeStatusVIPFree(wedding.getNumVIP1());
+            updateWeddingCodeStatusVIPFree(wedding.getNumVIP2());
+        } catch (SQLException e) {
+            System.out.println("Erreur à l'insertion : " + e.getMessage());
+        }
+    }
+    public void updateWeddingCodeStatusVIPFree(int id) throws SQLException {
+        String query = "UPDATE VIP SET codeStatut='Free' WHERE numVIP="+id;
+        PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.executeUpdate();
-        pstmt.close();*/
+        pstmt.close();
     }
 }
