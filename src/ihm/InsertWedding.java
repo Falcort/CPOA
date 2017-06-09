@@ -1,5 +1,7 @@
 package ihm;
 
+import application.Main;
+import database.DaoFunction;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -9,6 +11,7 @@ public class InsertWedding extends javax.swing.JDialog {
 
     private final Wedding wedding;
     private boolean etatSortie;
+    private DaoFunction daoFunction;
 
     public InsertWedding(java.awt.Frame parent, Wedding wedding) {
         super(parent, true);
@@ -16,6 +19,7 @@ public class InsertWedding extends javax.swing.JDialog {
         this.wedding = wedding;
         this.setLocation(parent.getLocation());
         etatSortie = false;
+        this.daoFunction = Main.getDaoFunction();
     }
 
     public InsertWedding(java.awt.Frame parent, String numVIP1, String dateWedding, String numVIP2, String placeWedding, String dateDivorce) {
@@ -30,7 +34,7 @@ public class InsertWedding extends javax.swing.JDialog {
         NumVIP2.setText(numVIP2 + "");
         PlaceWedding.setText(placeWedding + "");
         DateDivorce.setText(dateDivorce + "");
-
+        this.daoFunction = Main.getDaoFunction();
     }
 
     public boolean doModal() {
@@ -182,6 +186,10 @@ public class InsertWedding extends javax.swing.JDialog {
             if (VIP1Helper.isEmpty()) {
                 throw new Exception("Field vip1 empty");
             }
+            String etatVIP1 = daoFunction.verifyCodeStatus(numVip1);
+            if (!etatVIP1.equals("Free")) {
+                throw new Exception("VIP 1 déjà marié");
+            }
             wedding.setNumVIP1(numVip1);
 
             // vérification empty or not date of release
@@ -211,6 +219,10 @@ public class InsertWedding extends javax.swing.JDialog {
             String VIP2Helper = NumVIP2.getText();
             if (VIP2Helper.isEmpty()) {
                 throw new Exception("Field vip1 empty");
+            }
+            String etatVIP2 = daoFunction.verifyCodeStatus(numVip2);
+            if (!etatVIP2.equals("Free")) {
+                throw new Exception("VIP 2 déjà marié");
             }
             wedding.setNumVIP2(numVip2);
 
