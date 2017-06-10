@@ -286,7 +286,7 @@ public class InsertVIP extends javax.swing.JDialog
             String laDate = DateBirth.getText();
             if (laDate.isEmpty())
             {
-                throw new Exception("champ date vide");
+                throw new Exception("Date field is empty");
             }
             //Insertion date of birth  
             String[] champsDate = laDate.split("/");
@@ -300,12 +300,12 @@ public class InsertVIP extends javax.swing.JDialog
                 LocalDate aujourdhui = LocalDate.now();
                 if (dateBirth.isAfter(aujourdhui))
                 {
-                    throw new Exception("date embauche postérieure à date aujour'hui");
+                    throw new Exception("Hiring date too early");
                 }
                 vip.setBornDate(dateBirth);
             } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex)
             {
-                throw new Exception("format de date incorrect");
+                throw new Exception("Incorrect date format");
             }
 
             //Insertion of place of birth

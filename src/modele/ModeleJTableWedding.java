@@ -25,7 +25,7 @@ public class ModeleJTableWedding extends AbstractTableModel
         this.leConteneur = new ArrayList<>();
         this.title = new String[]
         {
-            "Num VIP1", "Nom Prenom VIP1", "Wedding Date", "Num VIP2", "Nom Prenom VIP2", "Wedding Place", "Divorce Date"
+            "Num VIP1", "LastName FirstName VIP1", "Wedding Date", "Num VIP2", "LastName FirstName VIP2", "Wedding Place", "Divorce Date"
         };
         this.DaoWedding = Main.getDaoWedding();
     }
@@ -51,13 +51,13 @@ public class ModeleJTableWedding extends AbstractTableModel
             case 0:
                 return wedding.getNumVIP1();
             case 1:
-                return wedding.getNomVIP1();
+                return wedding.getLastNameVIP1();
             case 2:
                 return wedding.getWeddingDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             case 3:
                 return wedding.getNumVIP2();
             case 4:
-                return wedding.getNomVIP2();
+                return wedding.getLastNameVIP2();
             case 5:
                 return wedding.getPlaceWedding();
             case 6:
@@ -78,7 +78,7 @@ public class ModeleJTableWedding extends AbstractTableModel
         return title[column];
     }
 
-    public void chargerWedding() throws SQLException
+    public void loadWedding() throws SQLException
     {
         DaoWedding.recupererWedding(leConteneur);
         this.fireTableDataChanged();

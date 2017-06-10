@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modele;
 
 import application.Main;
@@ -66,7 +61,7 @@ public class ModeleJTableMovie extends AbstractTableModel
         return title[column];
     }
 
-    public void chargerMovie() throws SQLException
+    public void loadMovie() throws SQLException
     {
         DaoMovie.recupererMovie(leConteneur);
         this.fireTableDataChanged();

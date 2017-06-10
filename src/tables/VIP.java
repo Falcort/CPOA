@@ -58,7 +58,7 @@ public class VIP
         return lastName;
     }
 
-    public String getCivilite()
+    public String getCivility()
     {
         return civilite;
     }

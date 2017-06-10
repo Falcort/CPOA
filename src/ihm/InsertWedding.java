@@ -216,12 +216,12 @@ public class InsertWedding extends javax.swing.JDialog
             String VIP1Helper = NumVIP1.getText();
             if (VIP1Helper.isEmpty())
             {
-                throw new Exception("Field vip1 empty");
+                throw new Exception("VIP1 field is empty");
             }
             String etatVIP1 = daoFunction.verifyCodeStatus(numVip1);
             if (!etatVIP1.equals("Free"))
             {
-                throw new Exception("VIP 1 déjà marié");
+                throw new Exception("VIP 1 is married");
             }
             wedding.setNumVIP1(numVip1);
 
@@ -229,7 +229,7 @@ public class InsertWedding extends javax.swing.JDialog
             String dateWedding = DateWedding.getText();
             if (dateWedding.isEmpty())
             {
-                throw new Exception("champ date vide");
+                throw new Exception("Date field is empty");
             }
             //Insertion date of wedding  
             String[] champsDate = dateWedding.split("/");
@@ -243,12 +243,12 @@ public class InsertWedding extends javax.swing.JDialog
                 LocalDate aujourdhui = LocalDate.now();
                 if (dateOut.isAfter(aujourdhui))
                 {
-                    throw new Exception("date de sortie postérieure à date aujourd'hui");
+                    throw new Exception("Wedding date is incorrect");
                 }
                 wedding.setWeddingDate(dateOut);
             } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex)
             {
-                throw new Exception("format de date incorrect");
+                throw new Exception("Date format is incorrect");
             }
 
             //Insertion of numVIP2
@@ -261,7 +261,7 @@ public class InsertWedding extends javax.swing.JDialog
             String etatVIP2 = daoFunction.verifyCodeStatus(numVip2);
             if (!etatVIP2.equals("Free"))
             {
-                throw new Exception("VIP 2 déjà marié");
+                throw new Exception("VIP 2 is married");
             }
             wedding.setNumVIP2(numVip2);
 
@@ -298,7 +298,7 @@ public class InsertWedding extends javax.swing.JDialog
                     wedding.setDivorceDate(dateDivorceOut);
                 } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex)
                 {
-                    throw new Exception(" divorce date format incorrect");
+                    throw new Exception("Divorce date format incorrect");
                 }
             }
             etatSortie = true;

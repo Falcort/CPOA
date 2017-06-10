@@ -23,7 +23,7 @@ public class ModeleJTableVIP extends AbstractTableModel
         this.leConteneur = new ArrayList<>();
         this.title = new String[]
         {
-            "Num", "Last Name", "First Name", "Civilite", "Birthdate", "Born place", "Status", "Role", "Nationality"
+            "Num", "Last Name", "First Name", "Civility", "Birthdate", "Born place", "Status", "Role", "Nationality"
         };
         this.DaoVIP = Main.getDaoVIP();
     }
@@ -53,7 +53,7 @@ public class ModeleJTableVIP extends AbstractTableModel
             case 2:
                 return vip.getFirstName();
             case 3:
-                return vip.getCivilite();
+                return vip.getCivility();
             case 4:
                 return vip.getBornDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             case 5:
@@ -74,7 +74,7 @@ public class ModeleJTableVIP extends AbstractTableModel
         return title[column];
     }
 
-    public void chargerLesVIP() throws SQLException
+    public void loadVIP() throws SQLException
     {
         DaoVIP.recupererVIP(leConteneur);
         this.fireTableDataChanged();

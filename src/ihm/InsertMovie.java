@@ -10,10 +10,7 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import tables.Movie;
 
-/**
- *
- * @author Jennifer
- */
+
 public class InsertMovie extends javax.swing.JDialog
 {
 

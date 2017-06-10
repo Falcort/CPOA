@@ -10,38 +10,38 @@ public class Wedding
     private int numVIP2;
     private String placeWedding;
     private LocalDate divorceDate;
-    private String nomVIP1;
-    private String nomVIP2;
+    private String lastNameVIP1;
+    private String lastNameVIP2;
 
-    public Wedding(int numVIP1, String nomVIP1, LocalDate weddingDate, int numVIP2, String nomVIP2, String placeWedding, LocalDate divorceDate)
+    public Wedding(int numVIP1, String lastNameVIP1, LocalDate weddingDate, int numVIP2, String lastNameVIP2, String placeWedding, LocalDate divorceDate)
     {
         this.numVIP1 = numVIP1;
         this.weddingDate = weddingDate;
         this.numVIP2 = numVIP2;
         this.placeWedding = placeWedding;
         this.divorceDate = divorceDate;
-        this.nomVIP1 = nomVIP1;
-        this.nomVIP2 = nomVIP2;
+        this.lastNameVIP1 = lastNameVIP1;
+        this.lastNameVIP2 = lastNameVIP2;
     }
 
-    public String getNomVIP1()
+    public String getLastNameVIP1()
     {
-        return nomVIP1;
+        return lastNameVIP1;
     }
 
-    public void setNomVIP1(String nomVIP1)
+    public void setLastNameVIP1(String lastNameVIP1)
     {
-        this.nomVIP1 = nomVIP1;
+        this.lastNameVIP1 = lastNameVIP1;
     }
 
-    public String getNomVIP2()
+    public String getLastNameVIP2()
     {
-        return nomVIP2;
+        return lastNameVIP2;
     }
 
-    public void setNomVIP2(String nomVIP2)
+    public void setLastNameVIP2(String lastNameVIP2)
     {
-        this.nomVIP2 = nomVIP2;
+        this.lastNameVIP2 = lastNameVIP2;
     }
 
     public Wedding()

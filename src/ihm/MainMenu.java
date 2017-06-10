@@ -32,13 +32,13 @@ public class MainMenu extends javax.swing.JFrame
 
         try
         {
-            modeleVIP.chargerLesVIP();
-            modeleMovie.chargerMovie();
-            modeleWedding.chargerWedding();
+            modeleVIP.loadVIP();
+            modeleMovie.loadMovie();
+            modeleWedding.loadWedding();
 
         } catch (SQLException ex)
         {
-            System.out.println(" Erreur au chargement : " + ex.getMessage());
+            System.out.println("Loading error : " + ex.getMessage());
         }
 
     }
@@ -318,7 +318,7 @@ public class MainMenu extends javax.swing.JFrame
                 modeleVIP.deleteVIP(ligne);
             } catch (SQLException e)
             {
-                System.out.println("Erreur à la suppression : " + e.getMessage());
+                System.out.println("Suppresion error : " + e.getMessage());
             }
         }
     }//GEN-LAST:event_btnDeleteVIPActionPerformed
@@ -335,7 +335,7 @@ public class MainMenu extends javax.swing.JFrame
 
         } catch (SQLException e)
         {
-            System.out.println("Erreur à l'insertion : " + e.getMessage());
+            System.out.println("Insertion error : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddVIPActionPerformed
 
@@ -348,7 +348,7 @@ public class MainMenu extends javax.swing.JFrame
                 modeleMovie.deleteMovie(ligne);
             } catch (SQLException e)
             {
-                System.out.println("Erreur à la suppression : " + e.getMessage());
+                System.out.println("Suppresion error : " + e.getMessage());
             }
         }
     }//GEN-LAST:event_btnDeleteMovieActionPerformed
@@ -364,7 +364,7 @@ public class MainMenu extends javax.swing.JFrame
             }
         } catch (SQLException e)
         {
-            System.out.println("Erreur à l'insertion : " + e.getMessage());
+            System.out.println("Insertion error : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddMovieActionPerformed
 
@@ -405,7 +405,7 @@ public class MainMenu extends javax.swing.JFrame
             }
         } catch (SQLException e)
         {
-            System.out.println("Erreur à l'insertion : " + e.getMessage());
+            System.out.println("Insertion error : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddWeddingActionPerformed
 

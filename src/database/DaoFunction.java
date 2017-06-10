@@ -33,7 +33,7 @@ public class DaoFunction
         }
         rset.close();
         stmt.close();
-        throw new Exception("erreur de numVIP");
+        throw new Exception("error form numVIP");
     }
 
 }

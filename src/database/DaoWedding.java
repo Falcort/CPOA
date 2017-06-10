@@ -24,17 +24,17 @@ public class DaoWedding
 
     public void recupererWedding(List<Wedding> weddings) throws SQLException
     {
-        String query = "SELECT numVIP1, (SELECT nomVIP FROM VIP WHERE numVIP1 = numVIP) AS nVIP1, (SELECT prenomVIP FROM VIP WHERE numVIP1=numVIP) AS pVIP1, dateMariage, numVIPConjoint, (SELECT nomVIP FROM VIP WHERE numVIPConjoint = numVIP) AS nVIP2, (SELECT prenomVIP FROM VIP WHERE numVIPConjoint = numVIP) AS pVIP2, lieuMariage, dateDivorce FROM EVENEMENT;";
+        String query = "SELECT numVIP1, (SELECT lastNameVIP FROM VIP WHERE numVIP1 = numVIP) AS nVIP1, (SELECT firstNameVIP FROM VIP WHERE numVIP1=numVIP) AS pVIP1, weddingDate, partnerVIP, (SELECT lastNameVIP FROM VIP WHERE partnerVIP= numVIP) AS nVIP2, (SELECT firstNameVIP FROM VIP WHERE partnerVIP= numVIP) AS pVIP2, weddingPlace, dateDivorce FROM EVENEMENT;";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
         while (rset.next())
         {
             int i;
             int numVIP1 = rset.getInt(1);
-            String nomVIP1 = rset.getString(2) + " " + rset.getString(3);
+            String lastNameVIP1 = rset.getString(2) + " " + rset.getString(3);
             LocalDate weddingDate = rset.getDate(4).toLocalDate();
             int numVIP2 = rset.getInt(5);
-            String nomVIP2 = rset.getString(6) + " " + rset.getString(7);
+            String lastNameVIP2 = rset.getString(6) + " " + rset.getString(7);
             String placeWedding = rset.getString(8);
             LocalDate divorceDate;
             if (rset.getDate(9) == null)
@@ -44,7 +44,7 @@ public class DaoWedding
             {
                 divorceDate = rset.getDate(9).toLocalDate();
             }
-            Wedding wedding = new Wedding(numVIP1, nomVIP1, weddingDate, numVIP2, nomVIP2, placeWedding, divorceDate);
+            Wedding wedding = new Wedding(numVIP1, lastNameVIP1, weddingDate, numVIP2, lastNameVIP2, placeWedding, divorceDate);
             weddings.add(wedding);
         }
         rset.close();
@@ -53,7 +53,7 @@ public class DaoWedding
 
     public void insertWedding(Wedding wedding) throws SQLException
     {
-        String query = "INSERT INTO EVENEMENT(numVIP1, dateMariage, numVIPConjoint, lieuMariage, dateDivorce) VALUES (?,?,?,?,?)";
+        String query = "INSERT INTO EVENEMENT(numVIP1, weddingDate, partnerVIP, weddingPlace, dateDivorce) VALUES (?,?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, wedding.getNumVIP1());
         pstmt.setDate(2, java.sql.Date.valueOf(wedding.getWeddingDate()));
@@ -92,7 +92,7 @@ public class DaoWedding
     {
         try
         {
-            String query = "UPDATE EVENEMENT SET dateDivorce=? WHERE numVIP1=? AND dateMariage=?";
+            String query = "UPDATE EVENEMENT SET dateDivorce=? WHERE numVIP1=? AND weddingDate=?";
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setDate(1, java.sql.Date.valueOf(wedding.getDivorceDate()));
             pstmt.setInt(2, wedding.getNumVIP1());
@@ -103,7 +103,7 @@ public class DaoWedding
             updateWeddingCodeStatusVIPFree(wedding.getNumVIP2());
         } catch (SQLException e)
         {
-            System.out.println("Erreur à l'insertion : " + e.getMessage());
+            System.out.println("Insertion error : " + e.getMessage());
         }
     }
 
