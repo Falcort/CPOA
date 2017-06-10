@@ -12,18 +12,21 @@ import java.net.PasswordAuthentication;
  *
  * @author Thinkpad-Falcort
  */
-public class Login extends javax.swing.JDialog {
+public class Login extends javax.swing.JDialog
+{
 
     /**
      * Creates new form Login
      */
-    public Login(java.awt.Frame parent) {
+    public Login(java.awt.Frame parent)
+    {
         super(parent, true);
         initComponents();
         this.getRootPane().setDefaultButton(jButton1);
     }
 
-    public PasswordAuthentication identifier() {
+    public PasswordAuthentication identifier()
+    {
         setVisible(true);
         return new PasswordAuthentication(jTextField1.getText(), jPasswordField1.getPassword());
     }
@@ -193,7 +196,8 @@ public class Login extends javax.swing.JDialog {
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
             this.dispose();
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed

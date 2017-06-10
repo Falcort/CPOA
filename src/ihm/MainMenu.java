@@ -12,7 +12,8 @@ import modele.ModeleJTableWedding;
 import tables.Movie;
 import tables.Wedding;
 
-public class MainMenu extends javax.swing.JFrame {
+public class MainMenu extends javax.swing.JFrame
+{
 
     private ModeleJTableVIP modeleVIP;
     private ModeleJTableMovie modeleMovie;
@@ -21,19 +22,22 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form MainMenuTest
      */
-    public MainMenu() {
+    public MainMenu()
+    {
         this.modeleVIP = new ModeleJTableVIP();
         this.modeleMovie = new ModeleJTableMovie();
         this.modeleWedding = new ModeleJTableWedding();
 
         initComponents();
 
-        try {
+        try
+        {
             modeleVIP.chargerLesVIP();
             modeleMovie.chargerMovie();
             modeleWedding.chargerWedding();
 
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             System.out.println(" Erreur au chargement : " + ex.getMessage());
         }
 
@@ -307,47 +311,59 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnDeleteVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteVIPActionPerformed
         int ligne = jTable1.getSelectedRow();
-        if (ligne != -1) {
-            try {
+        if (ligne != -1)
+        {
+            try
+            {
                 modeleVIP.deleteVIP(ligne);
-            } catch (SQLException e) {
+            } catch (SQLException e)
+            {
                 System.out.println("Erreur à la suppression : " + e.getMessage());
             }
         }
     }//GEN-LAST:event_btnDeleteVIPActionPerformed
 
     private void btnAddVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVIPActionPerformed
-        try {
+        try
+        {
             VIP newVIP = new VIP();
             InsertVIP AddVIP = new InsertVIP(this, newVIP);
-            if (AddVIP.doModal() == true) {
+            if (AddVIP.doModal() == true)
+            {
                 modeleVIP.insertVIP(newVIP);
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             System.out.println("Erreur à l'insertion : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddVIPActionPerformed
 
     private void btnDeleteMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteMovieActionPerformed
         int ligne = jTable2.getSelectedRow();
-        if (ligne != -1) {
-            try {
+        if (ligne != -1)
+        {
+            try
+            {
                 modeleMovie.deleteMovie(ligne);
-            } catch (SQLException e) {
+            } catch (SQLException e)
+            {
                 System.out.println("Erreur à la suppression : " + e.getMessage());
             }
         }
     }//GEN-LAST:event_btnDeleteMovieActionPerformed
 
     private void btnAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMovieActionPerformed
-        try {
+        try
+        {
             Movie newMovie = new Movie();
             InsertMovie AddMovie = new InsertMovie(this, newMovie);
-            if (AddMovie.doModal() == true) {
+            if (AddMovie.doModal() == true)
+            {
                 modeleMovie.insertMovie(newMovie);
             }
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             System.out.println("Erreur à l'insertion : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddMovieActionPerformed
@@ -360,15 +376,17 @@ public class MainMenu extends javax.swing.JFrame {
         String numVIP2 = modeleWedding.getValueAt(ligne, 3) + "";
         String PlaceWedding = modeleWedding.getValueAt(ligne, 5) + "";
         String DateDivorce = modeleWedding.getValueAt(ligne, 6) + "";
-        if (ligne != -1) {
+        if (ligne != -1)
+        {
             //modeleWedding.updateWedding(ligne);
             InsertWedding ModifyWedding = new InsertWedding(this, tmp, numVIP1, DateWedding, numVIP2, PlaceWedding, DateDivorce);
-            if (ModifyWedding.doModal() == true) {
-                try {
-                    System.out.println("AVant update");
-                    System.out.println("numVIP (tmp)= " + tmp.getNumVIP1());
+            if (ModifyWedding.doModal() == true)
+            {
+                try
+                {
                     modeleWedding.updateWedding(tmp);
-                } catch (SQLException ex) {
+                } catch (SQLException ex)
+                {
                     Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -377,13 +395,16 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnAddWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWeddingActionPerformed
         // TODO add your handling code here:
-        try {
+        try
+        {
             Wedding newWedding = new Wedding();
             InsertWedding addWedding = new InsertWedding(this, newWedding);
-            if (addWedding.doModal() == true) {
+            if (addWedding.doModal() == true)
+            {
                 modeleWedding.insertWedding(newWedding);
             }
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             System.out.println("Erreur à l'insertion : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddWeddingActionPerformed
@@ -391,34 +412,44 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new MainMenu().setVisible(true);
             }
         });

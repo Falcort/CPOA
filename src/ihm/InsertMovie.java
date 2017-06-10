@@ -14,12 +14,14 @@ import tables.Movie;
  *
  * @author Jennifer
  */
-public class InsertMovie extends javax.swing.JDialog {
+public class InsertMovie extends javax.swing.JDialog
+{
 
     private final Movie movie;
     private boolean etatSortie;
 
-    public InsertMovie(java.awt.Frame parent, Movie movie) {
+    public InsertMovie(java.awt.Frame parent, Movie movie)
+    {
         super(parent, true);
         initComponents();
         this.movie = movie;
@@ -27,7 +29,8 @@ public class InsertMovie extends javax.swing.JDialog {
         etatSortie = false;
     }
 
-    public boolean doModal() {
+    public boolean doModal()
+    {
         setVisible(true);
         return etatSortie;
     }
@@ -145,54 +148,63 @@ public class InsertMovie extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMovieActionPerformed
-        try {
+        try
+        {
             //Insertion of visa
             int numVisa = Integer.parseInt(Visa.getText());
             String visaHelper = Visa.getText();
-            if (visaHelper.isEmpty()) {
+            if (visaHelper.isEmpty())
+            {
                 throw new Exception("Field visa empty");
             }
             movie.setNumVisa(numVisa);
 
             //Insertion of title
             String titleMovie = TitleMovie.getText();
-            if (titleMovie.isEmpty()) {
+            if (titleMovie.isEmpty())
+            {
                 throw new Exception("Field title empty");
             }
             movie.setTitle(titleMovie);
 
             // vérification empty or not date of release
             String releaseDate = DateOut.getText();
-            if (releaseDate.isEmpty()) {
+            if (releaseDate.isEmpty())
+            {
                 throw new Exception("champ date release vide");
             }
             //Insertion date of release  
             String[] champsDate = releaseDate.split("/");
-            try {
+            try
+            {
                 LocalDate dateOut = LocalDate.of(
                         Integer.parseInt(champsDate[2]),
                         Integer.parseInt(champsDate[1]),
                         Integer.parseInt(champsDate[0])
                 );
                 LocalDate aujourdhui = LocalDate.now();
-                if (dateOut.isAfter(aujourdhui)) {
+                if (dateOut.isAfter(aujourdhui))
+                {
                     throw new Exception("date de sortie postérieure à date aujourd'hui");
                 }
                 movie.setReleaseDate(dateOut);
-            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex)
+            {
                 throw new Exception("format de date incorrect");
             }
 
             //Insertion of place of birth
             String genreMovie = Genre.getText();
-            if (genreMovie.isEmpty()) {
+            if (genreMovie.isEmpty())
+            {
                 throw new Exception("Fiel genre empty");
             }
             movie.setGenre(genreMovie);
 
             etatSortie = true;
             this.dispose();
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_AddMovieActionPerformed

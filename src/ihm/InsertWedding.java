@@ -8,13 +8,15 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import tables.Wedding;
 
-public class InsertWedding extends javax.swing.JDialog {
+public class InsertWedding extends javax.swing.JDialog
+{
 
     private final Wedding wedding;
     private boolean etatSortie;
     private DaoFunction daoFunction;
 
-    public InsertWedding(java.awt.Frame parent, Wedding wedding) {
+    public InsertWedding(java.awt.Frame parent, Wedding wedding)
+    {
         super(parent, true);
         initComponents();
         this.wedding = wedding;
@@ -26,7 +28,8 @@ public class InsertWedding extends javax.swing.JDialog {
 
     }
 
-    public InsertWedding(java.awt.Frame parent, Wedding wedding, String numVIP1, String dateWedding, String numVIP2, String placeWedding, String dateDivorce) {
+    public InsertWedding(java.awt.Frame parent, Wedding wedding, String numVIP1, String dateWedding, String numVIP2, String placeWedding, String dateDivorce)
+    {
         super(parent, true);
         initComponents();
         this.setLocation(parent.getLocation());
@@ -46,7 +49,8 @@ public class InsertWedding extends javax.swing.JDialog {
         update.setEnabled(true);
     }
 
-    public boolean doModal() {
+    public boolean doModal()
+    {
         setVisible(true);
         return etatSortie;
     }
@@ -205,56 +209,66 @@ public class InsertWedding extends javax.swing.JDialog {
     }//GEN-LAST:event_PlaceWeddingActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        try {
+        try
+        {
             //Insertion of numVIP1
             int numVip1 = Integer.parseInt(NumVIP1.getText());
             String VIP1Helper = NumVIP1.getText();
-            if (VIP1Helper.isEmpty()) {
+            if (VIP1Helper.isEmpty())
+            {
                 throw new Exception("Field vip1 empty");
             }
             String etatVIP1 = daoFunction.verifyCodeStatus(numVip1);
-            if (!etatVIP1.equals("Free")) {
+            if (!etatVIP1.equals("Free"))
+            {
                 throw new Exception("VIP 1 déjà marié");
             }
             wedding.setNumVIP1(numVip1);
 
             // vérification empty or not date of release
             String dateWedding = DateWedding.getText();
-            if (dateWedding.isEmpty()) {
+            if (dateWedding.isEmpty())
+            {
                 throw new Exception("champ date vide");
             }
             //Insertion date of wedding  
             String[] champsDate = dateWedding.split("/");
-            try {
+            try
+            {
                 LocalDate dateOut = LocalDate.of(
                         Integer.parseInt(champsDate[2]),
                         Integer.parseInt(champsDate[1]),
                         Integer.parseInt(champsDate[0])
                 );
                 LocalDate aujourdhui = LocalDate.now();
-                if (dateOut.isAfter(aujourdhui)) {
+                if (dateOut.isAfter(aujourdhui))
+                {
                     throw new Exception("date de sortie postérieure à date aujourd'hui");
                 }
                 wedding.setWeddingDate(dateOut);
-            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+            } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex)
+            {
                 throw new Exception("format de date incorrect");
             }
 
             //Insertion of numVIP2
             int numVip2 = Integer.parseInt(NumVIP2.getText());
             String VIP2Helper = NumVIP2.getText();
-            if (VIP2Helper.isEmpty()) {
+            if (VIP2Helper.isEmpty())
+            {
                 throw new Exception("Field vip1 empty");
             }
             String etatVIP2 = daoFunction.verifyCodeStatus(numVip2);
-            if (!etatVIP2.equals("Free")) {
+            if (!etatVIP2.equals("Free"))
+            {
                 throw new Exception("VIP 2 déjà marié");
             }
             wedding.setNumVIP2(numVip2);
 
             //Insertion place of wedding
             String placeWedding = PlaceWedding.getText();
-            if (placeWedding.isEmpty()) {
+            if (placeWedding.isEmpty())
+            {
                 throw new Exception("Field title empty");
             }
             wedding.setPlaceWedding(placeWedding);
@@ -262,29 +276,35 @@ public class InsertWedding extends javax.swing.JDialog {
             // vérification empty or not date of divorce
             String dateDivorce;
             dateDivorce = DateDivorce.getText();
-            if (dateDivorce.isEmpty()) {
+            if (dateDivorce.isEmpty())
+            {
                 wedding.setDivorceDate(LocalDate.parse("0001-01-01"));
-            } else {
+            } else
+            {
                 //Insertion date of divorce
                 String[] champsDivorceDate = dateDivorce.split("/");
-                try {
+                try
+                {
                     LocalDate dateDivorceOut = LocalDate.of(
                             Integer.parseInt(champsDivorceDate[2]),
                             Integer.parseInt(champsDivorceDate[1]),
                             Integer.parseInt(champsDivorceDate[0])
                     );
                     LocalDate aujourdhuiDivorce = LocalDate.now();
-                    if (dateDivorceOut.isAfter(aujourdhuiDivorce)) {
+                    if (dateDivorceOut.isAfter(aujourdhuiDivorce))
+                    {
                         throw new Exception("Wrong date input (prob too early in calendar)");
                     }
                     wedding.setDivorceDate(dateDivorceOut);
-                } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex) {
+                } catch (DateTimeException | NumberFormatException | ArrayIndexOutOfBoundsException ex)
+                {
                     throw new Exception(" divorce date format incorrect");
                 }
             }
             etatSortie = true;
             this.dispose();
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.WARNING_MESSAGE);
         }
 
@@ -318,7 +338,7 @@ public class InsertWedding extends javax.swing.JDialog {
 
         String placeWedding = PlaceWedding.getText();
         wedding.setPlaceWedding(placeWedding);
-        
+
         String dateDivorce;
         dateDivorce = DateDivorce.getText();
         String[] champsDivorceDate = dateDivorce.split("/");
@@ -330,10 +350,8 @@ public class InsertWedding extends javax.swing.JDialog {
         );
         LocalDate aujourdhuiDivorce = LocalDate.now();
         wedding.setDivorceDate(dateDivorceOut);
-        System.out.println("numVIP(inser) = " + wedding.getNumVIP1());
         etatSortie = true;
         this.dispose();
-
 
     }//GEN-LAST:event_updateActionPerformed
 

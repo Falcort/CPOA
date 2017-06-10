@@ -11,7 +11,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import tables.Wedding;
 
-public class ModeleJTableWedding extends AbstractTableModel {
+public class ModeleJTableWedding extends AbstractTableModel
+{
 
     private List<Wedding> leConteneur;
 
@@ -19,26 +20,34 @@ public class ModeleJTableWedding extends AbstractTableModel {
 
     private final DaoWedding DaoWedding;
 
-    public ModeleJTableWedding() {
+    public ModeleJTableWedding()
+    {
         this.leConteneur = new ArrayList<>();
-        this.title = new String[]{"Num VIP1", "Nom Prenom VIP1", "Wedding Date", "Num VIP2", "Nom Prenom VIP2", "Wedding Place", "Divorce Date"};
+        this.title = new String[]
+        {
+            "Num VIP1", "Nom Prenom VIP1", "Wedding Date", "Num VIP2", "Nom Prenom VIP2", "Wedding Place", "Divorce Date"
+        };
         this.DaoWedding = Main.getDaoWedding();
     }
 
     @Override
-    public int getRowCount() {
+    public int getRowCount()
+    {
         return leConteneur.size();
     }
 
     @Override
-    public int getColumnCount() {
+    public int getColumnCount()
+    {
         return title.length;
     }
 
     @Override
-    public Object getValueAt(int row, int column) {
+    public Object getValueAt(int row, int column)
+    {
         Wedding wedding = leConteneur.get(row);
-        switch (column) {
+        switch (column)
+        {
             case 0:
                 return wedding.getNumVIP1();
             case 1:
@@ -52,9 +61,11 @@ public class ModeleJTableWedding extends AbstractTableModel {
             case 5:
                 return wedding.getPlaceWedding();
             case 6:
-                if (wedding.getDivorceDate().equals(LocalDate.parse("0001-01-01"))) {
+                if (wedding.getDivorceDate().equals(LocalDate.parse("0001-01-01")))
+                {
                     return "Not divorced";
-                } else {
+                } else
+                {
                     return wedding.getDivorceDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 }
         }
@@ -62,16 +73,19 @@ public class ModeleJTableWedding extends AbstractTableModel {
     }
 
     @Override
-    public String getColumnName(int column) {
+    public String getColumnName(int column)
+    {
         return title[column];
     }
 
-    public void chargerWedding() throws SQLException {
+    public void chargerWedding() throws SQLException
+    {
         DaoWedding.recupererWedding(leConteneur);
         this.fireTableDataChanged();
     }
 
-    public void insertWedding(Wedding wedding) throws SQLException {
+    public void insertWedding(Wedding wedding) throws SQLException
+    {
         DaoWedding.insertWedding(wedding);
         leConteneur.add(wedding);
         leConteneur = new ArrayList<>();
@@ -79,8 +93,8 @@ public class ModeleJTableWedding extends AbstractTableModel {
         this.fireTableDataChanged();
     }
 
-    public void updateWedding(Wedding wedding) throws SQLException {
-        System.out.println("numVIP (table)= " + wedding.getNumVIP1());
+    public void updateWedding(Wedding wedding) throws SQLException
+    {
         DaoWedding.updateWedding(wedding);
         leConteneur = new ArrayList<>();
         DaoWedding.recupererWedding(leConteneur);

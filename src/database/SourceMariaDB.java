@@ -14,9 +14,11 @@ import org.mariadb.jdbc.MariaDbDataSource;
  *
  * @author Alain
  */
-public class SourceMariaDB {
+public class SourceMariaDB
+{
 
-    public static DataSource getSource(PasswordAuthentication login) throws Exception {
+    public static DataSource getSource(PasswordAuthentication login) throws Exception
+    {
         // récupération des informations d'authentification
         String user = login.getUserName();
         String pwd = new String(login.getPassword());

@@ -13,32 +13,41 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import tables.Movie;
 
-public class ModeleJTableMovie extends AbstractTableModel {
+public class ModeleJTableMovie extends AbstractTableModel
+{
 
     private final List<Movie> leConteneur;
     private final String[] title;
     private final DaoMovie DaoMovie;
 
-    public ModeleJTableMovie() {
+    public ModeleJTableMovie()
+    {
         this.leConteneur = new ArrayList<>();
-        this.title = new String[]{"Visa", "Title", "Year of release", "Film genre"};
+        this.title = new String[]
+        {
+            "Visa", "Title", "Year of release", "Film genre"
+        };
         this.DaoMovie = Main.getDaoMovie();
     }
 
     @Override
-    public int getRowCount() {
+    public int getRowCount()
+    {
         return leConteneur.size();
     }
 
     @Override
-    public int getColumnCount() {
+    public int getColumnCount()
+    {
         return title.length;
     }
 
     @Override
-    public Object getValueAt(int row, int column) {
+    public Object getValueAt(int row, int column)
+    {
         Movie movie = leConteneur.get(row);
-        switch (column) {
+        switch (column)
+        {
             case 0:
                 return movie.getNumVisa();
             case 1:
@@ -52,22 +61,26 @@ public class ModeleJTableMovie extends AbstractTableModel {
     }
 
     @Override
-    public String getColumnName(int column) {
+    public String getColumnName(int column)
+    {
         return title[column];
     }
 
-    public void chargerMovie() throws SQLException {
+    public void chargerMovie() throws SQLException
+    {
         DaoMovie.recupererMovie(leConteneur);
         this.fireTableDataChanged();
     }
 
-    public void insertMovie(Movie movie) throws SQLException {
+    public void insertMovie(Movie movie) throws SQLException
+    {
         DaoMovie.insertMovie(movie);
         leConteneur.add(movie);
         this.fireTableDataChanged();
     }
 
-    public void deleteMovie(int numLine) throws SQLException {
+    public void deleteMovie(int numLine) throws SQLException
+    {
         int numMovie = (int) getValueAt(numLine, 0);
         DaoMovie.deleteMovie(numMovie);
         leConteneur.remove(numLine);

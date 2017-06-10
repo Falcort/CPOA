@@ -7,53 +7,64 @@ package tables;
 
 import java.time.LocalDate;
 
-public class Movie {
+public class Movie
+{
 
     private int numVisa;
     private String title;
     private LocalDate releaseDate;
     private String genre;
 
-    public Movie() {
+    public Movie()
+    {
 
     }
 
-    public Movie(int numVisa, String title, LocalDate releaseDate, String genre) {
+    public Movie(int numVisa, String title, LocalDate releaseDate, String genre)
+    {
         this.numVisa = numVisa;
         this.title = title;
         this.releaseDate = releaseDate;
         this.genre = genre;
     }
 
-    public int getNumVisa() {
+    public int getNumVisa()
+    {
         return numVisa;
     }
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
-    public LocalDate getReleaseDate() {
+    public LocalDate getReleaseDate()
+    {
         return releaseDate;
     }
 
-    public String getGenre() {
+    public String getGenre()
+    {
         return genre;
     }
 
-    public void setNumVisa(int numVisa) {
+    public void setNumVisa(int numVisa)
+    {
         this.numVisa = numVisa;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title)
+    {
         this.title = title;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate)
+    {
         this.releaseDate = releaseDate;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(String genre)
+    {
         this.genre = genre;
     }
 

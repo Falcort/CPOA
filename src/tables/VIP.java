@@ -2,7 +2,8 @@ package tables;
 
 import java.time.LocalDate;
 
-public class VIP {
+public class VIP
+{
 
     private int numVIP;
     private String firstName;
@@ -14,15 +15,18 @@ public class VIP {
     private String codeRole;
     private String nationality;
 
-    public String getNationality() {
+    public String getNationality()
+    {
         return nationality;
     }
 
-    public void setNationality(String nationality) {
+    public void setNationality(String nationality)
+    {
         this.nationality = nationality;
     }
 
-    public VIP(int numVIP, String firstName, String lastName, String civilite, LocalDate bornDate, String whereBorn, String codeStatus, String codeRole, String nationality) {
+    public VIP(int numVIP, String firstName, String lastName, String civilite, LocalDate bornDate, String whereBorn, String codeStatus, String codeRole, String nationality)
+    {
         this.numVIP = numVIP;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,71 +38,88 @@ public class VIP {
         this.nationality = nationality;
     }
 
-    public VIP() {
+    public VIP()
+    {
 
     }
 
-    public int getNumVIP() {
+    public int getNumVIP()
+    {
         return numVIP;
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
 
-    public String getCivilite() {
+    public String getCivilite()
+    {
         return civilite;
     }
 
-    public LocalDate getBornDate() {
+    public LocalDate getBornDate()
+    {
         return bornDate;
     }
 
-    public String getWhereBorn() {
+    public String getWhereBorn()
+    {
         return whereBorn;
     }
 
-    public String getCodeStatus() {
+    public String getCodeStatus()
+    {
         return codeStatus;
     }
 
-    public void setNumVIP(int numVIP) {
+    public void setNumVIP(int numVIP)
+    {
         this.numVIP = numVIP;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)
+    {
         this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
 
-    public void setCivilite(String civilite) {
+    public void setCivilite(String civilite)
+    {
         this.civilite = civilite;
     }
 
-    public void setBornDate(LocalDate bornDate) {
+    public void setBornDate(LocalDate bornDate)
+    {
         this.bornDate = bornDate;
     }
 
-    public void setWhereBorn(String whereBorn) {
+    public void setWhereBorn(String whereBorn)
+    {
         this.whereBorn = whereBorn;
     }
 
-    public void setCodeStatus(String codeStatus) {
+    public void setCodeStatus(String codeStatus)
+    {
         this.codeStatus = codeStatus;
     }
 
-    public void setCodeRole(String codeRole) {
+    public void setCodeRole(String codeRole)
+    {
         this.codeRole = codeRole;
     }
 
-    public String getCodeRole() {
+    public String getCodeRole()
+    {
         return codeRole;
     }
 }

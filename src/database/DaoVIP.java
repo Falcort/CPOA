@@ -9,19 +9,23 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.List;
 
-public class DaoVIP {
+public class DaoVIP
+{
 
     private final Connection connexion;
 
-    public DaoVIP(Connection connexion) {
+    public DaoVIP(Connection connexion)
+    {
         this.connexion = connexion;
     }
 
-    public void recupererVIP(List<VIP> VIPs) throws SQLException {
+    public void recupererVIP(List<VIP> VIPs) throws SQLException
+    {
         String requete = "select * from VIP";
         Statement stmt = connexion.createStatement();
         ResultSet rset = stmt.executeQuery(requete);
-        while (rset.next()) {
+        while (rset.next())
+        {
             int numVIP = rset.getInt(1);
             String lastName = rset.getString(2);
             String firstName = rset.getString(3);
@@ -38,7 +42,8 @@ public class DaoVIP {
         stmt.close();
     }
 
-    public void insererVIP(VIP vip) throws SQLException {
+    public void insererVIP(VIP vip) throws SQLException
+    {
         String query = "INSERT INTO VIP(nomVIP, prénomVIP, civilitéVIP, dateNaissance, lieuNaissance, codeStatut, codeRole, nationality) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = connexion.prepareStatement(query);
         pstmt.setString(1, vip.getLastName());
@@ -53,7 +58,8 @@ public class DaoVIP {
         pstmt.close();
     }
 
-    public void deleteVIP(int numVIP) throws SQLException {
+    public void deleteVIP(int numVIP) throws SQLException
+    {
         String query = "DELETE FROM VIP WHERE numVIP = ?";
         PreparedStatement pstmt = connexion.prepareStatement(query);
         pstmt.setInt(1, numVIP);
