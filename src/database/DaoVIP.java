@@ -44,7 +44,7 @@ public class DaoVIP
 
     public void insererVIP(VIP vip) throws SQLException
     {
-        String query = "INSERT INTO VIP(lastNameVIP, firstNameVIP, civilityVIP, bornDate, bornPlace, codeStatut, codeRole, nationality) VALUES (?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO VIP(lastNameVIP, firstNameVIP, civilityVIP, bornDate, bornPlace, codeStatus, codeRole, nationality) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = connexion.prepareStatement(query);
         pstmt.setString(1, vip.getLastName());
         pstmt.setString(2, vip.getFirstName());

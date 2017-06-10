@@ -74,7 +74,7 @@ public class DaoWedding
 
     public void updateWeddingCodeStatusVIP1Maried(int id) throws SQLException
     {
-        String query = "UPDATE VIP SET codeStatut='Maried' WHERE numVIP=" + id;
+        String query = "UPDATE VIP SET codeStatus='Maried' WHERE numVIP=" + id;
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.executeUpdate();
         pstmt.close();
@@ -82,7 +82,7 @@ public class DaoWedding
 
     public void updateWeddingCodeStatusVIP2Maried(int id) throws SQLException
     {
-        String query = "UPDATE VIP SET codeStatut='Maried' WHERE numVIP=" + id;
+        String query = "UPDATE VIP SET codeStatus='Maried' WHERE numVIP=" + id;
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.executeUpdate();
         pstmt.close();
@@ -109,7 +109,7 @@ public class DaoWedding
 
     public void updateWeddingCodeStatusVIPFree(int id) throws SQLException
     {
-        String query = "UPDATE VIP SET codeStatut='Free' WHERE numVIP=" + id;
+        String query = "UPDATE VIP SET codeStatus='Free' WHERE numVIP=" + id;
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.executeUpdate();
         pstmt.close();

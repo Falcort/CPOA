@@ -20,7 +20,7 @@ public class DaoFunction
 
     public String verifyCodeStatus(int id) throws SQLException, Exception
     {
-        String requete = "SELECT codeStatut FROM VIP WHERE numVIP='" + id + "'";
+        String requete = "SELECT codeStatus FROM VIP WHERE numVIP='" + id + "'";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(requete);
 
