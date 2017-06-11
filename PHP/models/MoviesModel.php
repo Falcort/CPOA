@@ -32,14 +32,14 @@ class MoviesModel extends Model
      */
     public function index()
     {
-        $this->query("SELECT * FROM MOVIE, GENRE WHERE MOVIE.genre=GENRE.idGender");
+        $this->query("SELECT * FROM MOVIE, GENRE WHERE MOVIE.genre=GENRE.genreID");
         $Movies = $this->resultSet();
         return $Movies;
     }
 
     public function detailed()
     {
-      $this->query("SELECT * FROM MOVIE, GENRE WHERE numVisa= :id AND MOVIE.genre=GENRE.idGender");
+      $this->query("SELECT * FROM MOVIE, GENRE WHERE numVisa= :id AND MOVIE.genre=GENRE.genreID");
       $this->bind(':id', $_GET['id']);
       $Movie = $this->single();
 

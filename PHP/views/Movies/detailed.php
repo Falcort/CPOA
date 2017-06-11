@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <th>Genre :</th>
-      <td><?php echo($viewModel[0]['libelleGender']); ?> </td>
+      <td><?php echo($viewModel[0]['genreWording']); ?> </td>
     </tr>
   </table>
   <h4 id="realisator" class="scrollspy">Realisator</h4>
