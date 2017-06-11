@@ -1,1 +1,27 @@
 # CPOA
+
+### Todo Java
+- [X] Ajouter VIP
+- [X] Delete VIP
+- [X] Ajouter Film
+- [X] Supprimer Film
+- [X] Ajouter un Mariage
+- [X] Ajouter un Divorce
+- [] Casing
+- [] Realisateur
+- [] Modifier VIP si réalisateur / acteur ou les deux
+- [] Uploader image
+- [] Tagger VIP sur image
+- [] Ajouter image de profils au VIP
+- [] Liste déroulante de VIP
+- [] Liste déroulante de Film
+
+### Todo PHP
+- [X] Base MVC
+- [X] Liste des VIP
+- [X] Liste des Film
+- [X] Lier les VIP et les Film
+- [] Affichez les photo
+- [] Mise en page avancé
+- [] Search bar ?
+- [] Section Photo
