@@ -76,7 +76,7 @@
       <td><?php echo $movie['numVisa']; ?></td>
       <td><a href="/Movies/detailed/<?php echo $movie['numVisa']; ?>"><?php echo $movie['title']; ?></a></td>
       <td><?php echo $movie['releaseDate']; ?></td>
-      <td><?php echo $movie['gender']; ?></td>
+      <td><?php echo $movie['libelleGender']; ?></td>
     </tr>
   <?php endforeach; ?>
 

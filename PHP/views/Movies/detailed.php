@@ -14,6 +14,10 @@
       <th>releaseDate :</th>
       <td><?php echo($viewModel[0]['releaseDate']); ?> </td>
     </tr>
+    <tr>
+      <th>Genre :</th>
+      <td><?php echo($viewModel[0]['libelleGender']); ?> </td>
+    </tr>
   </table>
   <h4 id="realisator" class="scrollspy">Realisator</h4>
   <div class="card horizontal scrollspy pin-top" id="<?php echo $VIP['numVIP']; ?>">

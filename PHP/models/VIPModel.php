@@ -44,7 +44,7 @@ class VIPModel extends Model
         $this->bind(':id', $_GET['id']);
         $VIP = $this->single();
 
-        $this->query("SELECT * FROM CASTING, MOVIE WHERE CASTING.numVIP = :id AND CASTING.numVisa=MOVIE.numVisa");
+        $this->query("SELECT * FROM CASTING, MOVIE, GENRE WHERE CASTING.numVIP = :id AND CASTING.numVisa=MOVIE.numVisa AND GENRE.idGender=MOVIE.genre");
         $this->bind(':id', $_GET['id']);
         $Movies = $this->resultSet();
 

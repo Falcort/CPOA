@@ -16,7 +16,7 @@
             <p><b>release Date</b> : <?php echo $movie['releaseDate']; ?></p>
           </div>
           <div class="col s4">
-            <p><b>Gender</b> : <?php echo $movie['gender']; ?></p>
+            <p><b>Genre</b> : <?php echo $movie['libelleGender']; ?></p>
           </div>
         </div>
         <div class="card-action">
