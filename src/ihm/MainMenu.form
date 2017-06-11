@@ -247,11 +247,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnAddMovie" min="-2" pref="299" max="-2" attributes="0"/>
-                          <EmptySpace pref="70" max="32767" attributes="0"/>
-                          <Component id="btnAddActor" min="-2" pref="299" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Component id="btnDeleteMovie" min="-2" pref="299" max="-2" attributes="0"/>
+                          <Component id="btnAddMovie" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="btnAddActor" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace pref="84" max="32767" attributes="0"/>
+                          <Component id="btnAddDirector" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="btnDeleteMovie" min="-2" pref="200" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -264,6 +266,7 @@
                               <Component id="btnDeleteMovie" alignment="3" pref="78" max="32767" attributes="0"/>
                               <Component id="btnAddMovie" alignment="3" pref="78" max="32767" attributes="0"/>
                               <Component id="btnAddActor" alignment="3" pref="78" max="32767" attributes="0"/>
+                              <Component id="btnAddDirector" alignment="3" pref="78" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -293,6 +296,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActorActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnAddDirector">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Add director"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddDirectorActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

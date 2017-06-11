@@ -9,9 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modele.ModeleJTableCasting;
 import modele.ModeleJTableMovie;
+import modele.ModeleJTableRealisation;
 import modele.ModeleJTableWedding;
 import tables.Casting;
 import tables.Movie;
+import tables.Realisation;
 import tables.Wedding;
 
 public class MainMenu extends javax.swing.JFrame
@@ -21,6 +23,7 @@ public class MainMenu extends javax.swing.JFrame
     private ModeleJTableMovie modeleMovie;
     private ModeleJTableWedding modeleWedding;
     private ModeleJTableCasting modeleCasting;
+    private ModeleJTableRealisation modeleRealisation;
 
     /**
      * Creates new form MainMenuTest
@@ -31,6 +34,7 @@ public class MainMenu extends javax.swing.JFrame
         this.modeleMovie = new ModeleJTableMovie();
         this.modeleWedding = new ModeleJTableWedding();
         this.modeleCasting = new ModeleJTableCasting();
+        this.modeleRealisation = new ModeleJTableRealisation();
 
         initComponents();
 
@@ -40,6 +44,7 @@ public class MainMenu extends javax.swing.JFrame
             modeleMovie.loadMovie();
             modeleWedding.loadWedding();
             modeleCasting.loadCasting();
+            modeleRealisation.loadRealisation();
 
         } catch (SQLException ex)
         {
@@ -73,6 +78,7 @@ public class MainMenu extends javax.swing.JFrame
         btnDeleteMovie = new javax.swing.JButton();
         btnAddMovie = new javax.swing.JButton();
         btnAddActor = new javax.swing.JButton();
+        btnAddDirector = new javax.swing.JButton();
         Onglet3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -183,17 +189,26 @@ public class MainMenu extends javax.swing.JFrame
             }
         });
 
+        btnAddDirector.setText("Add director");
+        btnAddDirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddDirectorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Actions2Layout = new javax.swing.GroupLayout(Actions2);
         Actions2.setLayout(Actions2Layout);
         Actions2Layout.setHorizontalGroup(
             Actions2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(btnAddActor, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(btnDeleteMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(btnAddActor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(btnAddDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(btnDeleteMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         Actions2Layout.setVerticalGroup(
@@ -203,7 +218,8 @@ public class MainMenu extends javax.swing.JFrame
                 .addGroup(Actions2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDeleteMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                     .addComponent(btnAddMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                    .addComponent(btnAddActor, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
+                    .addComponent(btnAddActor, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                    .addComponent(btnAddDirector, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -439,6 +455,21 @@ public class MainMenu extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnAddActorActionPerformed
 
+    private void btnAddDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDirectorActionPerformed
+        try
+        {
+            Realisation newRealisation = new Realisation();
+            InsertRealisation AddReaslisation = new InsertRealisation(this, newRealisation);
+            if (AddReaslisation.doModal() == true)
+            {
+                modeleRealisation.insertRealisation(newRealisation);
+            }
+        } catch (SQLException e)
+        {
+            System.out.println("Insertion error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnAddDirectorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -495,6 +526,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JPanel Onglet4;
     private javax.swing.JTabbedPane VIP;
     private javax.swing.JButton btnAddActor;
+    private javax.swing.JButton btnAddDirector;
     private javax.swing.JButton btnAddMovie;
     private javax.swing.JButton btnAddVIP;
     private javax.swing.JButton btnAddWedding;
