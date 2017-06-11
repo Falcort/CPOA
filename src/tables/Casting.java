@@ -4,16 +4,26 @@ package tables;
 public class Casting {
     private int numVISACasting;
     private int numVIPCasting;
+    private String roleCasting;
     
     public Casting()
     {
 
     }
 
-    public Casting(int numVISACasting, int numVIPCasting)
+    public Casting(int numVISACasting, int numVIPCasting, String roleCasting)
     {
         this.numVISACasting = numVISACasting;
         this.numVIPCasting = numVIPCasting;
+        this.roleCasting = roleCasting;
+    }
+
+    public void setRoleCasting(String roleCasting) {
+        this.roleCasting = roleCasting;
+    }
+
+    public String getRoleCasting() {
+        return roleCasting;
     }
 
     public int getNumVISACasting() {

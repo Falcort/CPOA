@@ -36,6 +36,8 @@ public class InsertCasting extends javax.swing.JDialog {
         numVIPCasting = new javax.swing.JTextField();
         jVisa1 = new javax.swing.JLabel();
         AddMovie = new javax.swing.JButton();
+        roleCasting = new javax.swing.JTextField();
+        jVisa2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -67,6 +69,15 @@ public class InsertCasting extends javax.swing.JDialog {
             }
         });
 
+        roleCasting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roleCastingActionPerformed(evt);
+            }
+        });
+
+        jVisa2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jVisa2.setText("Role");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,13 +86,18 @@ public class InsertCasting extends javax.swing.JDialog {
                 .addGap(135, 135, 135)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jVisa1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numVIPCasting, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jVisa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numVISACasting, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(numVISACasting, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jVisa2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(roleCasting, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jVisa1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(numVIPCasting, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(112, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -106,7 +122,11 @@ public class InsertCasting extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jVisa1)
                     .addComponent(numVIPCasting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jVisa2)
+                    .addComponent(roleCasting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addComponent(AddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
@@ -141,6 +161,14 @@ public class InsertCasting extends javax.swing.JDialog {
                 int numVIP = Integer.parseInt(numVIPCasting.getText());
                 casting.setNumVIPCasting(numVIP);
             }
+            
+            //Insertion of role
+            String role = roleCasting.getText();
+            if (role.isEmpty())
+            {
+                throw new Exception("Field role empty");
+            }
+            casting.setRoleCasting(role);
 
             etatSortie = true;
             this.dispose();
@@ -150,12 +178,18 @@ public class InsertCasting extends javax.swing.JDialog {
 
     }//GEN-LAST:event_AddMovieActionPerformed
 
+    private void roleCastingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleCastingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roleCastingActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddMovie;
     private javax.swing.JLabel jVisa;
     private javax.swing.JLabel jVisa1;
+    private javax.swing.JLabel jVisa2;
     private javax.swing.JTextField numVIPCasting;
     private javax.swing.JTextField numVISACasting;
+    private javax.swing.JTextField roleCasting;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

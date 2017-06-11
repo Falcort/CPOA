@@ -20,7 +20,7 @@ public class ModeleJTableCasting extends AbstractTableModel
         this.leConteneur = new ArrayList<>();
         this.title = new String[]
         {
-            "Visa", "Num VIP Casting"
+            "Visa", "Num VIP Casting", "Role"
         };
         this.DaoCasting = Main.getDaoCasting();
     }
@@ -47,6 +47,8 @@ public class ModeleJTableCasting extends AbstractTableModel
                 return casting.getNumVISACasting();
             case 1:
                 return casting.getNumVIPCasting();
+            case 2:
+                return casting.getRoleCasting();
         }
         return null;
     }
