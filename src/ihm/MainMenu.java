@@ -7,8 +7,10 @@ import tables.VIP;
 import ihm.InsertVIP;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modele.ModeleJTableCasting;
 import modele.ModeleJTableMovie;
 import modele.ModeleJTableWedding;
+import tables.Casting;
 import tables.Movie;
 import tables.Wedding;
 
@@ -18,6 +20,7 @@ public class MainMenu extends javax.swing.JFrame
     private ModeleJTableVIP modeleVIP;
     private ModeleJTableMovie modeleMovie;
     private ModeleJTableWedding modeleWedding;
+    private ModeleJTableCasting modeleCasting;
 
     /**
      * Creates new form MainMenuTest
@@ -27,6 +30,7 @@ public class MainMenu extends javax.swing.JFrame
         this.modeleVIP = new ModeleJTableVIP();
         this.modeleMovie = new ModeleJTableMovie();
         this.modeleWedding = new ModeleJTableWedding();
+        this.modeleCasting = new ModeleJTableCasting();
 
         initComponents();
 
@@ -35,6 +39,7 @@ public class MainMenu extends javax.swing.JFrame
             modeleVIP.loadVIP();
             modeleMovie.loadMovie();
             modeleWedding.loadWedding();
+            modeleCasting.loadCasting();
 
         } catch (SQLException ex)
         {
@@ -67,6 +72,7 @@ public class MainMenu extends javax.swing.JFrame
         Actions2 = new javax.swing.JPanel();
         btnDeleteMovie = new javax.swing.JButton();
         btnAddMovie = new javax.swing.JButton();
+        btnAddActor = new javax.swing.JButton();
         Onglet3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -170,15 +176,24 @@ public class MainMenu extends javax.swing.JFrame
             }
         });
 
+        btnAddActor.setText("Add actor");
+        btnAddActor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Actions2Layout = new javax.swing.GroupLayout(Actions2);
         Actions2.setLayout(Actions2Layout);
         Actions2Layout.setHorizontalGroup(
             Actions2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(btnDeleteMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(btnAddActor, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(btnDeleteMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         Actions2Layout.setVerticalGroup(
@@ -187,7 +202,8 @@ public class MainMenu extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(Actions2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDeleteMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                    .addComponent(btnAddMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
+                    .addComponent(btnAddMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                    .addComponent(btnAddActor, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -394,7 +410,6 @@ public class MainMenu extends javax.swing.JFrame
     }//GEN-LAST:event_btnUpdateWeddingActionPerformed
 
     private void btnAddWeddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWeddingActionPerformed
-        // TODO add your handling code here:
         try
         {
             Wedding newWedding = new Wedding();
@@ -408,6 +423,21 @@ public class MainMenu extends javax.swing.JFrame
             System.out.println("Insertion error : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddWeddingActionPerformed
+
+    private void btnAddActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActorActionPerformed
+        try
+        {
+            Casting newCasting = new Casting();
+            InsertCasting AddCasting = new InsertCasting(this, newCasting);
+            if (AddCasting.doModal() == true)
+            {
+                modeleCasting.insertCasting(newCasting);
+            }
+        } catch (SQLException e)
+        {
+            System.out.println("Insertion error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnAddActorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,6 +494,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JPanel Onglet3;
     private javax.swing.JPanel Onglet4;
     private javax.swing.JTabbedPane VIP;
+    private javax.swing.JButton btnAddActor;
     private javax.swing.JButton btnAddMovie;
     private javax.swing.JButton btnAddVIP;
     private javax.swing.JButton btnAddWedding;

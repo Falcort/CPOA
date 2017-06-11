@@ -29,8 +29,8 @@ public class DaoMovie
             int visa = rset.getInt(1);
             String title = rset.getString(2);
             LocalDate date = rset.getDate(3).toLocalDate();
-            String gender = rset.getString(4);
-            Movie movie = new Movie(visa, title, date, gender);
+            String genre = rset.getString(4);
+            Movie movie = new Movie(visa, title, date, genre);
             movies.add(movie);
         }
         rset.close();
@@ -39,7 +39,7 @@ public class DaoMovie
 
     public void insertMovie(Movie movie) throws SQLException
     {
-        String query = "INSERT INTO MOVIE(numVisa, title, gender, releaseDate) VALUES (?,?,?,?)";
+        String query = "INSERT INTO MOVIE(numVisa, title, genre, releaseDate) VALUES (?,?,?,?)";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, movie.getNumVisa());
         pstmt.setString(2, movie.getTitle());

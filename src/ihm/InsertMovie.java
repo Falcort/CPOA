@@ -51,6 +51,8 @@ public class InsertMovie extends javax.swing.JDialog
         DateOut = new javax.swing.JTextField();
         Genre = new javax.swing.JTextField();
         AddMovie = new javax.swing.JButton();
+        DirectorMovieID = new javax.swing.JTextField();
+        IDMovieDirector = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 485));
@@ -85,35 +87,39 @@ public class InsertMovie extends javax.swing.JDialog
             }
         });
 
+        IDMovieDirector.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        IDMovieDirector.setText("ID Movie director");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(78, 78, 78)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jGenre)
-                                .addComponent(jDateOut)
-                                .addComponent(jTitleMov)
-                                .addComponent(jVisa))
-                            .addGap(56, 56, 56)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Genre)
-                                .addComponent(DateOut)
-                                .addComponent(TitleMovie)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Visa, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(187, 187, 187)
-                            .addComponent(title)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
+                        .addGap(187, 187, 187)
+                        .addComponent(title))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jGenre)
+                            .addComponent(jDateOut)
+                            .addComponent(jTitleMov)
+                            .addComponent(jVisa)
+                            .addComponent(IDMovieDirector))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DirectorMovieID)
+                            .addComponent(Genre)
+                            .addComponent(DateOut)
+                            .addComponent(TitleMovie)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Visa, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
                         .addComponent(AddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +142,13 @@ public class InsertMovie extends javax.swing.JDialog
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jGenre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DirectorMovieID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDMovieDirector))
+                .addGap(52, 52, 52)
                 .addComponent(AddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,7 +223,9 @@ public class InsertMovie extends javax.swing.JDialog
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddMovie;
     private javax.swing.JTextField DateOut;
+    private javax.swing.JTextField DirectorMovieID;
     private javax.swing.JTextField Genre;
+    private javax.swing.JLabel IDMovieDirector;
     private javax.swing.JTextField TitleMovie;
     private javax.swing.JTextField Visa;
     private javax.swing.JLabel jDateOut;

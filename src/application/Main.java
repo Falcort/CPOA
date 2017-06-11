@@ -1,5 +1,6 @@
 package application;
 
+import database.DaoCasting;
 import database.DaoMovie;
 import database.DaoVIP;
 import database.DaoWedding;
@@ -20,31 +21,33 @@ public class Main
 {
 
     private static DaoVIP daoVIP;
-
     public static DaoVIP getDaoVIP()
     {
         return daoVIP;
     }
 
     private static DaoMovie daoMovie;
-
     public static DaoMovie getDaoMovie()
     {
         return daoMovie;
     }
 
     private static DaoWedding daoWedding;
-
     public static DaoWedding getDaoWedding()
     {
         return daoWedding;
     }
 
     private static DaoFunction daoFunction;
-
     public static DaoFunction getDaoFunction()
     {
         return daoFunction;
+    }
+    
+    private static DaoCasting daoCasting;
+    public static DaoCasting getDaoCasting()
+    {
+        return daoCasting;
     }
 
     public static void main(String[] args)
@@ -90,6 +93,7 @@ public class Main
         daoMovie = new DaoMovie(connection);
         daoWedding = new DaoWedding(connection);
         daoFunction = new DaoFunction(connection);
+        daoCasting = new DaoCasting(connection);
 
         javax.swing.SwingUtilities.invokeLater(new Runnable()
         {
