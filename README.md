@@ -7,14 +7,15 @@
 - [X] Supprimer Film
 - [X] Ajouter un Mariage
 - [X] Ajouter un Divorce
-- [ ] Casing
-- [ ] Realisateur
+- [X] Casting
+- [X] Realisateur
 - [ ] Modifier VIP si réalisateur / acteur ou les deux
 - [ ] Uploader image
 - [ ] Tagger VIP sur image
 - [ ] Ajouter image de profils au VIP
 - [ ] Liste déroulante de VIP
 - [ ] Liste déroulante de Film
+- [ ] Vérification date de divorce
 
 ### Todo PHP
 - [X] Base MVC
