@@ -19,14 +19,14 @@
 
                 <ul class="right hide-on-med-and-down">
                   <li><a href="search"><i class="material-icons left">search</i>   Search</a></li>
-                  <li><a href="/VIP"><i class="material-icons left">perm_identity</i>   VIP</a></li>
-                  <li><a href="/Movies"><i class="material-icons left">theaters</i>   Movies</a></li>
+                  <li><a href="VIP"><i class="material-icons left">perm_identity</i>   VIP</a></li>
+                  <li><a href="Movies"><i class="material-icons left">theaters</i>   Movies</a></li>
                 </ul>
 
                 <ul class="side-nav" id="mobile-demo">
                   <li><a href="search"><i class="material-icons left">search</i> Search</a></li>
-                  <li><a href="/VIP"><i class="material-icons left">perm_identity</i>   VIP</a></li>
-                  <li><a href="/Movies"><i class="material-icons left">theaters</i>   Movies</a></li>
+                  <li><a href="VIP"><i class="material-icons left">perm_identity</i>   VIP</a></li>
+                  <li><a href="Movies"><i class="material-icons left">theaters</i>   Movies</a></li>
                 </ul>
             </div>
         </nav>
@@ -36,13 +36,11 @@
             });
         </script>
 
-        <main>
-            <div class="container">
-                <div class="row">
-                    <?php require($view); ?>
-                </div>
-            </div>
-        </main>
+        <div class="container">
+          <div class="row">
+            <?php require($view); ?>
+          </div>
+        </div>
 
         <footer class="page-footer">
           <div class="container">
@@ -55,7 +53,7 @@
                 <h5 class="white-text">Links</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="search">Search</a></li>
-                  <li><a class="grey-text text-lighten-3" href="/VIP">VIP</a></li>
+                  <li><a class="grey-text text-lighten-3" href="VIP">VIP</a></li>
                   <li><a class="grey-text text-lighten-3" href="Movies">Movies</a></li>
                 </ul>
               </div>

@@ -26,3 +26,4 @@
 - [ ] Mise en page avancé
 - [ ] Search bar ?
 - [ ] Section Photo
+- [X] Sur VIP voir la date de sortie du film si film réaliser par VIP

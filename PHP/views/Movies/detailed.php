@@ -41,7 +41,7 @@
       <?php foreach ($viewModel[1] as $casting) : ?>
         <tr>
           <td><a href="/VIP/detailed/<?php echo $casting['numVIP']; ?>"><?php echo($casting['lastNameVIP']. " ".$casting['firstNameVIP']); ?></a></td>
-          <td></td>
+          <td><?php echo $casting['role']; ?></td>
         </tr>
       <?php endforeach; ?>
     </tr>

@@ -71,7 +71,7 @@ class VIPModel extends Model
           array_push($partnerCar, $partner);
         }
 
-        $this->query("SELECT MOVIE.numVisa, title FROM MOVIE, REALISATION WHERE REALISATION.numVIP = :id AND REALISATION.numVisa=MOVIE.numVisa");
+        $this->query("SELECT MOVIE.numVisa, title, releaseDate FROM MOVIE, REALISATION WHERE REALISATION.numVIP = :id AND REALISATION.numVisa=MOVIE.numVisa");
         $this->bind(':id', $_GET['id']);
         $realise = $this->resultSet();
 
