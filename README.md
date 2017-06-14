@@ -9,13 +9,13 @@
 - [X] Ajouter un Divorce
 - [X] Casting
 - [X] Realisateur
+- [X] Vérification date de divorce
 - [ ] Modifier VIP si réalisateur / acteur ou les deux
 - [ ] Uploader image
 - [ ] Tagger VIP sur image
 - [ ] Ajouter image de profils au VIP
 - [ ] Liste déroulante de VIP
 - [ ] Liste déroulante de Film
-- [ ] Vérification date de divorce
 
 ### Todo PHP
 - [X] Base MVC
