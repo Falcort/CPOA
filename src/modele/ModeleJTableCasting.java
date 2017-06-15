@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import tables.Casting;
+import metier.Casting;
 
 public class ModeleJTableCasting extends AbstractTableModel
 {

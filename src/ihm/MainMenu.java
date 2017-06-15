@@ -3,7 +3,7 @@ package ihm;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import modele.ModeleJTableVIP;
-import tables.VIP;
+import metier.VIP;
 import ihm.InsertVIP;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,10 +11,10 @@ import modele.ModeleJTableCasting;
 import modele.ModeleJTableMovie;
 import modele.ModeleJTableRealisation;
 import modele.ModeleJTableWedding;
-import tables.Casting;
-import tables.Movie;
-import tables.Realisation;
-import tables.Wedding;
+import metier.Casting;
+import metier.Movie;
+import metier.Realisation;
+import metier.Wedding;
 
 public class MainMenu extends javax.swing.JFrame
 {

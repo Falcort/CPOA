@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import tables.Wedding;
+import metier.Wedding;
 
 public class ModeleJTableWedding extends AbstractTableModel
 {

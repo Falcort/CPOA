@@ -1,7 +1,7 @@
 package ihm;
 
 import javax.swing.JOptionPane;
-import tables.Realisation;
+import metier.Realisation;
 
 public class InsertRealisation extends javax.swing.JDialog {
 

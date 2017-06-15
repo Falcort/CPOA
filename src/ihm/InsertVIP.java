@@ -3,7 +3,7 @@ package ihm;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-import tables.VIP;
+import metier.VIP;
 
 public class InsertVIP extends javax.swing.JDialog
 {

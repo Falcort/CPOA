@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.List;
-import tables.VIP;
+import metier.VIP;
 
 public class DaoFunction
 {

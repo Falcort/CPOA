@@ -1,6 +1,6 @@
 package database;
 
-import tables.Casting;
+import metier.Casting;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

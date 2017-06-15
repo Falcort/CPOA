@@ -1,7 +1,7 @@
 package ihm;
 
 import javax.swing.JOptionPane;
-import tables.Casting;
+import metier.Casting;
 
 public class InsertCasting extends javax.swing.JDialog {
 

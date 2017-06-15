@@ -1,6 +1,6 @@
 package database;
 
-import tables.VIP;
+import metier.VIP;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -8,7 +8,7 @@ package ihm;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-import tables.Movie;
+import metier.Movie;
 
 
 public class InsertMovie extends javax.swing.JDialog
