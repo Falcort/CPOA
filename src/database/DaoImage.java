@@ -1,5 +1,11 @@
 package database;
 
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,13 +15,18 @@ import java.util.List;
 import metier.Casting;
 
 public class DaoImage {
-private final Connection connexion;
+//private final Connection connexion;
+        
+        public static void main(String [] args)
+	{
+            send("‪‪C:\\Users\\Thibault\\Desktop\\lothar.png");
+        }
+        
+//    public DaoImage(Connection connexion) {
+//        this.connexion = connexion;
+//    }
 
-    public DaoImage(Connection connexion) {
-        this.connexion = connexion;
-    }
-
-        public void send (String fileName) {
+        public static void send (String fileName) {
         String SFTPHOST = "falcort.fr";
         int SFTPPORT = 2228;
         String SFTPUSER = "etienne";
@@ -42,9 +53,9 @@ private final Connection connexion;
             channelSftp.cd(SFTPWORKINGDIR);
             File f = new File(fileName);
             channelSftp.put(new FileInputStream(f), f.getName());
-            log.info("File transfered successfully to host.");
+            System.out.println("File transfered successfully to host.");
         } catch (Exception ex) {
-             System.out.println("Exception found while tranfer the response.");
+             System.out.println("Exception found while tranfer the response.\nMessage : " + ex.getMessage());
         }
         finally{
 
