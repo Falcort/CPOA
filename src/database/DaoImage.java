@@ -15,16 +15,6 @@ import java.util.List;
 import metier.Casting;
 
 public class DaoImage {
-//private final Connection connexion;
-        
-        public static void main(String [] args)
-	{
-            send("‪‪C:\\Users\\Thibault\\Desktop\\lothar.png");
-        }
-        
-//    public DaoImage(Connection connexion) {
-//        this.connexion = connexion;
-//    }
 
         public static void send (String fileName) {
         String SFTPHOST = "falcort.fr";

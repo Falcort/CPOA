@@ -1,10 +1,14 @@
 package ihm;
 
+import database.DaoImage;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import modele.ModeleJTableVIP;
 import metier.VIP;
 import ihm.InsertVIP;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modele.ModeleJTableCasting;
@@ -60,10 +64,12 @@ public class MainMenu extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jFileChooser1 = new javax.swing.JFileChooser();
         VIP = new javax.swing.JTabbedPane();
         Onglet1 = new javax.swing.JPanel();
         Actions1 = new javax.swing.JPanel();
@@ -86,8 +92,10 @@ public class MainMenu extends javax.swing.JFrame
         btnUpdateWedding = new javax.swing.JButton();
         btnAddWedding = new javax.swing.JButton();
         Onglet4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>()
+        {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
@@ -103,15 +111,19 @@ public class MainMenu extends javax.swing.JFrame
         Actions1.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
 
         btnDeleteVIP.setText("Delete VIP");
-        btnDeleteVIP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnDeleteVIP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnDeleteVIPActionPerformed(evt);
             }
         });
 
         btnAddVIP.setText("Add VIP");
-        btnAddVIP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAddVIP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAddVIPActionPerformed(evt);
             }
         });
@@ -123,7 +135,7 @@ public class MainMenu extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                 .addComponent(btnDeleteVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -169,29 +181,37 @@ public class MainMenu extends javax.swing.JFrame
         Actions2.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
 
         btnDeleteMovie.setText("Delete movie");
-        btnDeleteMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnDeleteMovie.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnDeleteMovieActionPerformed(evt);
             }
         });
 
         btnAddMovie.setText("Add movie");
-        btnAddMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAddMovie.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAddMovieActionPerformed(evt);
             }
         });
 
         btnAddActor.setText("Add actor");
-        btnAddActor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAddActor.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAddActorActionPerformed(evt);
             }
         });
 
         btnAddDirector.setText("Add director");
-        btnAddDirector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAddDirector.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAddDirectorActionPerformed(evt);
             }
         });
@@ -205,7 +225,7 @@ public class MainMenu extends javax.swing.JFrame
                 .addComponent(btnAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(btnAddActor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
                 .addComponent(btnAddDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(btnDeleteMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,15 +272,19 @@ public class MainMenu extends javax.swing.JFrame
         Actions3.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
 
         btnUpdateWedding.setText("Update wedding");
-        btnUpdateWedding.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnUpdateWedding.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnUpdateWeddingActionPerformed(evt);
             }
         });
 
         btnAddWedding.setText("Add wedding");
-        btnAddWedding.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAddWedding.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAddWeddingActionPerformed(evt);
             }
         });
@@ -272,7 +296,7 @@ public class MainMenu extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                 .addComponent(btnUpdateWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -309,15 +333,32 @@ public class MainMenu extends javax.swing.JFrame
 
         VIP.addTab("Wedding / Divorce", Onglet3);
 
+        Onglet4.setToolTipText("");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Onglet4Layout = new javax.swing.GroupLayout(Onglet4);
         Onglet4.setLayout(Onglet4Layout);
         Onglet4Layout.setHorizontalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1086, Short.MAX_VALUE)
+            .addGroup(Onglet4Layout.createSequentialGroup()
+                .addGap(538, 538, 538)
+                .addComponent(jButton1)
+                .addContainerGap(620, Short.MAX_VALUE))
         );
         Onglet4Layout.setVerticalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+            .addGroup(Onglet4Layout.createSequentialGroup()
+                .addGap(317, 317, 317)
+                .addComponent(jButton1)
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         VIP.addTab("Pictures", Onglet4);
@@ -470,6 +511,18 @@ public class MainMenu extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnAddDirectorActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+        int returnVal = jFileChooser1.showOpenDialog(this);
+    if (returnVal == jFileChooser1.APPROVE_OPTION) {
+        File file = jFileChooser1.getSelectedFile();
+        DaoImage.send(file.getAbsolutePath());
+
+    } else {
+        System.out.println("File access cancelled by user.");
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -533,6 +586,8 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JButton btnDeleteMovie;
     private javax.swing.JButton btnDeleteVIP;
     private javax.swing.JButton btnUpdateWedding;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
