@@ -57,21 +57,15 @@ class Materialize
     public function __construct($request)
     {
         $this->request = $request;
-        if($this->request['controller'] == "")
-        {
+        if ($this->request['controller'] == "") {
             $this->controller = 'home';
-        }
-        else
-        {
+        } else {
             $this->controller = $this->request['controller'];
         }
 
-        if($this->request['action'] == "")
-        {
+        if ($this->request['action'] == "") {
             $this->action = 'index';
-        }
-        else
-        {
+        } else {
             $this->action = $this->request['action'];
         }
     }
@@ -89,29 +83,20 @@ class Materialize
      */
     public function createController()
     {
-        if(class_exists($this->controller))
-        {
+        if (class_exists($this->controller)) {
             $parents = class_parents($this->controller);
-            if(in_array("Controller", $parents))
-            {
-                if(method_exists($this->controller, $this->action))
-                {
+            if (in_array("Controller", $parents)) {
+                if (method_exists($this->controller, $this->action)) {
                     return new $this->controller($this->action, $this->request);
-                }
-                else
-                {
+                } else {
                     echo '<h1>Method does not exist</h1>';
                     return -1;
                 }
-            }
-            else
-            {
+            } else {
                 echo '<h1>Base controller not found</h1>';
                 return -1;
             }
-        }
-        else
-        {
+        } else {
             echo '<h1>The controller class does not exist</h1>';
             return -1;
         }

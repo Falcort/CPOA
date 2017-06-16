@@ -61,7 +61,7 @@ public class DaoPhoto {
         int SFTPPORT = 2228;
         String SFTPUSER = "etienne";
         String SFTPPASS = "12345";
-        String SFTPWORKINGDIR = "/var/www/html/assets/images/Photo/";
+        String SFTPWORKINGDIR = "/var/www/html/assets/images/VIP/";
 
         Session session = null;
         Channel channel = null;

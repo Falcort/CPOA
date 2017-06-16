@@ -15,23 +15,19 @@
 <nav class="light-blue">
     <div class="nav-wrapper">
         <a href="/" class="brand-logo">
-            <img src="<?php echo PATH_ROOT . PATH_ASSERTS . PATH_IMAGES . 'logo.png'; ?>"
-                 style="max-height: 60px; margin-left: 10px;"/>
+            <img src="<?php echo PATH_ROOT . PATH_ASSERTS . PATH_IMAGES . 'logo.png'; ?>" style="max-height: 60px;"/>
         </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
-        <ul class="right hide-on-med-and-down">
             <li><a href="search"><i class="material-icons left">search</i> Search</a></li>
             <li><a href="/VIP"><i class="material-icons left">perm_identity</i> VIP</a></li>
-            <li><a href="/Pictures"><i class="material-icons left">perm_media</i> Pictures</a></li>
             <li><a href="/Movies"><i class="material-icons left">theaters</i> Movies</a></li>
         </ul>
 
         <ul class="side-nav" id="mobile-demo">
             <li><a href="search"><i class="material-icons left">search</i> Search</a></li>
             <li><a href="/VIP"><i class="material-icons left">perm_identity</i> VIP</a></li>
-            <li><a href="/Pictures"><i class="material-icons left">perm_media</i> Pictures</a></li>
             <li><a href="/Movies"><i class="material-icons left">theaters</i> Movies</a></li>
         </ul>
     </div>
@@ -42,13 +38,11 @@
     });
 </script>
 
-<main>
-    <div class="container">
-        <div class="row">
-            <?php require($view); ?>
-        </div>
+<div class="container">
+    <div class="row">
+        <?php require($view); ?>
     </div>
-</main>
+</div>
 
 <footer class="page-footer">
     <div class="container">
@@ -60,10 +54,9 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a href="search" class="grey-text text-lighten-3">Search</a></li>
-                    <li><a href="/VIP" class="grey-text text-lighten-3">VIP</a></li>
-                    <li><a href="/Pictures" class="grey-text text-lighten-3">Pictures</a></li>
-                    <li><a href="/Movies" class="grey-text text-lighten-3">Movies</a></li>
+                    <li><a class="grey-text text-lighten-3" href="search">Search</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/VIP">VIP</a></li>
+                    <li><a class="grey-text text-lighten-3" href="Movies">Movies</a></li>
                 </ul>
             </div>
         </div>

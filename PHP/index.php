@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 session_start();
 
 require('/var/www/html/defines/paths.php');
-require (PATH_FILES . PATH_DEFINES . 'db_config.php');
+require(PATH_FILES . PATH_DEFINES . 'db_config.php');
 
 require(PATH_FILES . PATH_CLASSES . 'Materialize.php');
 require(PATH_FILES . PATH_CLASSES . 'Controller.php');
@@ -30,10 +30,12 @@ require(PATH_FILES . PATH_CLASSES . 'Model.php');
 require(PATH_FILES . PATH_CONTROLLERS . 'Home.php');
 require(PATH_FILES . PATH_CONTROLLERS . 'VIP.php');
 require(PATH_FILES . PATH_CONTROLLERS . 'Movies.php');
+require(PATH_FILES . PATH_CONTROLLERS . 'Pictures.php');
 
 require(PATH_FILES . PATH_MODELS . 'HomeModel.php');
 require(PATH_FILES . PATH_MODELS . 'VIPModel.php');
 require(PATH_FILES . PATH_MODELS . 'MoviesModel.php');
+require(PATH_FILES . PATH_MODELS . 'PicturesModel.php');
 
 /**
  * Create a new object with the URL content
@@ -48,7 +50,6 @@ $controller = $materialize->createController();
 /**
  * Execute the main action of the page
  */
-if($controller)
-{
+if ($controller) {
     $controller->executeAction();
 }

@@ -21,7 +21,7 @@
  * @author Tibault SOUQUET
  * @todo Complete this class and comment
  */
-class Home extends Controller
+class Pictures extends Controller
 {
     /**
      * The default action of the class
@@ -33,7 +33,7 @@ class Home extends Controller
      */
     protected function index()
     {
-        $viewModel = new HomeModel();
+        $viewModel = new PicturesModel();
         $this->getView($viewModel->index(), true);
     }
 }

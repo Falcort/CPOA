@@ -39,19 +39,19 @@ class MoviesModel extends Model
 
     public function detailed()
     {
-      $this->query("SELECT * FROM MOVIE, GENRE WHERE numVisa= :id AND MOVIE.genre=GENRE.genreID");
-      $this->bind(':id', $_GET['id']);
-      $Movie = $this->single();
+        $this->query("SELECT * FROM MOVIE, GENRE WHERE numVisa= :id AND MOVIE.genre=GENRE.genreID");
+        $this->bind(':id', $_GET['id']);
+        $Movie = $this->single();
 
-      $this->query("SELECT VIP.numVIP, lastNameVIP, firstNameVIP, role FROM MOVIE, CASTING, VIP WHERE MOVIE.numVisa=:id AND CASTING.numVisa=:id AND CASTING.numVIP=VIP.numVIP");
-      $this->bind(':id', $_GET['id']);
-      $VIP = $this->resultSet();
+        $this->query("SELECT VIP.numVIP, lastNameVIP, firstNameVIP, role FROM MOVIE, CASTING, VIP WHERE MOVIE.numVisa=:id AND CASTING.numVisa=:id AND CASTING.numVIP=VIP.numVIP");
+        $this->bind(':id', $_GET['id']);
+        $VIP = $this->resultSet();
 
-      $this->query("SELECT VIP.numVIP, lastNameVIP, firstNameVIP FROM MOVIE, REALISATION, VIP WHERE REALISATION.numVisa=:id AND REALISATION.numVIP=VIP.numVIP AND MOVIE.numVISA=:id");
-      $this->bind(':id', $_GET['id']);
-      $real = $this->single();
+        $this->query("SELECT VIP.numVIP, lastNameVIP, firstNameVIP FROM MOVIE, REALISATION, VIP WHERE REALISATION.numVisa=:id AND REALISATION.numVIP=VIP.numVIP AND MOVIE.numVISA=:id");
+        $this->bind(':id', $_GET['id']);
+        $real = $this->single();
 
-      $array = array($Movie, $VIP, $real);
-      return $array;
+        $array = array($Movie, $VIP, $real);
+        return $array;
     }
 }

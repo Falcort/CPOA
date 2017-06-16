@@ -83,12 +83,9 @@ abstract class Controller
     protected function getView($viewModel, $full_view)
     {
         $view = 'views/' . get_class($this) . '/' . $this->action . '.php';
-        if($full_view)
-        {
+        if ($full_view) {
             require('views/main.php');
-        }
-        else
-        {
+        } else {
             require($view);
         }
     }

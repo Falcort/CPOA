@@ -54,21 +54,18 @@ class VIPModel extends Model
 
         $partnerCar = array();
 
-        foreach ($Weddings as $wedding)
-        {
-          if($wedding['numVIP1'] != $_GET['id'] && $wedding['numVIP1'] != null)
-          {
-            $this->query("SELECT numVIP, lastNameVIP, firstNameVIP FROM VIP WHERE numVIP = :id");
-            $this->bind(':id', $wedding['numVIP1']);
-            $partner = $this->single();
-          }
-          if($wedding['partnerVIP'] != $_GET['id'] && $wedding['partnerVIP'] != null)
-          {
-            $this->query("SELECT numVIP, lastNameVIP, firstNameVIP FROM VIP WHERE numVIP = :id");
-            $this->bind(':id', $wedding['partnerVIP']);
-            $partner = $this->single();
-          }
-          array_push($partnerCar, $partner);
+        foreach ($Weddings as $wedding) {
+            if ($wedding['numVIP1'] != $_GET['id'] && $wedding['numVIP1'] != null) {
+                $this->query("SELECT numVIP, lastNameVIP, firstNameVIP FROM VIP WHERE numVIP = :id");
+                $this->bind(':id', $wedding['numVIP1']);
+                $partner = $this->single();
+            }
+            if ($wedding['partnerVIP'] != $_GET['id'] && $wedding['partnerVIP'] != null) {
+                $this->query("SELECT numVIP, lastNameVIP, firstNameVIP FROM VIP WHERE numVIP = :id");
+                $this->bind(':id', $wedding['partnerVIP']);
+                $partner = $this->single();
+            }
+            array_push($partnerCar, $partner);
         }
 
         $this->query("SELECT MOVIE.numVisa, title, releaseDate FROM MOVIE, REALISATION WHERE REALISATION.numVIP = :id AND REALISATION.numVisa=MOVIE.numVisa");
