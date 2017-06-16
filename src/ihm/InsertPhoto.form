@@ -44,15 +44,11 @@
                       <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lbLName" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbFName" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lbLName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="textPlacePhoto" min="-2" pref="263" max="-2" attributes="0"/>
                                   <Component id="btnAdd" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="textNumPhoto" min="-2" pref="263" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -75,12 +71,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="Title" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbFName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textNumPhoto" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbLName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textPlacePhoto" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -92,7 +83,7 @@
               </Group>
               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               <Component id="btnAdd1" min="-2" pref="54" max="-2" attributes="0"/>
-              <EmptySpace pref="307" max="32767" attributes="0"/>
+              <EmptySpace pref="310" max="32767" attributes="0"/>
               <Component id="btnAdd" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
           </Group>
@@ -129,19 +120,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textPlacePhotoActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="textNumPhoto">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textNumPhotoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbFName">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="num photo"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbLName">
       <Properties>

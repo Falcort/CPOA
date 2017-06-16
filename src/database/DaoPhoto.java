@@ -29,11 +29,10 @@ public class DaoPhoto {
         Statement stmt = connexion.createStatement();
         ResultSet rset = stmt.executeQuery(requete);
         while (rset.next()) {
-            int numPhoto = rset.getInt(1);
-            String placePhoto = rset.getString(2);
-            int yearPhoto = rset.getInt(3);
-            String wayPhoto = rset.getString(4);
-            Photo photo = new Photo(numPhoto, placePhoto, yearPhoto, wayPhoto);
+            String placePhoto = rset.getString(1);
+            int yearPhoto = rset.getInt(2);
+            String wayPhoto = rset.getString(3);
+            Photo photo = new Photo(placePhoto, yearPhoto, wayPhoto);
             Photos.add(photo);
         }
         rset.close();
@@ -41,12 +40,11 @@ public class DaoPhoto {
     }
 
     public void insererPhoto(Photo photo) throws SQLException {
-        String query = "INSERT INTO PHOTO(idPhoto, placePhoto, yearPhoto, wayPhoto) VALUES (?,?,?,?)";
+        String query = "INSERT INTO PHOTO(placePhoto, yearPhoto, wayPhoto) VALUES (?,?,?)";
         PreparedStatement pstmt = connexion.prepareStatement(query);
-        pstmt.setInt(1, photo.getIdPhoto());
-        pstmt.setString(2, photo.getPlacePhoto());
-        pstmt.setInt(3, photo.getYearPhoto());
-        pstmt.setString(4, photo.getWayPhoto());
+        pstmt.setString(1, photo.getPlacePhoto());
+        pstmt.setInt(2, photo.getYearPhoto());
+        pstmt.setString(3, photo.getWayPhoto());
         pstmt.executeUpdate();
         pstmt.close();
     }

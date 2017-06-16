@@ -41,8 +41,6 @@ public class InsertPhoto extends javax.swing.JDialog
         btnAdd = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
         textPlacePhoto = new javax.swing.JTextField();
-        textNumPhoto = new javax.swing.JTextField();
-        lbFName = new javax.swing.JLabel();
         lbLName = new javax.swing.JLabel();
         lbLName1 = new javax.swing.JLabel();
         textYearPhoto = new javax.swing.JTextField();
@@ -72,15 +70,6 @@ public class InsertPhoto extends javax.swing.JDialog
                 textPlacePhotoActionPerformed(evt);
             }
         });
-
-        textNumPhoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNumPhotoActionPerformed(evt);
-            }
-        });
-
-        lbFName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbFName.setText("num photo");
 
         lbLName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbLName.setText("place photo");
@@ -117,14 +106,11 @@ public class InsertPhoto extends javax.swing.JDialog
                         .addGap(123, 123, 123)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbLName)
-                                    .addComponent(lbFName))
+                                .addComponent(lbLName)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textPlacePhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textNumPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbLName1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -138,11 +124,7 @@ public class InsertPhoto extends javax.swing.JDialog
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(Title)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbFName)
-                    .addComponent(textNumPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbLName)
                     .addComponent(textPlacePhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,7 +134,7 @@ public class InsertPhoto extends javax.swing.JDialog
                     .addComponent(textYearPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
@@ -164,22 +146,10 @@ public class InsertPhoto extends javax.swing.JDialog
         // TODO add your handling code here:
     }//GEN-LAST:event_textPlacePhotoActionPerformed
 
-    private void textNumPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNumPhotoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textNumPhotoActionPerformed
-
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         try
-        {
-            int numPhoto = Integer.parseInt(textNumPhoto.getText());
-            String photoHelper = textNumPhoto.getText();
-            if (photoHelper.isEmpty())
-            {
-                throw new Exception("Field num empty");
-            }
-            photo.setIdPhoto(numPhoto);
-            
-            String placePhoto = textYearPhoto.getText();
+        {            
+            String placePhoto = textPlacePhoto.getText();
             if (placePhoto.isEmpty())
             {
                 throw new Exception("Field of place empty");
@@ -232,10 +202,8 @@ public class InsertPhoto extends javax.swing.JDialog
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd1;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel lbFName;
     private javax.swing.JLabel lbLName;
     private javax.swing.JLabel lbLName1;
-    private javax.swing.JTextField textNumPhoto;
     private javax.swing.JTextField textPlacePhoto;
     private javax.swing.JTextField textYearPhoto;
     // End of variables declaration//GEN-END:variables
