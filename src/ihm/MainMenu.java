@@ -1,5 +1,6 @@
 package ihm;
 
+import application.CustomFilter;
 import database.DaoImage;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -64,8 +65,7 @@ public class MainMenu extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -94,13 +94,14 @@ public class MainMenu extends javax.swing.JFrame
         Onglet4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
+
+        jFileChooser1.setFileFilter(new CustomFilter());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Very Important Person");
@@ -111,19 +112,15 @@ public class MainMenu extends javax.swing.JFrame
         Actions1.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
 
         btnDeleteVIP.setText("Delete VIP");
-        btnDeleteVIP.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnDeleteVIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteVIPActionPerformed(evt);
             }
         });
 
         btnAddVIP.setText("Add VIP");
-        btnAddVIP.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAddVIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddVIPActionPerformed(evt);
             }
         });
@@ -181,37 +178,29 @@ public class MainMenu extends javax.swing.JFrame
         Actions2.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
 
         btnDeleteMovie.setText("Delete movie");
-        btnDeleteMovie.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnDeleteMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteMovieActionPerformed(evt);
             }
         });
 
         btnAddMovie.setText("Add movie");
-        btnAddMovie.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAddMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMovieActionPerformed(evt);
             }
         });
 
         btnAddActor.setText("Add actor");
-        btnAddActor.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAddActor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActorActionPerformed(evt);
             }
         });
 
         btnAddDirector.setText("Add director");
-        btnAddDirector.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAddDirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddDirectorActionPerformed(evt);
             }
         });
@@ -272,19 +261,15 @@ public class MainMenu extends javax.swing.JFrame
         Actions3.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
 
         btnUpdateWedding.setText("Update wedding");
-        btnUpdateWedding.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnUpdateWedding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateWeddingActionPerformed(evt);
             }
         });
 
         btnAddWedding.setText("Add wedding");
-        btnAddWedding.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAddWedding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddWeddingActionPerformed(evt);
             }
         });
@@ -336,10 +321,8 @@ public class MainMenu extends javax.swing.JFrame
         Onglet4.setToolTipText("");
 
         jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
@@ -514,13 +497,13 @@ public class MainMenu extends javax.swing.JFrame
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
         int returnVal = jFileChooser1.showOpenDialog(this);
-    if (returnVal == jFileChooser1.APPROVE_OPTION) {
-        File file = jFileChooser1.getSelectedFile();
-        DaoImage.send(file.getAbsolutePath());
+        if (returnVal == jFileChooser1.APPROVE_OPTION) {
+            File file = jFileChooser1.getSelectedFile();
+            DaoImage.send(file.getAbsolutePath());
 
-    } else {
-        System.out.println("File access cancelled by user.");
-    }
+        } else {
+            System.out.println("File access cancelled by user.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
