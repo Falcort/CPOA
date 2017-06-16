@@ -19,7 +19,9 @@ import modele.ModeleJTableWedding;
 import metier.Casting;
 import metier.Movie;
 import metier.Realisation;
+import metier.Tag;
 import metier.Wedding;
+import modele.ModeleJTableTag;
 
 public class MainMenu extends javax.swing.JFrame
 {
@@ -29,6 +31,7 @@ public class MainMenu extends javax.swing.JFrame
     private ModeleJTableWedding modeleWedding;
     private ModeleJTableCasting modeleCasting;
     private ModeleJTableRealisation modeleRealisation;
+    private ModeleJTableTag modeleTag;
 
     /**
      * Creates new form MainMenuTest
@@ -40,6 +43,7 @@ public class MainMenu extends javax.swing.JFrame
         this.modeleWedding = new ModeleJTableWedding();
         this.modeleCasting = new ModeleJTableCasting();
         this.modeleRealisation = new ModeleJTableRealisation();
+        this.modeleTag = new ModeleJTableTag();
 
         initComponents();
 
@@ -50,6 +54,7 @@ public class MainMenu extends javax.swing.JFrame
             modeleWedding.loadWedding();
             modeleCasting.loadCasting();
             modeleRealisation.loadRealisation();
+            modeleTag.loadTag();
 
         } catch (SQLException ex)
         {
@@ -92,7 +97,10 @@ public class MainMenu extends javax.swing.JFrame
         btnUpdateWedding = new javax.swing.JButton();
         btnAddWedding = new javax.swing.JButton();
         Onglet4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        AddImage = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        TagPhoto = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -101,6 +109,7 @@ public class MainMenu extends javax.swing.JFrame
         });
         jScrollPane1.setViewportView(jList1);
 
+        jFileChooser1.setApproveButtonText("Upload");
         jFileChooser1.setFileFilter(new CustomFilter());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,7 +141,7 @@ public class MainMenu extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(btnDeleteVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -214,7 +223,7 @@ public class MainMenu extends javax.swing.JFrame
                 .addComponent(btnAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(btnAddActor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(btnAddDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(btnDeleteMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,7 +290,7 @@ public class MainMenu extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(btnUpdateWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -320,10 +329,20 @@ public class MainMenu extends javax.swing.JFrame
 
         Onglet4.setToolTipText("");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AddImage.setText("Add image");
+        AddImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AddImageActionPerformed(evt);
+            }
+        });
+
+        jTable4.setModel(modeleTag);
+        jScrollPane5.setViewportView(jTable4);
+
+        TagPhoto.setText("Tag image");
+        TagPhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TagPhotoActionPerformed(evt);
             }
         });
 
@@ -332,16 +351,25 @@ public class MainMenu extends javax.swing.JFrame
         Onglet4Layout.setHorizontalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Onglet4Layout.createSequentialGroup()
-                .addGap(538, 538, 538)
-                .addComponent(jButton1)
-                .addContainerGap(620, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE)
+                .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TagPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                    .addComponent(AddImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(66, 66, 66)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
         Onglet4Layout.setVerticalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Onglet4Layout.createSequentialGroup()
-                .addGap(317, 317, 317)
-                .addComponent(jButton1)
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Onglet4Layout.createSequentialGroup()
+                        .addComponent(AddImage, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TagPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         VIP.addTab("Pictures", Onglet4);
@@ -494,8 +522,8 @@ public class MainMenu extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnAddDirectorActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
-    {//GEN-HEADEREND:event_jButton1ActionPerformed
+    private void AddImageActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddImageActionPerformed
+    {//GEN-HEADEREND:event_AddImageActionPerformed
         int returnVal = jFileChooser1.showOpenDialog(this);
         if (returnVal == jFileChooser1.APPROVE_OPTION) {
             File file = jFileChooser1.getSelectedFile();
@@ -504,7 +532,23 @@ public class MainMenu extends javax.swing.JFrame
         } else {
             System.out.println("File access cancelled by user.");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AddImageActionPerformed
+
+    private void TagPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TagPhotoActionPerformed
+        // on ajoute les tags
+        try
+        {
+            Tag newTag = new Tag();
+            InsertTag AddTag = new InsertTag(this, newTag);
+            if (AddTag.doModal() == true)
+            {
+                modeleTag.insertTag(newTag);
+            }
+        } catch (SQLException e)
+        {
+            System.out.println("Insertion error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_TagPhotoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -556,10 +600,12 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JPanel Actions1;
     private javax.swing.JPanel Actions2;
     private javax.swing.JPanel Actions3;
+    private javax.swing.JButton AddImage;
     private javax.swing.JPanel Onglet1;
     private javax.swing.JPanel Onglet2;
     private javax.swing.JPanel Onglet3;
     private javax.swing.JPanel Onglet4;
+    private javax.swing.JButton TagPhoto;
     private javax.swing.JTabbedPane VIP;
     private javax.swing.JButton btnAddActor;
     private javax.swing.JButton btnAddDirector;
@@ -569,15 +615,16 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JButton btnDeleteMovie;
     private javax.swing.JButton btnDeleteVIP;
     private javax.swing.JButton btnUpdateWedding;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,12 +2,7 @@ package application;
 
 import java.io.File;
 
-public class CustomFilter extends javax.swing.filechooser.FileFilter {
-     
-    
-
-    
-    
+public class CustomFilter extends javax.swing.filechooser.FileFilter {  
         public boolean accept(File file) {
             // Allow only directories, or files with ".txt" extension
             return file.isDirectory() || file.getAbsolutePath().endsWith(".png")|| file.getAbsolutePath().endsWith(".jpg")|| file.getAbsolutePath().endsWith(".gif")|| file.getAbsolutePath().endsWith(".jpeg");
