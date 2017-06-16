@@ -16,6 +16,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import database.DaoFunction;
+import database.DaoPhoto;
 import database.DaoRealisation;
 import database.DaoTag;
 
@@ -62,6 +63,12 @@ public class Main
     public static DaoTag getDaoTag()
     {
         return daoTag;
+    }
+    
+    private static DaoPhoto daoPhoto;
+    public static DaoPhoto getDaoPhoto()
+    {
+        return daoPhoto;
     }
 
     public static void main(String[] args)
@@ -110,6 +117,7 @@ public class Main
         daoCasting = new DaoCasting(connection);
         daoRealisation = new DaoRealisation(connection);
         daoTag = new DaoTag(connection);
+        daoPhoto = new DaoPhoto(connection);
         
         javax.swing.SwingUtilities.invokeLater(new Runnable()
         {

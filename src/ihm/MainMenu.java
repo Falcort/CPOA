@@ -1,15 +1,9 @@
 package ihm;
 
 import application.CustomFilter;
-import database.DaoImage;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import modele.ModeleJTableVIP;
 import metier.VIP;
-import ihm.InsertVIP;
-import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modele.ModeleJTableCasting;
@@ -22,6 +16,8 @@ import metier.Realisation;
 import metier.Tag;
 import metier.Wedding;
 import modele.ModeleJTableTag;
+import metier.Photo;
+import modele.ModeleJTablePhoto;
 
 public class MainMenu extends javax.swing.JFrame
 {
@@ -32,6 +28,7 @@ public class MainMenu extends javax.swing.JFrame
     private ModeleJTableCasting modeleCasting;
     private ModeleJTableRealisation modeleRealisation;
     private ModeleJTableTag modeleTag;
+    private ModeleJTablePhoto modelePhoto;
 
     /**
      * Creates new form MainMenuTest
@@ -44,6 +41,7 @@ public class MainMenu extends javax.swing.JFrame
         this.modeleCasting = new ModeleJTableCasting();
         this.modeleRealisation = new ModeleJTableRealisation();
         this.modeleTag = new ModeleJTableTag();
+        this.modelePhoto = new ModeleJTablePhoto();
 
         initComponents();
 
@@ -55,6 +53,7 @@ public class MainMenu extends javax.swing.JFrame
             modeleCasting.loadCasting();
             modeleRealisation.loadRealisation();
             modeleTag.loadTag();
+            modelePhoto.loadPhoto();
 
         } catch (SQLException ex)
         {
@@ -524,13 +523,17 @@ public class MainMenu extends javax.swing.JFrame
 
     private void AddImageActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddImageActionPerformed
     {//GEN-HEADEREND:event_AddImageActionPerformed
-        int returnVal = jFileChooser1.showOpenDialog(this);
-        if (returnVal == jFileChooser1.APPROVE_OPTION) {
-            File file = jFileChooser1.getSelectedFile();
-            DaoImage.send(file.getAbsolutePath());
-
-        } else {
-            System.out.println("File access cancelled by user.");
+        try
+        {
+            Photo newPhoto = new Photo();
+            InsertPhoto AddPhoto = new InsertPhoto(this, newPhoto);
+            if (AddPhoto.doModal() == true)
+            {
+                modelePhoto.insertPhoto(newPhoto);
+            }
+        } catch (SQLException e)
+        {
+            System.out.println("Insertion error : " + e.getMessage());
         }
     }//GEN-LAST:event_AddImageActionPerformed
 

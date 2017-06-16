@@ -12,16 +12,56 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import metier.Casting;
+import java.util.regex.Pattern;
+import metier.Photo;
 
-public class DaoImage {
+public class DaoPhoto {
 
-        public static void send (String fileName) {
+
+    private final Connection connexion;
+
+    public DaoPhoto(Connection connexion) {
+        this.connexion = connexion;
+    }
+
+    public void recupererPhoto(List<Photo> Photos) throws SQLException {
+        String requete = "select * from PHOTO";
+        Statement stmt = connexion.createStatement();
+        ResultSet rset = stmt.executeQuery(requete);
+        while (rset.next()) {
+            int numPhoto = rset.getInt(1);
+            String placePhoto = rset.getString(2);
+            int yearPhoto = rset.getInt(3);
+            String wayPhoto = rset.getString(4);
+            Photo photo = new Photo(numPhoto, placePhoto, yearPhoto, wayPhoto);
+            Photos.add(photo);
+        }
+        rset.close();
+        stmt.close();
+    }
+
+    public void insererPhoto(Photo photo) throws SQLException {
+        String query = "INSERT INTO PHOTO(idPhoto, placePhoto, yearPhoto, wayPhoto) VALUES (?,?,?,?)";
+        PreparedStatement pstmt = connexion.prepareStatement(query);
+        pstmt.setInt(1, photo.getIdPhoto());
+        pstmt.setString(2, photo.getPlacePhoto());
+        pstmt.setInt(3, photo.getYearPhoto());
+        pstmt.setString(4, photo.getWayPhoto());
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+
+
+    
+    
+    
+    public static String send(String fileName) {
+        System.out.println(fileName);
         String SFTPHOST = "falcort.fr";
         int SFTPPORT = 2228;
         String SFTPUSER = "etienne";
         String SFTPPASS = "12345";
-        String SFTPWORKINGDIR = "/var/www/html/assets/images/VIP/";
+        String SFTPWORKINGDIR = "/var/www/html/assets/images/Photo/";
 
         Session session = null;
         Channel channel = null;
@@ -45,9 +85,8 @@ public class DaoImage {
             channelSftp.put(new FileInputStream(f), f.getName());
             System.out.println("File transfered successfully to host.");
         } catch (Exception ex) {
-             System.out.println("Exception found while tranfer the response.\nMessage : " + ex.getMessage());
-        }
-        finally{
+            System.out.println("Exception found while tranfer the response.\nMessage : " + ex.getMessage());
+        } finally {
 
             channelSftp.exit();
             System.out.println("sftp Channel exited.");
@@ -56,5 +95,12 @@ public class DaoImage {
             session.disconnect();
             System.out.println("Host Session disconnected.");
         }
-    }  
+        
+        String nomFichier = "";
+        String parts[] = fileName.split(Pattern.quote("\\"));
+        for (int i = 0; i < parts.length; i++) {
+            nomFichier = parts[i];
+        }
+        return nomFichier;
+    }
 }
