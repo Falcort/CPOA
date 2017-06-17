@@ -56,7 +56,7 @@ public class InsertMovie extends javax.swing.JDialog
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 485));
-        setPreferredSize(new java.awt.Dimension(500, 486));
+        setPreferredSize(new java.awt.Dimension(500, 530));
         setResizable(false);
 
         title.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -148,7 +148,7 @@ public class InsertMovie extends javax.swing.JDialog
                     .addComponent(IDMovieDirector))
                 .addGap(52, 52, 52)
                 .addComponent(AddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
