@@ -19,8 +19,7 @@
                  style="max-height: 60px; margin-left: 10px;"/>
         </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-
-        <ul class="right hide-on-med-and-down">
+        
         <ul class="right hide-on-med-and-down">
             <li><a href="search"><i class="material-icons left">search</i> Search</a></li>
             <li><a href="/VIP"><i class="material-icons left">perm_identity</i> VIP</a></li>
@@ -44,9 +43,7 @@
 
 <main>
     <div class="container">
-        <div class="row">
-            <?php require($view); ?>
-        </div>
+        <?php require($view); ?>
     </div>
 </main>
 

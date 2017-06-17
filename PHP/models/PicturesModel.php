@@ -32,8 +32,21 @@ class PicturesModel extends Model
      */
     public function index()
     {
-        $this->query("SELECT * FROM PHOTO, VIP, TAG WHERE VIP.numVIP = TAG.numVIP AND TAG.idPhoto = PHOTO.idPhoto ");
+        $this->query("SELECT COUNT(*), TAG.idPhoto, VIP.numVIP, VIP.lastNameVIP, VIP.firstNameVIP, PHOTO.placePhoto, PHOTO.yearPhoto, PHOTO.wayPhoto FROM PHOTO, VIP, TAG WHERE VIP.numVIP = TAG.numVIP AND TAG.idPhoto = PHOTO.idPhoto GROUP BY TAG.idPhoto HAVING COUNT(*) = 1 UNION SELECT COUNT(*), TAG.idPhoto, VIP.numVIP, VIP.lastNameVIP, VIP.firstNameVIP, PHOTO.placePhoto, PHOTO.yearPhoto, PHOTO.wayPhoto FROM PHOTO, VIP, TAG WHERE VIP.numVIP = TAG.numVIP AND TAG.idPhoto = PHOTO.idPhoto GROUP BY TAG.idPhoto HAVING COUNT(*) > 1
+");
         $Pictures = $this->resultSet();
         return $Pictures;
+    }
+
+    public function detailed()
+    {
+        $this->query("SELECT * FROM PHOTO, VIP, TAG WHERE VIP.numVIP = TAG.numVIP AND TAG.idPhoto = PHOTO.idPhoto AND PHOTO.idPhoto = :id");
+        $this->bind(":id", $_GET['id']);
+        $Pictures = $this->single();
+
+        $this->query("SELECT * FROM VIP, TAG WHERE idPhoto = :id AND TAG.numVIP = VIP.numVIP");
+        $this->bind(":id", $_GET['id']);
+        $VIP = $this->resultSet();
+        return array($Pictures, $VIP);
     }
 }

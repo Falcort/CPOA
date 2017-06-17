@@ -6,4 +6,15 @@ body {
 
 main {
     flex: 1 0 auto;
+    display: flex;
+}
+
+#home, #Movies, #MoviesD, #Pictures, #PicturesD, #VIP, #VIPD
+{
+    margin: auto;
+}
+
+.container
+{
+    margin: auto;
 }

@@ -36,4 +36,10 @@ class Pictures extends Controller
         $viewModel = new PicturesModel();
         $this->getView($viewModel->index(), true);
     }
+
+    protected function detailed()
+    {
+        $viewModel = new PicturesModel();
+        $this->getView($viewModel->detailed(), true);
+    }
 }

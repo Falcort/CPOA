@@ -72,8 +72,12 @@ class VIPModel extends Model
         $this->bind(':id', $_GET['id']);
         $realise = $this->resultSet();
 
+        $this->query("SELECT idPhoto, wayPhoto FROM PHOTO WHERE idPhoto IN (SELECT idPHOTO FROM TAG WHERE numVIP = :id)");
+        $this->bind(':id', $_GET['id']);
+        $pictures = $this->resultSet();
 
-        $array = array($VIP, $Movies, $Weddings, $partnerCar, $realise);
+
+        $array = array($VIP, $Movies, $Weddings, $partnerCar, $realise, $pictures);
 
         return $array;
     }
