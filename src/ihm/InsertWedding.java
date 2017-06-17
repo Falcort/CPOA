@@ -87,7 +87,7 @@ public class InsertWedding extends javax.swing.JDialog {
         lbVIP1.setText("VIP1");
 
         lbDateWedding.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbDateWedding.setText("Date of Wedding");
+        lbDateWedding.setText("Date of Wedding (DD/MM/AAAA)");
 
         lbVIP2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbVIP2.setText("VIP2");
@@ -96,7 +96,7 @@ public class InsertWedding extends javax.swing.JDialog {
         lbPlaceWedding.setText("Place of Wedding");
 
         lbDateDivorce.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbDateDivorce.setText("Date of Divorce");
+        lbDateDivorce.setText("Date of Divorce (DD/MM/AAAA)");
 
         add.setText("ADD");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +139,7 @@ public class InsertWedding extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(title)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 146, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,19 +148,19 @@ public class InsertWedding extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbPlaceWedding)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(lbVIP1)
                                         .addComponent(lbDateWedding)
                                         .addComponent(lbVIP2))
-                                    .addComponent(lbDateDivorce, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(81, 81, 81)
+                                    .addComponent(lbDateDivorce, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbPlaceWedding, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(56, 56, 56)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(DateWedding)
                                     .addComponent(NumVIP1)
-                                    .addComponent(DateDivorce, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(PlaceWedding)
-                                    .addComponent(NumVIP2)))
+                                    .addComponent(NumVIP2)
+                                    .addComponent(DateDivorce)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)

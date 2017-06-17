@@ -69,7 +69,7 @@ public class InsertMovie extends javax.swing.JDialog
         jTitleMov.setText("Title");
 
         jDateOut.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jDateOut.setText("Release date");
+        jDateOut.setText("Release date (DD/MM/AAAA)");
 
         jGenre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jGenre.setText("Movie genre");
@@ -119,7 +119,7 @@ public class InsertMovie extends javax.swing.JDialog
                     .addGroup(layout.createSequentialGroup()
                         .addGap(196, 196, 196)
                         .addComponent(AddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
