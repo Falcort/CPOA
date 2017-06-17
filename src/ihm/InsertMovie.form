@@ -43,11 +43,9 @@
                           <Component id="jDateOut" min="-2" max="-2" attributes="0"/>
                           <Component id="jTitleMov" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jVisa" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDMovieDirector" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="DirectorMovieID" max="32767" attributes="0"/>
                           <Component id="Genre" max="32767" attributes="0"/>
                           <Component id="DateOut" max="32767" attributes="0"/>
                           <Component id="TitleMovie" max="32767" attributes="0"/>
@@ -58,7 +56,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
                       <Component id="AddMovie" min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -91,14 +89,9 @@
                   <Component id="Genre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jGenre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="DirectorMovieID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="IDMovieDirector" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="AddMovie" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -162,16 +155,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddMovieActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="DirectorMovieID">
-    </Component>
-    <Component class="javax.swing.JLabel" name="IDMovieDirector">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="ID Movie director"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
