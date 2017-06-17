@@ -19,16 +19,26 @@
                  style="max-height: 60px; margin-left: 10px;"/>
         </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        
+
         <ul class="right hide-on-med-and-down">
-            <li><a href="search"><i class="material-icons left">search</i> Search</a></li>
+            <li class="search" style=" height: 60px; margin: 2px 0; ">
+                <form action="/Search" method="POST" style="color: black; background: white; padding-left: 5px; border-radius: 5px;">
+                    <i class="material-icons left">search</i>
+                    <input id="search" type="search" name="Search" class="z-depth-2" placeholder="Search" style="width: initial; margin-bottom: 0;">
+                </form>
+            </li>
             <li><a href="/VIP"><i class="material-icons left">perm_identity</i> VIP</a></li>
             <li><a href="/Pictures"><i class="material-icons left">perm_media</i> Pictures</a></li>
             <li><a href="/Movies"><i class="material-icons left">theaters</i> Movies</a></li>
         </ul>
 
         <ul class="side-nav" id="mobile-demo">
-            <li><a href="search"><i class="material-icons left">search</i> Search</a></li>
+            <li class="search" style=" height: 60px; margin: 2px 0; ">
+                <form action="/Search" method="POST" style="color: black; background: white; padding-left: 5px; border-radius: 5px;">
+                    <i class="material-icons left">search</i>
+                    <input id="search" type="search" name="Search" class="z-depth-2" placeholder="Search" style="width: initial; margin-bottom: 0;">
+                </form>
+            </li>
             <li><a href="/VIP"><i class="material-icons left">perm_identity</i> VIP</a></li>
             <li><a href="/Pictures"><i class="material-icons left">perm_media</i> Pictures</a></li>
             <li><a href="/Movies"><i class="material-icons left">theaters</i> Movies</a></li>
@@ -57,7 +67,6 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a href="search" class="grey-text text-lighten-3">Search</a></li>
                     <li><a href="/VIP" class="grey-text text-lighten-3">VIP</a></li>
                     <li><a href="/Pictures" class="grey-text text-lighten-3">Pictures</a></li>
                     <li><a href="/Movies" class="grey-text text-lighten-3">Movies</a></li>

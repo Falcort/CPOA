@@ -18,3 +18,9 @@ main {
 {
     margin: auto;
 }
+
+#search, #search:hover, #search:focus
+{
+    border: none !important;
+    box-shadow: none;
+}

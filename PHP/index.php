@@ -31,11 +31,13 @@ require(PATH_FILES . PATH_CONTROLLERS . 'Home.php');
 require(PATH_FILES . PATH_CONTROLLERS . 'VIP.php');
 require(PATH_FILES . PATH_CONTROLLERS . 'Movies.php');
 require(PATH_FILES . PATH_CONTROLLERS . 'Pictures.php');
+require(PATH_FILES . PATH_CONTROLLERS . 'Search.php');
 
 require(PATH_FILES . PATH_MODELS . 'HomeModel.php');
 require(PATH_FILES . PATH_MODELS . 'VIPModel.php');
 require(PATH_FILES . PATH_MODELS . 'MoviesModel.php');
 require(PATH_FILES . PATH_MODELS . 'PicturesModel.php');
+require(PATH_FILES . PATH_MODELS . 'SearchModel.php');
 
 /**
  * Create a new object with the URL content
