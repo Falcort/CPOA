@@ -29,9 +29,9 @@ public class DaoPhoto {
         Statement stmt = connexion.createStatement();
         ResultSet rset = stmt.executeQuery(requete);
         while (rset.next()) {
-            String placePhoto = rset.getString(1);
-            int yearPhoto = rset.getInt(2);
-            String wayPhoto = rset.getString(3);
+            String placePhoto = rset.getString(2);
+            int yearPhoto = rset.getInt(3);
+            String wayPhoto = rset.getString(4);
             Photo photo = new Photo(placePhoto, yearPhoto, wayPhoto);
             Photos.add(photo);
         }
@@ -84,6 +84,7 @@ public class DaoPhoto {
             System.out.println("File transfered successfully to host.");
         } catch (Exception ex) {
             System.out.println("Exception found while tranfer the response.\nMessage : " + ex.getMessage());
+            return "-1";
         } finally {
 
             channelSftp.exit();

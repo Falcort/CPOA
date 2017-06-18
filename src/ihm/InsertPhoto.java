@@ -12,6 +12,7 @@ public class InsertPhoto extends javax.swing.JDialog
     private final Photo photo;
     private boolean etatSortie;
     private String nomFichier = "";
+    private File file;
 
     public InsertPhoto(java.awt.Frame parent, Photo photo)
     {
@@ -157,20 +158,25 @@ public class InsertPhoto extends javax.swing.JDialog
             }
             photo.setPlacePhoto(placePhoto);            
             
-            int yearPhoto = Integer.parseInt(textYearPhoto.getText());
             String photoYearHelper = textYearPhoto.getText();
             if (photoYearHelper.isEmpty())
             {
                 throw new Exception("Field year empty");
             }
+            int yearPhoto = Integer.parseInt(textYearPhoto.getText());
             photo.setYearPhoto(yearPhoto);
 
-            
-            
-            if (nomFichier.equals("")) {
-                throw new Exception("Error upload photo");
+            if(file.getAbsolutePath().equals("") || file == null)
+            {
+                throw new Exception("No pictures selected");
+            }
+            nomFichier = DaoPhoto.send(file.getAbsolutePath());
+            if(nomFichier.equals("-1") || nomFichier.equals(""))
+            {
+                throw new Exception("Error while uploading");
             }
             photo.setWayPhoto("/assets/images/VIP/" + nomFichier);
+            
             
             etatSortie = true;
             this.dispose();
@@ -187,11 +193,12 @@ public class InsertPhoto extends javax.swing.JDialog
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         int returnVal = jFileChooser1.showOpenDialog(this);
+        file = null;
         if (returnVal == jFileChooser1.APPROVE_OPTION) {
-            File file = jFileChooser1.getSelectedFile();
-            nomFichier = DaoPhoto.send(file.getAbsolutePath());
+            System.out.println(file);
+            file = jFileChooser1.getSelectedFile();
         } else {
-            System.out.println("File access cancelled by user.");
+            file = null;
         }
     }//GEN-LAST:event_btnAdd1ActionPerformed
 

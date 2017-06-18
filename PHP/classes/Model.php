@@ -35,15 +35,6 @@ abstract class Model
     private $stmt;
 
 
-    /**
-     * Database constructor.
-     * Simple PDO constructor who create a connection do a Database <br />
-     * Only things to notice is the $debug <br />
-     * @author  Thibault SOUQUET
-     * @access  public
-     * @version 1.5
-     * @todo LANG in log_DB
-     */
     public function __construct()
     {
         $dsn = DB_TYPE . ':host=' . DB_HOST . '; dbname=' . DB_NAME;
