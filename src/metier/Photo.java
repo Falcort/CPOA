@@ -2,13 +2,15 @@ package metier;
 
 public class Photo
 {
+    private int IDPhoto;
     private String placePhoto;
     private int yearPhoto;
     private String wayPhoto;
     
     
-    public Photo(String placePhoto, int yearPhoto, String wayPhoto)
+    public Photo(int IDPhoto, String placePhoto, int yearPhoto, String wayPhoto)
     {
+        this.IDPhoto = IDPhoto;
         this.placePhoto = placePhoto;
         this.yearPhoto = yearPhoto;
         this.wayPhoto = wayPhoto;
@@ -17,6 +19,14 @@ public class Photo
     public Photo()
     {
 
+    }
+
+    public void setIDPhoto(int IDPhoto) {
+        this.IDPhoto = IDPhoto;
+    }
+
+    public int getIDPhoto() {
+        return IDPhoto;
     }
 
     public String getPlacePhoto() {

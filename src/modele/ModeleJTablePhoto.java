@@ -22,7 +22,7 @@ public class ModeleJTablePhoto extends AbstractTableModel
         this.leConteneur = new ArrayList<>();
         this.title = new String[]
         {
-            "Place photo", "Year Photo", "Path photo"
+            "ID", "Place photo", "Year Photo", "Path photo"
         };
         this.DaoPhoto = Main.getDaoPhoto();
     }
@@ -46,10 +46,12 @@ public class ModeleJTablePhoto extends AbstractTableModel
         switch (column)
         {
             case 0:
-                return photo.getPlacePhoto();
+                return photo.getIDPhoto();
             case 1:
-                return photo.getYearPhoto();
+                return photo.getPlacePhoto();
             case 2:
+                return photo.getYearPhoto();
+            case 3:
                 return photo.getWayPhoto();            
         }
         return null;

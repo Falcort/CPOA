@@ -29,10 +29,11 @@ public class DaoPhoto {
         Statement stmt = connexion.createStatement();
         ResultSet rset = stmt.executeQuery(requete);
         while (rset.next()) {
+            int IDPhoto = rset.getInt(1);
             String placePhoto = rset.getString(2);
             int yearPhoto = rset.getInt(3);
             String wayPhoto = rset.getString(4);
-            Photo photo = new Photo(placePhoto, yearPhoto, wayPhoto);
+            Photo photo = new Photo(IDPhoto, placePhoto, yearPhoto, wayPhoto);
             Photos.add(photo);
         }
         rset.close();
