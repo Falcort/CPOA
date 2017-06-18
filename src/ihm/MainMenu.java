@@ -96,14 +96,15 @@ public class MainMenu extends javax.swing.JFrame
         btnUpdateWedding = new javax.swing.JButton();
         btnAddWedding = new javax.swing.JButton();
         Onglet4 = new javax.swing.JPanel();
-        AddImage = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        TagPhoto = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        Actions4 = new javax.swing.JPanel();
+        AddImage = new javax.swing.JButton();
+        TagPhoto = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -144,7 +145,7 @@ public class MainMenu extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(btnDeleteVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -226,7 +227,7 @@ public class MainMenu extends javax.swing.JFrame
                 .addComponent(btnAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(btnAddActor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(btnAddDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(btnDeleteMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,7 +294,7 @@ public class MainMenu extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Actions3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(btnUpdateWedding, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -332,22 +333,8 @@ public class MainMenu extends javax.swing.JFrame
 
         Onglet4.setToolTipText("");
 
-        AddImage.setText("Add image");
-        AddImage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddImageActionPerformed(evt);
-            }
-        });
-
         jTable4.setModel(modelePhoto);
         jScrollPane5.setViewportView(jTable4);
-
-        TagPhoto.setText("Tag image");
-        TagPhoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TagPhotoActionPerformed(evt);
-            }
-        });
 
         jTable5.setModel(modeleTag);
         jScrollPane6.setViewportView(jTable5);
@@ -356,49 +343,78 @@ public class MainMenu extends javax.swing.JFrame
 
         jLabel2.setText("Tags already existing");
 
+        Actions4.setBorder(javax.swing.BorderFactory.createTitledBorder("Actions"));
+
+        AddImage.setText("Add image");
+        AddImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddImageActionPerformed(evt);
+            }
+        });
+
+        TagPhoto.setText("Tag image");
+        TagPhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TagPhotoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Actions4Layout = new javax.swing.GroupLayout(Actions4);
+        Actions4.setLayout(Actions4Layout);
+        Actions4Layout.setHorizontalGroup(
+            Actions4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Actions4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AddImage, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TagPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        Actions4Layout.setVerticalGroup(
+            Actions4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Actions4Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(AddImage, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
+            .addGroup(Actions4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TagPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout Onglet4Layout = new javax.swing.GroupLayout(Onglet4);
         Onglet4.setLayout(Onglet4Layout);
         Onglet4Layout.setHorizontalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Onglet4Layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
-                .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TagPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
-                    .addComponent(AddImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(80, 80, 80)
+            .addGroup(Onglet4Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(30, 30, 30))
-            .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Onglet4Layout.createSequentialGroup()
-                    .addContainerGap(662, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(32, 32, 32)))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Onglet4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Actions4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         Onglet4Layout.setVerticalGroup(
             Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Onglet4Layout.createSequentialGroup()
-                .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(Onglet4Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(AddImage, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Onglet4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(2, 2, 2)
-                .addComponent(TagPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Onglet4Layout.createSequentialGroup()
-                    .addContainerGap(354, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(25, 25, 25)))
+                .addContainerGap()
+                .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Onglet4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(Actions4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         VIP.addTab("Pictures", Onglet4);
@@ -551,22 +567,6 @@ public class MainMenu extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnAddDirectorActionPerformed
 
-    private void AddImageActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddImageActionPerformed
-    {//GEN-HEADEREND:event_AddImageActionPerformed
-        try
-        {
-            Photo newPhoto = new Photo();
-            InsertPhoto AddPhoto = new InsertPhoto(this, newPhoto);
-            if (AddPhoto.doModal() == true)
-            {
-                modelePhoto.insertPhoto(newPhoto);
-            }
-        } catch (SQLException e)
-        {
-            System.out.println("Insertion error : " + e.getMessage());
-        }
-    }//GEN-LAST:event_AddImageActionPerformed
-
     private void TagPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TagPhotoActionPerformed
         // on ajoute les tags
         try
@@ -582,6 +582,21 @@ public class MainMenu extends javax.swing.JFrame
             System.out.println("Insertion error : " + e.getMessage());
         }
     }//GEN-LAST:event_TagPhotoActionPerformed
+
+    private void AddImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddImageActionPerformed
+        try
+        {
+            Photo newPhoto = new Photo();
+            InsertPhoto AddPhoto = new InsertPhoto(this, newPhoto);
+            if (AddPhoto.doModal() == true)
+            {
+                modelePhoto.insertPhoto(newPhoto);
+            }
+        } catch (SQLException e)
+        {
+            System.out.println("Insertion error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_AddImageActionPerformed
 
     /**
      * @param args the command line arguments
@@ -633,6 +648,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JPanel Actions1;
     private javax.swing.JPanel Actions2;
     private javax.swing.JPanel Actions3;
+    private javax.swing.JPanel Actions4;
     private javax.swing.JButton AddImage;
     private javax.swing.JPanel Onglet1;
     private javax.swing.JPanel Onglet2;
