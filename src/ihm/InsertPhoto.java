@@ -150,7 +150,7 @@ public class InsertPhoto extends javax.swing.JDialog
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         try
-        {            
+        {     
             String placePhoto = textPlacePhoto.getText();
             if (placePhoto.isEmpty())
             {
@@ -166,7 +166,8 @@ public class InsertPhoto extends javax.swing.JDialog
             int yearPhoto = Integer.parseInt(textYearPhoto.getText());
             photo.setYearPhoto(yearPhoto);
 
-            if(file.getAbsolutePath().equals("") || file == null)
+            System.out.println("File = " + file);
+            if(file == null)
             {
                 throw new Exception("No pictures selected");
             }
@@ -176,7 +177,6 @@ public class InsertPhoto extends javax.swing.JDialog
                 throw new Exception("Error while uploading");
             }
             photo.setWayPhoto("/assets/images/VIP/" + nomFichier);
-            
             
             etatSortie = true;
             this.dispose();
