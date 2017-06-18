@@ -32,7 +32,9 @@ class VIPModel extends Model
      */
     public function index()
     {
-        $this->query("SELECT * FROM VIP");
+        $this->query("SELECT count(*), VIP.numVIP, VIP.lastNameVIP, VIP.firstNameVIP, VIP.civilityVIP, VIP.bornDate, VIP.bornPlace, VIP.codeStatus, VIP.codeRole, VIP.nationality, PHOTO.wayPhoto FROM PHOTO, TAG, VIP WHERE VIP.numVIP = TAG.numVIP AND PHOTO.idPhoto = TAG.idPhoto GROUP BY VIP.numVIP
+UNION 
+SELECT count(*), VIP.numVIP, VIP.lastNameVIP, VIP.firstNameVIP, VIP.civilityVIP, VIP.bornDate, VIP.bornPlace, VIP.codeStatus, VIP.codeRole, VIP.nationality, IFNULL(0,PHOTO.wayPhoto) FROM VIP, PHOTO, TAG WHERE VIP.numVIP NOT IN (SELECT numVIP FROM TAG) GROUP BY VIP.numVIP");
         $VIPs = $this->resultSet();
         return $VIPs;
     }

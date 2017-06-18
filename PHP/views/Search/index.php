@@ -2,9 +2,11 @@
     <h1>VIP :</h1>
     <?php foreach ($viewModel[0] as $VIP) : ?>
         <div class="card horizontal scrollspy pin-top" id="<?php echo $VIP['numVIP']; ?>">
-            <!--<div class="card-image">
-              <img src="http://lorempixel.com/100/190/nature/6">
-            </div>-->
+            <?php if($VIP['wayPhoto'] != "0") : ?>
+                <div class="card-image">
+                    <img src="<?php echo $VIP['wayPhoto']; ?>">
+                </div>
+            <?php endif; ?>
             <div class="card-stacked">
                 <div class="card-content">
                     <h5><?php echo($VIP['lastNameVIP'] . " " . $VIP['firstNameVIP']); ?></h5>
@@ -29,9 +31,6 @@
     <h1>Movies :</h1>
     <?php foreach ($viewModel[1] as $movie) : ?>
         <div class="card horizontal scrollspy pin-top" id="<?php echo $movie['numVisa']; ?>">
-            <!--<div class="card-image">
-              <img src="http://lorempixel.com/100/190/nature/6">
-            </div>-->
             <div class="card-stacked">
                 <div class="card-content">
                     <h5><?php echo($movie['title']); ?></h5>

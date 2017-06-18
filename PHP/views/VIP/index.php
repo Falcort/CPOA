@@ -4,9 +4,11 @@
         <div class="col s12 m9 l10">
             <?php foreach ($viewModel as $VIP) : ?>
                 <div class="card horizontal scrollspy pin-top" id="<?php echo $VIP['numVIP']; ?>">
-                    <!--<div class="card-image">
-                      <img src="http://lorempixel.com/100/190/nature/6">
-                    </div>-->
+                    <?php if($VIP['wayPhoto'] != "0") : ?>
+                        <div class="card-image">
+                            <img src="<?php echo $VIP['wayPhoto']; ?>">
+                        </div>
+                    <?php endif; ?>
                     <div class="card-stacked">
                         <div class="card-content">
                             <h5><?php echo($VIP['lastNameVIP'] . " " . $VIP['firstNameVIP']); ?></h5>
