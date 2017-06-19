@@ -31,7 +31,8 @@ public class InsertTag extends javax.swing.JDialog
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         btnAdd = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
@@ -47,23 +48,29 @@ public class InsertTag extends javax.swing.JDialog
         btnAdd.setMaximumSize(new java.awt.Dimension(77, 25));
         btnAdd.setMinimumSize(new java.awt.Dimension(77, 25));
         btnAdd.setPreferredSize(new java.awt.Dimension(77, 25));
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAdd.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAddActionPerformed(evt);
             }
         });
 
         Title.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Title.setText("Insert VIP");
+        Title.setText("Insert Tag");
 
-        textNumVip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        textNumVip.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 textNumVipActionPerformed(evt);
             }
         });
 
-        textNumPhoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        textNumPhoto.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 textNumPhotoActionPerformed(evt);
             }
         });
