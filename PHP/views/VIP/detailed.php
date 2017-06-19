@@ -37,13 +37,13 @@
                 </table>
 
                 <?php if ($viewModel[2] != null) : ?>
-                    <h4 id="weddings" class="scrollspy">Weidding(s)</h4>
+                    <h4 id="weddings" class="scrollspy">Wedding(s)</h4>
                 <?php endif; ?>
                 <table>
                     <?php if ($viewModel[2] != null) : ?>
                         <tr>
                             <th>Wedding Date</th>
-                            <th>Weiding Place</th>
+                            <th>Wedding Place</th>
                             <th>Divorce Date</th>
                             <th>Partner</th>
                         </tr>
