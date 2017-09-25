@@ -11,6 +11,7 @@
 #### Enoncé :
 Le but est de concevoir un logiciel conçu en java, permettant d'administrer une base de données MariaDB.
 Ainsi qu'un site web en php, permettant d'afficher les différentes informations contenus dans cette base de données.
+Le tout respectant la norme MVC (Modèle Vue Controller)
 
 ### To do list Java :
 
