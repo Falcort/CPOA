@@ -1,5 +1,3 @@
-# CPOA
-
 # Site web et application réalisés par [SOUQUET Thibault](https://github.com/Falcort), [MARTINEZ Jennifer](https://github.com/Weissyy) et [FONTEIX Etienne](https://github.com/Fonteix)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
